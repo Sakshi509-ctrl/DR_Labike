@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
           </p>
           <button
             onClick={() => scrollToSection('franchise')}
-            className="bg-teal-700 hover:bg-teal-800 text-white font-bold px-8 py-4 rounded shadow-lg text-lg transition-colors animate-fade-in-up animation-delay-400"
+            className="bg-teal-700 hover:bg-teal-800 text-white font-bold px-8 py-4 shadow-lg text-lg transition-colors animate-fade-in-up animation-delay-400 mt-6"
           >
             Book Your Franchise
           </button>
@@ -56,27 +56,33 @@ const Hero: React.FC = () => {
       {/* Image below Hero section */}
       <div className="w-full flex justify-center mb-0"></div>
       {/* Info Boxes */}
-      <div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-0 px-7 md:px-16 mb-12 -mt-0">
+      <div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-0 px-7 md:px-16 mb-12 -mt-32 relative z-30">
+
         {/* Doctor Consultation Box */}
-        <div className="flex-1 bg-teal-700 text-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-          <div className="bg-white text-teal-700 rounded-full p-4 mb-4 -mt-10 z-10">
-            <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm0 0v2m0 4h.01M21 21v-2a4 4 0 00-3-3.87M3 21v-2a4 4 0 013-3.87' /></svg>
-          </div>
-          <h3 className="text-2xl font-bold mb-2">Doctor Consultation</h3>
-          <p className="text-lg">Get Doctor consultation for your health concerns from verified doctors at DrLaBike Clinic without having to travel. Starting at just INR 50/-.</p>
-        </div>
+        <div className="flex-1 bg-teal-700 text-white rounded-xl shadow-lg  p-3 pt-3 w-full md:w-[280px] flex flex-col items-center text-center">
+  <div className="bg-white text-teal-700 rounded-full p-4 shadow-lg mb-6">
+    <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm0 0v2m0 4h.01M21 21v-2a4 4 0 00-3-3.87M3 21v-2a4 4 0 013-3.87' />
+    </svg>
+  </div>
+  <h3 className="text-2xl font-bold mb-2">Doctor Consultation</h3>
+  <p className="text-lg">Get Doctor consultation for your health concerns from verified doctors at DrLaBike Clinic without having to travel. Starting at just INR 50/-.</p>
+</div>
+
         {/* Pathology Tests Box */}
-        <div className="flex-1 bg-cyan-500 text-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-          <div className="bg-white text-cyan-500 rounded-full p-4 mb-4 -mt-10 z-10">
-            <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 12V7a3 3 0 00-6 0v5a3 3 0 006 0zm-6 0a3 3 0 006 0' /></svg>
+       <div className="flex-1 bg-teal-700 text-white rounded-xl shadow-lg p-8 pt-8 flex flex-col items-center text-center">
+          <div className="bg-white text-teal-700 rounded-full p-4 shadow-lg mb-6">
+            <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 12V7a3 3 0 00-6 0v5a3 3 0 006 0zm-6 0a3 3 0 006 0' /></svg>
           </div>
           <h3 className="text-2xl font-bold mb-2">Pathology Tests</h3>
           <p className="text-lg">Get instant and accurate diagnostic services (Pathology tests) at a super affordable cost from DrLaBike clinic.</p>
         </div>
         {/* Contact Box */}
-        <div className="flex-1 bg-indigo-800 text-white rounded-xl shadow-lg p-8 flex flex-col items-center">
-          <div className="bg-white text-indigo-800 rounded-full p-4 mb-4 -mt-10 z-10">
-            <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M16 7a4 4 0 01-8 0M12 11v2m0 4h.01M21 21v-2a4 4 0 00-3-3.87M3 21v-2a4 4 0 013-3.87' /></svg>
+        <div className="flex-1 bg-indigo-800 text-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center">
+           <div className="bg-white text-teal-700 rounded-full p-4 shadow-lg mb-6">
+            <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M16 7a4 4 0 01-8 0M12 11v2m0 4h.01M21 21v-2a4 4 0 00-3-3.87M3 21v-2a4 4 0 013-3.87' /></svg>
           </div>
           <h3 className="text-2xl font-bold mb-2">Contact</h3>
           <p className="text-lg"><span className="block mb-1">📞 +91-70655-50214, 📧 Support@drlabike.com</span>📍 424-CMR Building, Near MCD School, Ghitorni, New Delhi-30</p>
@@ -312,10 +318,10 @@ const Hero: React.FC = () => {
       </div>
       {/* Our Core Value and Key Features Section */}
       <div className="w-full bg-[#f8fcfb] py-12">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-6" style={{fontFamily: 'serif', textDecoration: 'underline'}}>Our Core Value</h2>
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-6" style={{fontFamily: 'serif'}}>Our <span className="font-normal" style={{fontFamily: 'serif',textDecoration: "underline"}}> Core </span><span className="font-bold">Value</span> </h2>
           <div className="flex justify-center items-center w-full mb-8">
-            <div className="flex w-full max-w-4xl bg-blue-100 rounded-lg overflow-hidden">
+            <div className="flex w-full max-w-8xl bg-blue-100  overflow-hidden">
               <div className="flex-1 text-center py-4 text-2xl font-bold text-orange-600 tracking-widest" style={{letterSpacing: '0.3em'}}>NATIONALISM</div>
               <div className="w-1 bg-white"></div>
               <div className="flex-1 text-center py-4 text-2xl font-bold text-blue-700 tracking-widest" style={{letterSpacing: '0.3em'}}>COMPASSION</div>
@@ -323,8 +329,8 @@ const Hero: React.FC = () => {
               <div className="flex-1 text-center py-4 text-2xl font-bold text-green-600 tracking-widest" style={{letterSpacing: '0.3em'}}>QUALITY</div>
             </div>
           </div>
-          <h2 className="text-3xl font-bold text-center mb-6" style={{fontFamily: 'serif', textDecoration: 'underline'}}>Key Features <span className="font-normal">Our Business</span></h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 bg-white rounded-xl p-8 shadow mb-16">
+          <h2 className="text-3xl font-bold text-center mb-6" style={{fontFamily: 'serif'}}>Key Features <span className="font-normal">Our Business</span></h2>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 bg-yellow-50  p-8 shadow mb-16">
             <div className="flex flex-col items-center">
               <span className="text-green-500 text-4xl mb-2">🧑‍🤝‍🧑</span>
               <h3 className="text-xl font-bold mb-2">Cost Effective</h3>
@@ -367,11 +373,11 @@ const Hero: React.FC = () => {
             </div>
           </div>
           {/* Our Happy Google Reviews Section */}
-          <div className="w-full bg-[#f8fcfb] py-12">
-            <h2 className="text-4xl font-bold text-center mb-10" style={{fontFamily: 'serif', textDecoration: 'underline'}}>Our Happy <span className="text-black">Google Reviews</span></h2>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+            <div className="w-full bg-[#f8fcfb]  shadow p-6 bg-yellow-50  py-4">
+            <h2 className="text-4xl font-bold text-center mb-1" style={{fontFamily: 'serif', textDecoration: 'underline'}}>Our Happy <span className="text-black">Google Reviews</span></h2>
+            <div className="flex flex-col md:flex-row items-center  justify-center gap-4">
               {/* DrLaBike Review Summary Card */}
-              <div className="flex flex-col items-center bg-white rounded-xl shadow p-8 min-w-[220px] max-w-[220px]">
+              <div className="flex flex-col items-center bg-white min-w-[220px] max-w-[220px]">
                 <img src="/DrLabike-New-logo-trans (1).png" alt="DrLaBike Logo" className="w-20 h-20 mb-2" />
                 <div className="text-2xl font-bold mb-1">DrLaBike</div>
                 <div className="flex items-center mb-1">
@@ -387,15 +393,15 @@ const Hero: React.FC = () => {
                   <div className="flex items-center mb-2">
                     <div className="w-12 h-12 rounded-full bg-gray-400 text-white flex items-center justify-center text-xl font-bold mr-3">S</div>
                     <div>
-                      <div className="font-bold text-lg">SHASHI BHUSHAN ... <span className="inline-block align-middle ml-1"><img src="/Google-Symbol.png" alt="Google" className="w-7 h-4 inline" /></span></div>
+                      <div className="font-bold text-lg">SHASHI BHUSHAN <span className="inline-block align-middle ml-1"><img src="/Google-Symbol.png" alt="Google" className="w-7 h-4 inline" /></span></div>
                       <div className="text-gray-500 text-sm">2022-01-31</div>
                     </div>
                   </div>
                   <div className="flex items-center mb-2">
-                    <span className="text-yellow-400 text-xl">★★★★☆</span>
+                    <span className="text-yellow-400 text-xl">★★★★★</span>
                     <span className="ml-2"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#2196f3"/><path d="M10.5 14.5l-2-2 1.4-1.4 0.6 0.6 2.6-2.6 1.4 1.4-4 4z" fill="#fff"/></svg></span>
-                  </div>
-                  <div className="font-semibold text-lg">Very good health care service.</div>
+                  </div>                
+                  
                 </div>
                 {/* Review 2 */}
                 <div className="bg-white rounded-xl shadow p-6 min-w-[300px] max-w-[300px] flex flex-col">
@@ -410,11 +416,11 @@ const Hero: React.FC = () => {
                     <span className="text-yellow-400 text-xl">★★★★★</span>
                     <span className="ml-2"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#2196f3"/><path d="M10.5 14.5l-2-2 1.4-1.4 0.6 0.6 2.6-2.6 1.4 1.4-4 4z" fill="#fff"/></svg></span>
                   </div>
-                  <div className="font-semibold text-lg">Very good health care service.</div>
                 </div>
                 {/* Review 3 */}
                 <div className="bg-white rounded-xl shadow p-6 min-w-[300px] max-w-[300px] flex flex-col">
                   <div className="flex items-center mb-2">
+                    <img src="/lubna.png" alt="Nikita" className="w-12 h-12 rounded-full mr-3 object-cover" />
                     <div className="w-12 h-12 rounded-full bg-pink-400 text-white flex items-center justify-center text-xl font-bold mr-3">N</div>
                     <div>
                       <div className="font-bold text-lg">Nikita Eshtam <span className="inline-block align-middle ml-1"><img src="/Google-Symbol.png" alt="Google" className="w-7 h-4 inline" /></span></div>
@@ -425,20 +431,20 @@ const Hero: React.FC = () => {
                     <span className="text-yellow-400 text-xl">★★★★★</span>
                     <span className="ml-2"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#2196f3"/><path d="M10.5 14.5l-2-2 1.4-1.4 0.6 0.6 2.6-2.6 1.4 1.4-4 4z" fill="#fff"/></svg></span>
                   </div>
-                  <div className="font-semibold text-lg">Very good health care service.</div>
+                 
                 </div>
               </div>
             </div>
           </div>
           {/* DrLaBike Achievements Section */}
           <div className="w-full bg-[#f8fcfb] py-12">
-            <h2 className="text-4xl font-bold text-center mb-10" style={{fontFamily: 'serif'}}>DrLaBike <span className="text-black, textDecoration: underline">Achievements</span></h2>
+            <h2 className="text-4xl  text-center mb-10" style={{fontFamily: 'serif'}}>DrLaBike <span className="text-black, textDecoration: underline">Achievements</span></h2>
             <div className="flex flex-col items-center">
               {/* Achievements Images Row */}
-              <div className="flex flex-row gap-0 justify-center items-center mb-8 w-full">
-                <img src="/achievements.png" alt="Achievement 1" className="object-cover rounded-0lg shadow-lg w-1/3 h-[350px]" />
-                <img src="/i1.png" alt="Achievement 2" className="object-cover rounded-lg shadow-0lg w-1/3 h-[350px]" />
-                <img src="/i.jpg" alt="Achievement 3" className="object-cover rounded-lg shadow-0lg w-1/3 h-[350px]" />
+              <div className="flex flex-row gap-0 justify-center items-center my-0 w-full px-9">
+                <img src="/achievements.png" alt="Achievement 1" className="object-cover  shadow-lg w-1/3 h-[350px]" />
+                <img src="/i1.png" alt="Achievement 2" className="object-cover  shadow-lg w-1/3 h-[350px]" />
+                <img src="/i.jpg" alt="Achievement 3" className="object-cover shadow-lg w-1/3 h-[350px]" />
               </div>
               {/* Download App Section */}
               <div className="flex flex-row items-center justify-center gap-12 w-full mt-8">
@@ -451,7 +457,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
           {/* Address Section (moved upward) */}
-          <div className="max-w-6xl mx-auto mt-16 mb-8 flex flex-col md:flex-row items-start gap-8 text-white bg-black rounded-xl p-8">
+          <div className="max-w-7xl mx-auto mt-0 mb-8 flex flex-col md:flex-row items-start gap-0 text-white bg-black p-8">
             {/* Logo on the left */}
             <div className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/5 mb-8 md:mb-0">
               <img src="/DrLabike-New-logo-trans (1).png" alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
