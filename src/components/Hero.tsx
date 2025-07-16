@@ -1,30 +1,30 @@
 import React, { useRef, useEffect } from 'react';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
-import nitish from '../assets/Dr-Nitish-Kumar-257x300.png'
-import prafulla  from '../assets/Dr.-Prafulla-J-Vishwanath-257x300.png'
-import Rahul from '../assets/Dr.-Rahul-Chandola-1-257x300.png'
-import uday from '../assets/dr-uday-Singh-257x300.png'
-import sumit from '../assets/Dr-sumit-sinha-257x300.png'
-import mission from '../assets/Mision-transformed.png'
-import ud from '../assets/ud.png';  
-import bike from '../assets/covered bike.png'; // Assuming you have a bike image
-import fda from '../assets/Fda.png';
-import icmr from '../assets/icmrlogo.jpg';
-import dst from '../assets/DST.jpg';
-import nhsrc from '../assets/NHSRC-logo.jpg';
-import best from '../assets/drlabikehealthbest.png';
-import health from '../assets/DrLabike-health.jpeg';
-import client from '../assets/Client-slide-1-1536x873.png';
-import logo from '../assets/DrLabike-New-logo-trans (1).png';
-import deepti from '../assets/deepti.png';
-import lubna from '../assets/lubna.png';
-import achieve from '../assets/achievements.png';
-import i1 from '../assets/i1.png';
-import i from '../assets/i.jpg';
-import gp from '../assets/gp.png';
-import sc from '../assets/sc.png';
-import app from '../assets/apple-store-1-2048x741.png';
-import google from '../assets/Google-Symbol.png';
+import nitish from '../../public/assets/Dr-Nitish-Kumar-257x300-DeIa8Lqu.png';
+import prafulla  from '../../public/assets/Dr.-Prafulla-J-Vishwanath-257x300-khka6hZz.png';
+import Rahul from '../../public/assets/Dr.-Rahul-Chandola-1-257x300-BvFZlWBM.png';
+import uday from '../../public/assets/dr-uday-Singh-257x300-iH-_WO_P.png';
+import sumit from '../../public/assets/Dr-sumit-sinha-257x300-DKm4FRiM.png';
+import mission from '../../public/assets/Mision-transformed-DTFoFgIL.png';
+import ud from '../../public/assets/ud-DqITPYgu.png';
+import bike from '../../public/assets/covered bike-Cb-8W9N2.png';
+import fda from '../../public/assets/fda.png';
+import icmr from '../../public/assets/icmrlogo-CbLuBsVi.jpg';
+import dst from '../../public/assets/DST-Dyr2yFDx.jpg';
+import nhsrc from '../../public/assets/NHSRC-logo-DXnlp4AW.jpg';
+import best from '../../public/assets/drlabikehealthbest-9mmz_beN.png';
+import health from '../../public/assets/DrLabike-health-DZGag8WP.jpeg';
+import client from '../../public/assets/Client-slide-1-1536x873-8fGei4z6.png';
+import logo from '../../public/assets/DrLabike-New-logo-trans (1)-D1SuIxFX.png';
+import deepti from '../../public/assets/deepti-Dtk-3Eof.png';
+import lubna from '../../public/assets/lubna-CI65w_dL.png';
+import achieve from '../../public/assets/achievements-CW_-_m4F.png';
+import i1 from '../../public/assets/i1-BPfNmFtl.png';
+import i from '../../public/assets/i-BF82gZgm.jpg';
+import gp from '../../public/assets/gp-BFRtjq6f.png';
+import sc from '../../public/assets/Qr.png';
+import app from '../../public/assets/apple-store-1-2048x741-Dk-V0vDI.png';
+import google from '../../public/assets/Google-Symbol-CcZVZOAF.png';
 
 
 

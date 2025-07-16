@@ -1,19 +1,19 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
-import Mobile from '../assets/Mobile.png';
-import Mini from '../assets/mini.png';
-import BMI from '../assets/bmi.png';
-import Automicro from '../assets/automicro.png';
-import Accusmear from '../assets/Accusmear-Device.png';
-import Accurapid from '../assets/Accurapid-stainer.png';
-import Accurine from '../assets/Accurine-Analyzer.png';
-import Tele from '../assets/tele.png';
-import Pathology from '../assets/pt.png';
-import Medicine from '../assets/medi.png';
-import Injection from '../assets/injection.png';
-import I1 from '../assets/i1.png';
-import I from '../assets/i.jpg';
-import Drlabikelogo from '../assets/DrLabike-New-logo-trans (1).png';
+import Mobile from '../../public/assets/Mobile-DJxZHcjJ.png';
+import Mini from '../../public/assets/mini-ZWdABhCJ.png';
+import BMI from '../../public/assets/bmi-CuuxtqjX.png';
+import Automicro from '../../public/assets/automicro-Bd87Lc0m.png';
+import Accusmear from '../../public/assets/Accusmear-Device-DenfSAYc.png';
+import Accurapid from '../../public/assets/Accurapid-stainer-DhPV0lcp.png';
+import Accurine from '../../public/assets/Accurine-Analyzer-CG-GTGql.png';
+import Tele from '../../public/assets/Tele-MRnbjJfz.png';
+import Pathology from '../../public/assets/pt-C9ig0ImT.png';
+import Medicine from '../../public/assets/medi-XN3tLmo1.png';
+import Injection from '../../public/assets/injection-C6C2jwlg.png';
+import I1 from '../../public/assets/i1-BPfNmFtl.png';
+import I from '../../public/assets/i-BF82gZgm.jpg';
+import Drlabikelogo from '../../public/assets/DrLabike-New-logo-trans (1)-D1SuIxFX.png';
 
 
 

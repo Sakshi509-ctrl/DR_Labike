@@ -1,7 +1,7 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
-import Drlabikelogo from '../assets/DrLabike-New-logo-trans (1).png';
-import former from '../assets/former.png';
+import Drlabikelogo from '../../public/assets/DrLabike-New-logo-trans (1)-D1SuIxFX.png';
+import former from '../../public/assets/former-CHfKJIy1.png';
 
 const TestimonialPage: React.FC = () => {
   return (

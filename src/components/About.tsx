@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
-import amit from '../assets/Amit_Sir-300x300.png';
-import deepti from '../assets/deepti.png';  
-import aman from '../assets/aman.png';
-import md from '../assets/MD.png';
-import lubna from '../assets/lubna.png';
-import mission from '../assets/ourmission.png';
-import istock from '../assets/istockphoto-1280371057-170667a.png';
-import ourInnovative from '../assets/Our-Innovative-pathology-lab-products.-1.png';
-import DrLabike from '../assets/DrLabike-New-logo-trans (1).png';
-import nurse from '../assets/nursee.png';
+import amit from '../../public/assets/Amit_Sir-300x300-CCZcykZK.png';
+import deepti from '../../public/assets/deepti-Dtk-3Eof.png';
+import aman from '../../public/assets/aman-C1Rt-Gxo.png';
+import md from '../../public/assets/MD-B45-PeDR.png';
+import lubna from '../../public/assets/lubna-CI65w_dL.png';
+import mission from '../../public/assets/ourmission-DeSeODqS.png';
+import istock from '../../public/assets/istockphoto-1280371057-170667a-73WNWqO0.png';
+import ourInnovative from '../../public/assets/Our-Innovative-pathology-lab-products.-1-DQtBVl2y.png';
+import DrLabike from '../../public/assets/DrLabike-New-logo-trans (1)-D1SuIxFX.png';
+import nurse from '../../public/assets/nursee-DtyGFM-f.png';
 
 
 const advisors = [
