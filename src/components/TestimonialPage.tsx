@@ -1,5 +1,7 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import Drlabikelogo from '../assets/DrLabike-New-logo-trans (1).png';
+import former from '../assets/former.png';
 
 const TestimonialPage: React.FC = () => {
   return (
@@ -8,7 +10,7 @@ const TestimonialPage: React.FC = () => {
       <div className="flex flex-col md:flex-row items-center justify-center w-full max-w-4xl bg-white rounded-2xl shadow-lg p-8" style={{boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)'}}>
         {/* Left: Image */}
         <div className="flex-shrink-0 mb-4 md:mb-0 md:mr-8">
-          <img src="/former.png" alt="Loknath Sharma" className="w-48 h-60 object-cover rounded-2xl shadow-md" />
+          <img src={former} alt="Loknath Sharma" className="w-48 h-60 object-cover rounded-2xl shadow-md" />
         </div>
         {/* Right: Testimonial Content */}
         <div className="flex-1 flex flex-col items-center md:items-start">
@@ -33,7 +35,7 @@ const TestimonialPage: React.FC = () => {
       <div className="max-w-6xl mx-auto mt-16 mb-8 flex flex-col md:flex-row items-start gap-8 text-white bg-black rounded-xl p-8">
         {/* Logo on the left */}
         <div className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/5 mb-8 md:mb-0">
-          <img src="/DrLabike-New-logo-trans (1).png" alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
+          <img src={Drlabikelogo} alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
           <span className="text-lg font-bold">DrLaBike</span>
         </div>
         {/* Columns on the right */}

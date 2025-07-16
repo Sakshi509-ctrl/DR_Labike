@@ -1,35 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import amit from '../assets/Amit_Sir-300x300.png';
+import deepti from '../assets/deepti.png';  
+import aman from '../assets/aman.png';
+import md from '../assets/MD.png';
+import lubna from '../assets/lubna.png';
+import mission from '../assets/ourmission.png';
+import istock from '../assets/istockphoto-1280371057-170667a.png';
+import ourInnovative from '../assets/Our-Innovative-pathology-lab-products.-1.png';
+import DrLabike from '../assets/DrLabike-New-logo-trans (1).png';
+import nurse from '../assets/nursee.png';
+
 
 const advisors = [
   {
     name: 'Amit Bhatnagar',
     title: 'MD & Founder',
-    img: '/Amit_Sir-300x300.png',
+    img: amit,
     linkedin: 'https://www.linkedin.com/in/amit-bhatnagar-7498bb5/?originalSubdomain=in',
   },
   {
     name: 'Deepti Bhatnagar',
     title: 'Director',
-    img: '/deepti.png',
+    img: deepti,
     linkedin: 'https://www.linkedin.com/in/deepti-verma-a6615823/',
   },
   {
     name: 'Aman Bhatnagar',
     title: 'Director',
-    img: '/aman.png',
+    img: aman,
     linkedin: 'https://www.linkedin.com/in/aman-bhatnagar-3434a74/',
   },
   {
     name: 'Matthew Bodziak',
     title: 'Director',
-    img: '/MD.png',
+    img: md,
     linkedin: 'https://www.linkedin.com/in/matthew-bodziak-25819b12/',
   },
   {
     name: 'Lubna Dajani',
     title: 'Director',
-    img: '/lubna.png',
+    img: lubna,
     linkedin: 'https://www.linkedin.com/in/lubnadajani/',
   },
 ];
@@ -46,7 +57,7 @@ const About: React.FC = () => {
       {/* Who We Are */}
       <div className="relative w-full min-h-[700px] text-center mb-4 flex items-center justify-center">
         <img 
-          src="/nursee.png" 
+          src={nurse}
           alt="Nurse Background" 
           className="absolute inset-0 w-full h-[700px] object-cover z-0" 
           style={{opacity: 1, filter: 'brightness(0.7)'}}
@@ -118,7 +129,7 @@ const About: React.FC = () => {
           </div>
           {/* Right: Mission Image */}
           <div className="flex-1 flex justify-center md:justify-end md:mt-8">
-            <img src="/ourmission.png" alt="Our Mission" className="rounded-xl shadow-lg max-w-full md:max-w-md" />
+            <img src={mission} alt="Our Mission" className="rounded-xl shadow-lg max-w-full md:max-w-md" />
           </div>
         </div>
       </div>
@@ -143,8 +154,8 @@ const About: React.FC = () => {
           </div>
           {/* Right: Images stacked vertically */}
           <div className="flex-1 flex flex-col gap-6 items-center md:items-end">
-            <img src="/istockphoto-1280371057-170667a.png" alt="Telemedicine" className="rounded-xl shadow-lg max-w-full md:max-w-md" />
-            <img src="/Our-Innovative-pathology-lab-products.-1.png" alt="Innovative Pathology Lab Products" className="rounded-xl shadow-lg max-w-full md:max-w-md" />
+            <img src={istock} alt="Telemedicine" className="rounded-xl shadow-lg max-w-full md:max-w-md" />
+            <img src={ourInnovative} alt="Innovative Pathology Lab Products" className="rounded-xl shadow-lg max-w-full md:max-w-md" />
           </div>
         </div>
       </div>
@@ -152,7 +163,7 @@ const About: React.FC = () => {
       <div className="max-w-6xl mx-auto mt-16 mb-8 flex flex-col md:flex-row items-start gap-8 text-white bg-black rounded-xl p-8">
         {/* Logo on the left */}
         <div className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/5 mb-8 md:mb-0">
-          <img src="/DrLabike-New-logo-trans (1).png" alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
+          <img src={DrLabike} alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
           <span className="text-lg font-bold">DrLaBike</span>
         </div>
         {/* Columns on the right */}

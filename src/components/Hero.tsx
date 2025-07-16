@@ -1,5 +1,32 @@
 import React, { useRef, useEffect } from 'react';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import nitish from '../assets/Dr-Nitish-Kumar-257x300.png'
+import prafulla  from '../assets/Dr.-Prafulla-J-Vishwanath-257x300.png'
+import Rahul from '../assets/Dr.-Rahul-Chandola-1-257x300.png'
+import uday from '../assets/dr-uday-Singh-257x300.png'
+import sumit from '../assets/Dr-sumit-sinha-257x300.png'
+import mission from '../assets/Mision-transformed.png'
+import ud from '../assets/ud.png';  
+import bike from '../assets/covered bike.png'; // Assuming you have a bike image
+import fda from '../assets/Fda.png';
+import icmr from '../assets/icmrlogo.jpg';
+import dst from '../assets/DST.jpg';
+import nhsrc from '../assets/NHSRC-logo.jpg';
+import best from '../assets/drlabikehealthbest.png';
+import health from '../assets/DrLabike-health.jpeg';
+import client from '../assets/Client-slide-1-1536x873.png';
+import logo from '../assets/DrLabike-New-logo-trans (1).png';
+import deepti from '../assets/deepti.png';
+import lubna from '../assets/lubna.png';
+import achieve from '../assets/achievements.png';
+import i1 from '../assets/i1.png';
+import i from '../assets/i.jpg';
+import gp from '../assets/gp.png';
+import sc from '../assets/sc.png';
+import app from '../assets/apple-store-1-2048x741.png';
+import google from '../assets/Google-Symbol.png';
+
+
 
 const Hero: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -24,7 +51,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-200 via-blue-50 to-white" />
         {/* Doctor Image on the right */}
         <img 
-          src="/Mision-transformed.png" 
+          src={mission} 
           alt="Doctors" 
           className="hidden md:block absolute right-0 bottom-0 h-full max-h-[600px] w-auto object-contain z-10 pointer-events-none select-none" 
           style={{maxWidth: '50%'}}
@@ -125,7 +152,7 @@ const Hero: React.FC = () => {
           </div>
           {/* Right: Image */}
           <div className="flex-1 flex justify-center items-start mt-0 ">
-            <img src="/ud.png" alt="Lab" className="max-w-full h-auto rounded-0xl shadow-lg align-top transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl" style={{ maxHeight: '250px', marginTop: 0 }} />
+            <img src={ud} alt="Lab" className="max-w-full h-auto rounded-0xl shadow-lg align-top transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl" style={{ maxHeight: '250px', marginTop: 0 }} />
           </div>
         </div>
       </div>
@@ -133,7 +160,7 @@ const Hero: React.FC = () => {
       <div className="w-full flex flex-col md:flex-row items-start justify-center my-12 gap-8 px-2">
         {/* Left: Image */}
         <div className="flex-1 flex justify-center items-start">
-          <img src="/covered bike.png" alt="Covered Bike" className="max-w-full h-auto rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl" style={{ maxHeight: '700px' }} />
+          <img src={bike} alt="Covered Bike" className="max-w-full h-auto rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl" style={{ maxHeight: '700px' }} />
         </div>
         {/* Right: Card */}
         <div className="flex-1 flex flex-col items-center">
@@ -176,12 +203,12 @@ const Hero: React.FC = () => {
           <div className="flex flex-row items-end justify-center gap-1 min-w-[1000px]">
             {/* doctor cards */}
             {[
-              { img: '/Dr-Nitish-Kumar-257x300.png'},
-              { img: '/Dr.-Rahul-Chandola-1-257x300.png' },
-              { img: '/Dr.-Prafulla-J-Vishwanath-257x300.png'},
-              { img: '/dr-uday-Singh-257x300.png' },
-              { img: '/Dr-sumit-sinha-257x300.png' },
-              { img: '/Dr-Nitish-Kumar-257x300.png'},
+              { img: nitish},
+              { img: Rahul },
+              { img: prafulla},
+              { img: uday },
+              { img: sumit},
+              { img: nitish},
             ].map((doc, idx) => (
               <div key={idx} className="flex flex-col items-center min-w-[160px] max-w-[160px] m-0 p-0">
                 <img src={doc.img} className="w-full h-[180px] object-cover m-0 p-0 rounded-none" />
@@ -209,10 +236,10 @@ const Hero: React.FC = () => {
             <div className="border-t-2 border-teal-400 w-1/3"></div>
           </div>
           <div className="flex flex-row justify-end items-center gap-12">
-            <img src="/FDA.png" alt="FDA" className="h-16 object-contain" />
-            <img src="/icmrlogo.jpg" alt="ICMR" className="h-16 object-contain" />
-            <img src="/DST.jpg" alt="DST" className="h-16 object-contain" />
-            <img src="/NHSRC-logo.jpg" alt="NHSRC" className="h-16 object-contain" />
+            <img src={fda} alt="FDA" className="h-16 object-contain" />
+            <img src={icmr} alt="ICMR" className="h-16 object-contain" />
+            <img src={dst} alt="DST" className="h-16 object-contain" />
+            <img src={nhsrc} alt="NHSRC" className="h-16 object-contain" />
           </div>
         </div>
       </div>
@@ -242,15 +269,15 @@ const Hero: React.FC = () => {
         </div>
         {/* Right: Images */}
         <div className="flex-1 flex flex-col p-0 bg-white justify-center items-center">
-          <img src="/drlabikehealthbest.png" alt="DrLaBike Camp 1" className="w-full h-[260px] object-cover rounded-none m-0" />
-          <img src="/DrLabike-health.jpeg" alt="DrLaBike Camp 2" className="w-full h-[260px] object-cover rounded-none m-0" />
+          <img src={best} alt="DrLaBike Camp 1" className="w-full h-[260px] object-cover rounded-none m-0" />
+          <img src={health} alt="DrLaBike Camp 2" className="w-full h-[260px] object-cover rounded-none m-0" />
         </div>
       </div>
       {/* Our Proud Partners & Franchise Benefits Section */}
       <div className="w-full flex flex-col md:flex-row items-stretch justify-center max-w-6xl mx-auto my-12 rounded-2xl overflow-hidden shadow-lg bg-white">
         {/* Left: Partners Image */}
         <div className="flex-1 flex flex-col bg-white p-0 justify-start">
-          <img src="/Client-slide-1-1536x873.png" alt="Our Pride Partners" className="w-full h-[350px] object-contain object-top m-0 p-0 self-start" />
+          <img src={client} alt="Our Pride Partners" className="w-full h-[350px] object-contain object-top m-0 p-0 self-start" />
         </div>
         {/* Right: Franchise Benefits */}
         <div className="flex-1 bg-[#5c6bc0] text-white p-10 flex flex-col justify-center rounded-r-2xl">
@@ -378,7 +405,7 @@ const Hero: React.FC = () => {
             <div className="flex flex-col md:flex-row items-center  justify-center gap-4">
               {/* DrLaBike Review Summary Card */}
               <div className="flex flex-col items-center bg-white min-w-[220px] max-w-[220px]">
-                <img src="/DrLabike-New-logo-trans (1).png" alt="DrLaBike Logo" className="w-20 h-20 mb-2" />
+                <img src={logo} alt="DrLaBike Logo" className="w-20 h-20 mb-2" />
                 <div className="text-2xl font-bold mb-1">DrLaBike</div>
                 <div className="flex items-center mb-1">
                   <span className="text-yellow-400 text-2xl">★★★★★</span>
@@ -393,7 +420,7 @@ const Hero: React.FC = () => {
                   <div className="flex items-center mb-2">
                     <div className="w-12 h-12 rounded-full bg-gray-400 text-white flex items-center justify-center text-xl font-bold mr-3">S</div>
                     <div>
-                      <div className="font-bold text-lg">SHASHI BHUSHAN <span className="inline-block align-middle ml-1"><img src="/Google-Symbol.png" alt="Google" className="w-7 h-4 inline" /></span></div>
+                      <div className="font-bold text-lg">SHASHI BHUSHAN <span className="inline-block align-middle ml-1"><img src={google} alt="Google" className="w-7 h-4 inline" /></span></div>
                       <div className="text-gray-500 text-sm">2022-01-31</div>
                     </div>
                   </div>
@@ -406,9 +433,9 @@ const Hero: React.FC = () => {
                 {/* Review 2 */}
                 <div className="bg-white rounded-xl shadow p-6 min-w-[300px] max-w-[300px] flex flex-col">
                   <div className="flex items-center mb-2">
-                    <img src="/deepti.png" alt="Priya Rani" className="w-12 h-12 rounded-full mr-3 object-cover" />
+                    <img src={deepti} alt="Priya Rani" className="w-12 h-12 rounded-full mr-3 object-cover" />
                     <div>
-                      <div className="font-bold text-lg">Priya Rani <span className="inline-block align-middle ml-1"><img src="/Google-Symbol.png" alt="Google" className="w-7 h-4 inline" /></span></div>
+                      <div className="font-bold text-lg">Priya Rani <span className="inline-block align-middle ml-1"><img src={google} alt="Google" className="w-7 h-4 inline" /></span></div>
                       <div className="text-gray-500 text-sm">2022-01-31</div>
                     </div>
                   </div>
@@ -420,10 +447,10 @@ const Hero: React.FC = () => {
                 {/* Review 3 */}
                 <div className="bg-white rounded-xl shadow p-6 min-w-[300px] max-w-[300px] flex flex-col">
                   <div className="flex items-center mb-2">
-                    <img src="/lubna.png" alt="Nikita" className="w-12 h-12 rounded-full mr-3 object-cover" />
+                    <img src={lubna} alt="Nikita" className="w-12 h-12 rounded-full mr-3 object-cover" />
                     <div className="w-12 h-12 rounded-full bg-pink-400 text-white flex items-center justify-center text-xl font-bold mr-3">N</div>
                     <div>
-                      <div className="font-bold text-lg">Nikita Eshtam <span className="inline-block align-middle ml-1"><img src="/Google-Symbol.png" alt="Google" className="w-7 h-4 inline" /></span></div>
+                      <div className="font-bold text-lg">Nikita Eshtam <span className="inline-block align-middle ml-1"><img src={google} alt="Google" className="w-7 h-4 inline" /></span></div>
                       <div className="text-gray-500 text-sm">2022-01-31</div>
                     </div>
                   </div>
@@ -442,17 +469,17 @@ const Hero: React.FC = () => {
             <div className="flex flex-col items-center">
               {/* Achievements Images Row */}
               <div className="flex flex-row gap-0 justify-center items-center my-0 w-full px-9">
-                <img src="/achievements.png" alt="Achievement 1" className="object-cover  shadow-lg w-1/3 h-[350px]" />
-                <img src="/i1.png" alt="Achievement 2" className="object-cover  shadow-lg w-1/3 h-[350px]" />
-                <img src="/i.jpg" alt="Achievement 3" className="object-cover shadow-lg w-1/3 h-[350px]" />
+                <img src={achieve} alt="Achievement 1" className="object-cover  shadow-lg w-1/3 h-[350px]" />
+                <img src={i1} alt="Achievement 2" className="object-cover  shadow-lg w-1/3 h-[350px]" />
+                <img src={i} alt="Achievement 3" className="object-cover shadow-lg w-1/3 h-[350px]" />
               </div>
               {/* Download App Section */}
               <div className="flex flex-row items-center justify-center gap-12 w-full mt-8">
                 <span className="text-2xl font-bold" style={{fontFamily: 'serif'}}>DOWNLOAD <span className="text-black">Our App</span></span>
-                <img src="/gp.png" alt="Google Play" className="w-48 h-16" />
-                <img src="/sc.png" alt="Google Play QR" className="w-32 h-32" />
-                <img src="/apple-store-1-2048x741.png" alt="App Store" className="w-48 h-16" />
-                <img src="/sc.png" alt="App Store QR" className="w-32 h-32" />
+                <img src={gp} alt="Google Play" className="w-48 h-16" />
+                <img src={sc} alt="Google Play QR" className="w-32 h-32" />
+                <img src={app} alt="App Store" className="w-48 h-16" />
+                <img src={sc} alt="App Store QR" className="w-32 h-32" />
               </div>
             </div>
           </div>
@@ -460,7 +487,7 @@ const Hero: React.FC = () => {
           <div className="max-w-7xl mx-auto mt-0 mb-8 flex flex-col md:flex-row items-start gap-0 text-white bg-black p-8">
             {/* Logo on the left */}
             <div className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/5 mb-8 md:mb-0">
-              <img src="/DrLabike-New-logo-trans (1).png" alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
+              <img src={logo} alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
               <span className="text-lg font-bold">DrLaBike</span>
             </div>
             {/* Columns on the right */}

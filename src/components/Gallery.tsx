@@ -1,5 +1,21 @@
 import React from 'react';
 import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import Mobile from '../assets/Mobile.png';
+import Mini from '../assets/mini.png';
+import BMI from '../assets/bmi.png';
+import Automicro from '../assets/automicro.png';
+import Accusmear from '../assets/Accusmear-Device.png';
+import Accurapid from '../assets/Accurapid-stainer.png';
+import Accurine from '../assets/Accurine-Analyzer.png';
+import Tele from '../assets/tele.png';
+import Pathology from '../assets/pt.png';
+import Medicine from '../assets/medi.png';
+import Injection from '../assets/injection.png';
+import I1 from '../assets/i1.png';
+import I from '../assets/i.jpg';
+import Drlabikelogo from '../assets/DrLabike-New-logo-trans (1).png';
+
+
 
 const Gallery = () => (
   <div style={{ height: '100vh', overflowY: 'auto', padding: '2rem', background: '#f8fcfb' }}>
@@ -9,31 +25,31 @@ const Gallery = () => (
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }}>
         {/* Example innovation cards, replace src with your images */}
         <div style={{ width: 250, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #eee', padding: 16, textAlign: 'center', marginBottom: 24 }}>
-          <img src="/Mobile.png" alt="Mobile Lab" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
+          <img src={Mobile} alt="Mobile Lab" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
           <div style={{ fontSize: 22, fontWeight: 500 }}>Mobile Lab</div>
         </div>
         <div style={{ width: 250, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #eee', padding: 16, textAlign: 'center', marginBottom: 24 }}>
-          <img src="/mini.png" alt="Mini Lab" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
+          <img src={Mini} alt="Mini Lab" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
           <div style={{ fontSize: 22, fontWeight: 500 }}>Mini Lab</div>
         </div>
         <div style={{ width: 250, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #eee', padding: 16, textAlign: 'center', marginBottom: 24 }}>
-          <img src="/bmi.png" alt="BMI machine" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
+          <img src={BMI} alt="BMI machine" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
           <div style={{ fontSize: 22, fontWeight: 500 }}>BMI machine</div>
         </div>
         <div style={{ width: 250, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #eee', padding: 16, textAlign: 'center', marginBottom: 24 }}>
-          <img src="/automicro.png" alt="Automicrosope" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
+          <img src={Automicro} alt="Automicrosope" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
           <div style={{ fontSize: 22, fontWeight: 500 }}>Automicroscope</div>
         </div>
         <div style={{ width: 250, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #eee', padding: 16, textAlign: 'center', marginBottom: 24 }}>
-          <img src="/Accusmear-Device.png" alt="Accusmear Device" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
+          <img src={Accusmear} alt="Accusmear Device" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
           <div style={{ fontSize: 22, fontWeight: 500 }}>Accusmear Device</div>
         </div>
         <div style={{ width: 250, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #eee', padding: 16, textAlign: 'center', marginBottom: 24 }}>
-          <img src="/Accurapid-stainer.png" alt="Accurapid Stainer" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
+          <img src={Accurapid} alt="Accurapid Stainer" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
           <div style={{ fontSize: 22, fontWeight: 500 }}>Accurapid Stainer</div>
         </div>
         <div style={{ width: 250, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #eee', padding: 16, textAlign: 'center', marginBottom: 24 }}>
-          <img src="/Accurine-Analyzer.png" alt="Accurine analyzer" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
+          <img src={Accurine} alt="Accurine analyzer" style={{ width: 180, height: 140, objectFit: 'contain', marginBottom: 12 }} />
           <div style={{ fontSize: 22, fontWeight: 500 }}>Accurine analyzer</div>
         </div>
       </div>
@@ -44,15 +60,15 @@ const Gallery = () => (
       <h2 style={{ background: '#aaf0fa', fontSize: '4rem', fontWeight: 'bold', textAlign: 'center', padding: '1rem 0', marginBottom: '2rem', fontFamily: 'serif' }}>Services That We Provide</h2>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }}>
         <div style={{ width: 350, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #eee', padding: 16, textAlign: 'center', marginBottom: 24 }}>
-          <img src="/tele.png" alt="Teleconsultation" style={{ width: 300, height: 300, objectFit: 'cover', marginBottom: 12 }} />
+          <img src={Tele} alt="Teleconsultation" style={{ width: 300, height: 300, objectFit: 'cover', marginBottom: 12 }} />
           <div style={{ fontSize: 22, fontWeight: 500 }}>Teleconsultation</div>
         </div>
         <div style={{ width: 350, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #eee', padding: 16, textAlign: 'center', marginBottom: 24 }}>
-          <img src="/pt.png" alt="Pathology Tests" style={{ width: 300, height: 300, objectFit: 'cover', marginBottom: 12 }} />
+          <img src={Pathology} alt="Pathology Tests" style={{ width: 300, height: 300, objectFit: 'cover', marginBottom: 12 }} />
           <div style={{ fontSize: 22, fontWeight: 500 }}>Pathology Tests</div>
         </div>
         <div style={{ width: 350, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #eee', padding: 16, textAlign: 'center', marginBottom: 24 }}>
-          <img src="/medi.png" alt="Medicine" style={{ width: 300, height: 300, objectFit: 'cover', marginBottom: 12 }} />
+          <img src={Medicine} alt="Medicine" style={{ width: 300, height: 300, objectFit: 'cover', marginBottom: 12 }} />
           <div style={{ fontSize: 22, fontWeight: 500 }}>Medicine</div>
         </div>
       </div>
@@ -62,15 +78,15 @@ const Gallery = () => (
     <section style={{ marginTop: '4rem' }}>
       <h2 style={{ background: '#aaf0fa', fontSize: '4rem', fontWeight: 'bold', textAlign: 'center', padding: '1rem 0', marginBottom: '2rem', fontFamily: 'serif' }}>DrLaBike Camp</h2>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '0rem' }}>
-        <img src="/injection.png" alt="Camp 1" style={{ width: 300, height: 400, objectFit: 'cover', borderRadius: 0 }} />
-        <img src="/i1.png" alt="Camp 2" style={{ width: 300, height: 400, objectFit: 'cover', borderRadius: 0 }} />
-        <img src="/i.jpg" alt="Camp 3" style={{ width: 300, height: 400, objectFit: 'cover', borderRadius: 0 }} />
+        <img src={Injection} alt="Camp 1" style={{ width: 300, height: 400, objectFit: 'cover', borderRadius: 0 }} />
+        <img src={I1} alt="Camp 2" style={{ width: 300, height: 400, objectFit: 'cover', borderRadius: 0 }} />
+        <img src={I} alt="Camp 3" style={{ width: 300, height: 400, objectFit: 'cover', borderRadius: 0 }} />
       </div>
     </section>
     <div className="max-w-6xl mx-auto mt-16 mb-8 flex flex-col md:flex-row items-start gap-8 text-white bg-black rounded-xl p-8">
         {/* Logo on the left */}
         <div className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/5 mb-8 md:mb-0">
-          <img src="/DrLabike-New-logo-trans (1).png" alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
+          <img src={Drlabikelogo} alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
           <span className="text-lg font-bold">DrLaBike</span>
         </div>
         {/* Columns on the right */}
