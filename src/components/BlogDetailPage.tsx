@@ -9,6 +9,7 @@ const Blogs = () => {
           Generally we avoid hard tasks, because of which our healthcare still has huge gaps...
           {/* Add more blog content here */}
         </p>
+        
       </div>
     );
   };

@@ -160,7 +160,7 @@ const About: React.FC = () => {
         </div>
       </div>
       {/* Info Columns Section with Logo */}
-      <div className="max-w-6xl mx-auto mt-16 mb-8 flex flex-col md:flex-row items-start gap-8 text-white bg-black rounded-xl p-8">
+      <div className="  w-full mt-16 mb-8 flex flex-col md:flex-row items-start gap-8 text-white bg-black rounded-xl p-8">
         {/* Logo on the left */}
         <div className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/5 mb-8 md:mb-0">
           <img src={DrLabike} alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
@@ -213,10 +213,15 @@ const About: React.FC = () => {
               <a href="#" aria-label="YouTube" className="ml-4"><Youtube className="w-5 h-5 hover:text-red-600" /></a>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
+      <div className="w-full flex justify-center font-bold text-gray-600 mt-4">
+            <h6>Copyright © 2025 DrLaBike: Gateway to Pathology Lab Ownership | Powered by Swasthmnathan Meditech Pvt Ltd</h6>
+          </div>
     </section>
+    
   );
 };
 

@@ -83,7 +83,7 @@ const Gallery = () => (
         <img src={I} alt="Camp 3" style={{ width: 300, height: 400, objectFit: 'cover', borderRadius: 0 }} />
       </div>
     </section>
-    <div className="max-w-6xl mx-auto mt-16 mb-8 flex flex-col md:flex-row items-start gap-8 text-white bg-black rounded-xl p-8">
+    <div className="w-full mt-16 mb-8 flex flex-col md:flex-row items-start gap-8 text-white bg-black rounded-xl p-8">
         {/* Logo on the left */}
         <div className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/5 mb-8 md:mb-0">
           <img src={Drlabikelogo} alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
@@ -137,7 +137,11 @@ const Gallery = () => (
             </div>
           </div>
         </div>
+        
         </div>
+        <div className="w-full flex justify-center font-bold text-gray-600 mt-4">
+            <h6>Copyright © 2025 DrLaBike: Gateway to Pathology Lab Ownership | Powered by Swasthmnathan Meditech Pvt Ltd</h6>
+          </div>
   </div>
 );
 

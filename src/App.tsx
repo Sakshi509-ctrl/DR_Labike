@@ -9,10 +9,12 @@ import BlogDetailPage from './components/BlogDetailPage';
 import Home from './pages/Home';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
+import Sidebar from './components/Sidebar';
 
 function App() {
   return (
-    <div className="min-h-screen">
+    <>
+      <Sidebar />
       <ContactSidebar />
       <Header />
       <Routes>
@@ -24,7 +26,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-    </div>
+    </>
   );
 }
 

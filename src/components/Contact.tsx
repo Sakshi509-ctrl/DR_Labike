@@ -100,9 +100,13 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div>  
+          
         </div>
         
+        <div className="w-full flex justify-center font-bold text-gray-600 mt-4">
+            <h6>Copyright © 2025 DrLaBike: Gateway to Pathology Lab Ownership | Powered by Swasthmnathan Meditech Pvt Ltd</h6>
+          </div>
       </div>
     </section>
     

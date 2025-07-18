@@ -29,130 +29,144 @@ import google from '../../public/assets/Google-Symbol-CcZVZOAF.png';
 
 
 const Hero: React.FC = () => {
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     if (imageRef.current) {
-      // No-op, kept for possible future use
     }
   }, []);
 
   return (
     <>
-      <section id="home" className="relative min-h-screen flex flex-row items-center justify-between overflow-hidden pb-32">
-        {/* Background Color or Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-200 via-blue-50 to-white" />
-        {/* Doctor Image on the right */}
-        <img 
-          src={mission} 
-          alt="Doctors" 
-          className="hidden md:block absolute right-0 bottom-0 h-full max-h-[600px] w-auto object-contain z-10 pointer-events-none select-none" 
-          style={{maxWidth: '50%'}}
-        />
-        {/* Content */}
-        <div className="relative z-20 text-left text-purple-900 px-14 w-full max-w-1xl">
-          <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-8 animate-fade-in-up">
+      <section className="relative flex items-center min-h-[60vh] bg-gradient-to-r from-cyan-200 via-blue-50 to-white overflow-hidden">
+        
+        <div className="flex-1 pl-16 pt-4  ">
+          <h1 className="text-5xl font-bold text-purple-900 leading-tight mb-2">
             Join The Healthcare<br />
-            Revolution With<br/><br/>
-            <span className="block text-red-700 mt-1">DrLaBike !</span>
+            <span className="block mt-4">Revolution With</span>
+            <span className="block text-red-700 mt-6 text-5xl font-extrabold">DrLaBike !</span>
           </h1>
-          <p className="text-2xl md:text-3xl font-semibold text-gray-700 mb-6 max-w-3xl animate-fade-in-up animation-delay-200">
+          <p className="text-2xl font-bold text-gray-700 mt-5 mb-3">
             Portable Pathology Lab With Online Doctor Consultations
           </p>
-          <button
-            onClick={() => scrollToSection('franchise')}
-            className="bg-teal-700 hover:bg-teal-800 text-white font-bold px-8 py-4 shadow-lg text-lg transition-colors animate-fade-in-up animation-delay-400 mt-6"
-          >
-            Book Your Franchise
+          <button className="bg-teal-700 hover:bg-teal-800 text-white font-bold px-4 py-2 shadow-lg text-xl transition-colors flex items-center mb-16 mt-1">
+            Book Your Franchise <span className="ml-0 text-1xl">&#8594;</span>
           </button>
         </div>
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-          </div>
+        <div className="flex-1 flex justify-end items-end h-full">
+          <img
+            src={mission}
+            alt="Doctors"
+            className="object-contain h-full max-h-[500px] mr-24 relative z-10"
+            style={{ minWidth: '400px' }}
+          />
         </div>
       </section>
-      {/* Image below Hero section */}
-      <div className="w-full flex justify-center mb-0"></div>
       {/* Info Boxes */}
-      <div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-0 px-7 md:px-16 mb-12 -mt-32 relative z-30">
-
+      <div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-0 px-7 md:px-14 mb-8 -mt-12 relative z-30">
         {/* Doctor Consultation Box */}
-        <div className="flex-1 bg-teal-700 text-white rounded-xl shadow-lg  p-3 pt-3 w-full md:w-[280px] flex flex-col items-center text-center">
-  <div className="bg-white text-teal-700 rounded-full p-4 shadow-lg mb-6">
-    <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm0 0v2m0 4h.01M21 21v-2a4 4 0 00-3-3.87M3 21v-2a4 4 0 013-3.87' />
-    </svg>
-  </div>
-  <h3 className="text-2xl font-bold mb-2">Doctor Consultation</h3>
-  <p className="text-lg">Get Doctor consultation for your health concerns from verified doctors at DrLaBike Clinic without having to travel. Starting at just INR 50/-.</p>
-</div>
-
-        {/* Pathology Tests Box */}
-       <div className="flex-1 bg-teal-700 text-white rounded-xl shadow-lg p-8 pt-8 flex flex-col items-center text-center">
-          <div className="bg-white text-teal-700 rounded-full p-4 shadow-lg mb-6">
+        <div className="flex-1 bg-teal-700 text-white rounded-l-2xl shadow-lg p-4 flex flex-col items-center text-center min-h-[140px]">
+          <div className="bg-white text-teal-700 rounded-full p-4 shadow-lg mb-3">
+            {/* Stethoscope SVG */}
             <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M15 12V7a3 3 0 00-6 0v5a3 3 0 006 0zm-6 0a3 3 0 006 0' /></svg>
+              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm0 0v2m0 4h.01M21 21v-2a4 4 0 00-3-3.87M3 21v-2a4 4 0 013-3.87' />
+            </svg>
           </div>
-          <h3 className="text-2xl font-bold mb-2">Pathology Tests</h3>
-          <p className="text-lg">Get instant and accurate diagnostic services (Pathology tests) at a super affordable cost from DrLaBike clinic.</p>
+          <h3 className="text-lg font-serif font-bold mb-2">Doctor Consultation</h3>
+          <p className="text-">Get Doctor consultation for your health concerns from verified doctors at DrLaBike Clinic without having to travel. Starting at just INR 50/-.</p>
+        </div>
+        {/* Pathology Tests Box */}
+        <div className="flex-1 bg-cyan-500 text-white rounded-none shadow-lg p-4 flex flex-col items-center text-center min-h-[160px]">
+          <div className="bg-white text-cyan-600 rounded-full p-4 shadow-lg mb-3">
+            {/* Test Tube SVG */}
+            <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 17V7a2 2 0 114 0v10a4 4 0 11-4 0z' />
+            </svg>
+          </div>
+          <h3 className="text-lg font-bold mb-2">Pathology Tests</h3>
+          <p className="text-base">Get instant and accurate diagnostic services (Pathology tests) at a super affordable cost from DrLaBike clinic.</p>
         </div>
         {/* Contact Box */}
-        <div className="flex-1 bg-indigo-800 text-white rounded-xl shadow-lg p-8 flex flex-col items-center text-center">
-           <div className="bg-white text-teal-700 rounded-full p-4 shadow-lg mb-6">
+        <div className="flex-1 bg-indigo-800 text-white rounded-r-2xl shadow-lg p-4 flex flex-col items-center text-center min-h-[160px]">
+          <div className="bg-white text-indigo-700 rounded-full p-4 shadow-lg mb-3">
+            {/* Hospital/Clinic SVG */}
             <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-            <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M16 7a4 4 0 01-8 0M12 11v2m0 4h.01M21 21v-2a4 4 0 00-3-3.87M3 21v-2a4 4 0 013-3.87' /></svg>
+              <rect x='4' y='7' width='16' height='13' rx='2' stroke='currentColor' strokeWidth='2' fill='none'/>
+              <path d='M9 17h6M12 14v6' stroke='currentColor' strokeWidth='2' strokeLinecap='round'/>
+              <rect x='9' y='10' width='6' height='4' rx='1' stroke='currentColor' strokeWidth='2' fill='none'/>
+            </svg>
           </div>
-          <h3 className="text-2xl font-bold mb-2">Contact</h3>
-          <p className="text-lg"><span className="block mb-1">📞 +91-70655-50214, 📧 Support@drlabike.com</span>📍 424-CMR Building, Near MCD School, Ghitorni, New Delhi-30</p>
+          <h3 className="text-lg font-bold mb-2">Contact</h3>
+          <p className="text-base"><span className="block mb-1">📞 +91-70655-50214, Support@drlabike.com</span>📍 424-CMR Building, Near MCD School, Ghitorni, New Delhi-30</p>
         </div>
       </div>
       {/* Paragraph and Video Section */}
-      <div className="w-full flex flex-col md:flex-row justify-between items-start gap-8 px-4 md:px-16 my-12">
+      <div className="w-full flex flex-col md:flex-row justify-between items-start gap-8 my-4">
         {/* Paragraph */}
-        <div className="flex-1 text-black text-lg md:pr-8">
-          <p><b>DrLaBike</b> Portable Pathology Lab enables doorstep diagnostics services with online Doctor Consultations to deprived Rural & demographically remote village population who lack easy access & timely healthcare services. It’s the only available solution to provide “Last Mile Delivery” of healthcare services.</p>
+        <div className="flex-1 mt-8 text-black text-0lg font-serif md:pr-8 leading-relaxed ml-16 text-justify">
+          <p><b>DrLaBike</b> Portable Pathology Lab enables doorstep diagnostics services with online Doctor Consultations to deprived Rural & demographically remote village population who lack easy access & timely healthcare services. It’s the only available solution to provide<br/> “Last Mile Delivery” <br/><br/>of healthcare services.</p>
           <p className="mt-6">DrLaBike enables online doctor consultations to a villager in rural/remote location by experienced and multispecialty doctors at affordable rates. Timely diagnosis, timely treatment & timely medication within the village prevents expensive travel, stay & treatment cost of the metros.</p>
+          {/* Icon Row below paragraph */}
+          <div className="w-full flex flex-row justify-center items-center gap-16 mt-8 whitespace-nowrap">
+            {/* Pathology Lab */}
+            <div className="flex items-center">
+              <span className="text-2xl text-gray-700 mr-2">&#9654;</span>
+              <span className="text-1xl font-bold font-serif ">PATHOLOGY LAB</span>
+            </div>
+            {/* Telemedicine */}
+            <div className="flex items-center">
+              <span className="text-2xl text-gray-700 mr-2">&#9654;</span>
+              <span className="text-1xl font-bold font-serif">TELEMEDICINE</span>
+            </div>
+            {/* Medicine */}
+            <div className="flex items-center">
+              <span className="text-2xl text-gray-700 mr-2">&#9654;</span>
+              <span className="text-1xl font-bold font-serif">MEDICINE</span>
+            </div>
+          </div>
         </div>
         {/* Video */}
-        <div className="flex-1 flex justify-center items-center">
-          <iframe width="100%" height="315" src="https://www.youtube.com/embed/1QZL8gF6U6A" title="DrLaBike e-Clinic & Lab tour" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="rounded-lg shadow-lg"></iframe>
+        <div className="flex-1 flex justify-center items-center mr-14">
+          <iframe width="100%" height="500" src="https://www.youtube.com/embed/fQ4oBvrEpkQ" title="DrLaBike e-Clinic & Lab tour" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className= "shadow-lg"></iframe>
         </div>
       </div>
+      
       {/* Franchise Model Title and Advanced Static Lab Card Section */}
       <div className="w-full flex flex-col items-center my-12 px-2">
-        <h2 className="text-5xl font-serif font-bold text-center mb-8 pb-2 border-b-4 border-blue-200 inline-block">Franchise Model</h2>
-        <div className="bg-white rounded-2xl shadow-2xl flex flex-col md:flex-row w-full max-w-5xl p-8 md:p-0 gap-0 items-center justify-center">
-          {/* Left: Title and List */}
-          <div className="flex-1 flex flex-col">  
-            <h2 className="text-2xl font-serif font-bold text-center mb-2 pb-0 border-b-4 border-blue-200 inline-block self-center">Advanced Static Lab</h2>
-            <ol className="list-decimal pl-6   text-0lg text-black space-y-4">
-              <li><span className="text-red-700 font-serif font-bold">ADVANCED STATIC LAB</span> <span className="font-semibold">(Complete Lab Setup)</span></li>
-              <li className=" font-serif font-bold">IT Support</li>
-              <li className=" font-serif font-bold">Customer Support</li>
-              <li className=" font-serif font-bold">Skill Support</li>
-              <li className=" font-serif font-bold">Free of cost Digital marketing <span className="text-red-700">(6 months)</span></li>
-              <li className=" font-serif font-bold">Certifications</li>
-              <li className=" font-serif font-bold">Regularity assistance</li>
-              <li className=" font-serif font-bold">Camp support</li>
-              <li className=" font-serif font-bold">Key account manager</li>
-              <li className=" font-serif font-bold">Quality monitoring assurance</li>
-              <li className=" font-serif font-bold">Bio-waste consultation</li>
-              <li className=" font-serif font-bold">Unlimited Training</li>
-            </ol>
-            <button className="mt-8 w-40 h-12 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-lg shadow transition-colors self-start">Read More</button>
-          </div>
-          {/* Right: Image */}
-          <div className="flex-1 flex justify-center items-start mt-0 ">
-            <img src={ud} alt="Lab" className="max-w-full h-auto rounded-0xl shadow-lg align-top transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl" style={{ maxHeight: '250px', marginTop: 0 }} />
+        <h2 className="text-4xl font-serif font-bold text-center mb-8 pb-2  inline-block">Franchise Model</h2>
+        <div className="flex flex-row w-full max-w-5xl gap-8 items-start justify-start">
+          {/* Left Table: Advanced Static Lab */}
+          <table className="bg-white rounded-2xl shadow-2xl w-1/2 ml-0">
+            <thead>
+              <tr>
+                <th className="text-2xl font-serif font-bold shadow-2xl text-center mb-2 pb-4">Advanced <span className='underline'>Static</span> Lab</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="text-black text-0xl">
+                  <ol className="list-decimal pl-12 space-y-1">
+                    <li><span className="font-bold text-red-700">ADVANCED STATIC LAB</span> <span className="font-semibold">(Complete Lab Setup)</span></li>
+                    <li className="font-serif font-bold">IT Support</li>
+                    <li className="font-serif font-bold">Customer Support</li>
+                    <li className="font-serif font-bold">Skill Support</li>
+                    <li className="font-serif font-bold">Free of cost Digital marketing <span className="text-red-700">(6 months)</span></li>
+                    <li className="font-serif font-bold">Certifications</li>
+                    <li className="font-serif font-bold">Regularity assistance</li>
+                    <li className="font-serif font-bold">Camp support</li>
+                    <li className="font-serif font-bold">Key account manager</li>
+                    <li className="font-serif font-bold">Quality monitoring assurance</li>
+                    <li className="font-serif font-bold">Bio-waste consultation</li>
+                    <li className="font-serif font-bold">Unlimited Training</li>
+                  </ol>
+                  <div className="pt-2 text-center"><button className="w-40 h-10 bg-blue-700 hover:bg-blue-800 text-white font-bold shadow transition-colors">Read More</button></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          {/* Right: Image (no table) */}
+          <div className="bg-white rounded-2xl w-1/2 flex justify-center items-start p-4">
+            <img src={ud} alt="Lab" className="max-w-full h-auto rounded-0xl shadow-lg align-top transition-transform duration-200 transform hover:scale-110 hover:shadow-2xl" style={{ maxHeight: '250px', marginTop: 0 }} />
           </div>
         </div>
       </div>
@@ -246,12 +260,12 @@ const Hero: React.FC = () => {
       {/* Why DrLaBike Section */}
       <div className="w-full flex flex-col md:flex-row items-stretch justify-center max-w-6xl mx-auto my-12 rounded-2xl overflow-hidden shadow-lg bg-white">
         {/* Left: Text Box */}
-        <div className="flex-1 bg-[#1a2970] text-white p-0 flex flex-col justify-between rounded-l-2xl">
+        <div className="flex-1 bg-[#1a2970] text-white p-0 flex flex-col justify-between rounded-l-2xl min-h-0">
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Why <span className="underline decoration-white decoration-4">DrLaBike</span>
+            <h2 className="text-2xl md:text-1xl pl-8 mt-4 font-serif mb-2">
+              Why <span className="underline decoration-white decoration-3">DrLa</span>Bike
             </h2>
-            <ol className="list-decimal pl-6 space-y-2 text-lg md:text-xl font-serif mb-8">
+            <ol className="list-decimal pl-10 space-y-1 text-base md:text-0xl font-serif mb-2">
               <li>Providing all kinds of health services under one roof</li>
               <li>Offering affordable treatment options near patients’ homes</li>
               <li>Having a large pool of over 200 general physicians and specialists</li>
@@ -269,8 +283,8 @@ const Hero: React.FC = () => {
         </div>
         {/* Right: Images */}
         <div className="flex-1 flex flex-col p-0 bg-white justify-center items-center">
-          <img src={best} alt="DrLaBike Camp 1" className="w-full h-[260px] object-cover rounded-none m-0" />
-          <img src={health} alt="DrLaBike Camp 2" className="w-full h-[260px] object-cover rounded-none m-0" />
+          <img src={best} alt="DrLaBike Camp 1" className="w-full h-[200px] object-cover rounded-none m-0" />
+          <img src={health} alt="DrLaBike Camp 2" className="w-full h-[200px] object-cover rounded-none m-0" />
         </div>
       </div>
       {/* Our Proud Partners & Franchise Benefits Section */}
@@ -302,50 +316,50 @@ const Hero: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-serif  text-center text-black mb-2">DrLaBike <span className="text-black font-bold">"Quality"</span></h2>
           <div className="w-24 h-1 bg-black mx-auto mb-4"></div>
-          <h3 className="text-2xl font-bold text-center text-[#444] mb-10">We are passionate about quality delivery of services</h3>
-          <div className="flex w-full bg-[#aeb8fa]  flex-col md:flex-row justify-between items-stretch gap-3">
+          <h3 className="text-xl font-bold text-center text-gray-600 mt-6">We are passionate about quality delivery of services</h3>
+          <div className="flex w-full bg-[#aeb8fa] flex-col md:flex-row justify-center items-stretch gap-3">
             {/* Affordable */}
-            <div className="flex-1 flex flex-col items-start ml-4">
+            <div className="flex-1 flex flex-col items-center ml-4">
               <div className="bg-green-500 rounded-full w-20 h-20 flex items-center justify-center mb-4">
                 {/* Microscope SVG */}
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2a4 4 0 014-4h1V7a2 2 0 10-4 0v4H7a2 2 0 100 4h2zm0 0v2a2 2 0 002 2h2a2 2 0 002-2v-2" /></svg>
               </div>
-              <div className="text-3xl font-extrabold text-white mb-2">Affordable</div>
-              <div className="text-xl text-gray-700 font-semibold">Our Tests starts INR 50/- Get Doctor Consultation @90% discounted.</div>
+              <div className="text-2xl font-bold font-serif text-white  ">Affordable</div>
+              <div className="text-1xl text-gray-600 font-semibold ml-8 ">Our Tests starts INR 50/- Get Doctor Consultation @90% discounted.</div>
             </div>
             {/* Money Back Guarantee */}
-            <div className="flex-1 flex flex-col items-start ml-5">
+            <div className="flex-1 flex flex-col items-center ml-5">
               <div className="bg-green-500 rounded-full w-20 h-20 flex items-center justify-center mb-4">
                 {/* Document SVG */}
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 4H7a2 2 0 01-2-2V6a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z" /></svg>
               </div>
-              <div className="text-3xl font-extrabold text-white mb-2">Money Back Guarantee</div>
-              <div className="text-xl text-gray-700 font-semibold">In case you ever find any discrepancy in our test results, we will refund your Money</div>
+              <div className="text-2xl font-bold font-serif text-white ml-8">Money Back Guarantee</div>
+              <div className="text-1xl text-gray-600 font-semibold ml-8">In case you ever find any discrepancy in our test results, we will refund your Money</div>
             </div>
             {/* Peace Of Mind */}
-            <div className="flex-1 flex flex-col items-start ml-4">
+            <div className="flex-1 flex flex-col items-center ml-4">
               <div className="bg-green-500 rounded-full w-20 h-20 flex items-center justify-center mb-4">
                 {/* Group SVG */}
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m9-4a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
               </div>
-              <div className="text-3xl font-extrabold text-white mb-2">Peace Of Mind</div>
-              <div className="text-xl text-gray-700 font-semibold">Our LT are certified, full-time nurses and phlebotomist that undergo thorough training so your experience is pleasant and efficient,</div>
+              <div className="text-2xl font-bold font-serif text-white ml-4">Peace Of Mind</div>
+              <div className="text-1xl text-gray-600 font-semibold ml-4">Our LT are certified, full-time nurses and phlebotomist that undergo thorough training so your experience is pleasant and efficient,</div>
             </div>
             {/* Data Privacy */}
-            <div className="flex-1 flex flex-col items-start ml-4">
+            <div className="flex-1 flex flex-col items-center ml-4">
               <div className="bg-green-500 rounded-full w-20 h-20 flex items-center justify-center mb-4">
                 {/* Shield SVG */}
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
               </div>
-              <div className="text-3xl font-extrabold text-white mb-2">Data Privacy</div>
-              <div className="text-xl text-gray-700 font-semibold">We ensure the lab accurately delivers your results to your care provider. Your reports and health records are kept safe and sure.</div>
+              <div className="text-2xl font-bold font-serif text-white mr-7">Data Privacy</div>
+              <div className="text-1xl text-gray-600 font-semibold mr-8">We ensure the lab accurately delivers your results to your care provider. Your reports and health records are kept safe and sure.</div>
             </div>
           </div>
         </div>
       </div>
       {/* Our Core Value and Key Features Section */}
       <div className="w-full bg-[#f8fcfb] py-12">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="w-full px-4">
           <h2 className="text-4xl font-bold text-center mb-6" style={{fontFamily: 'serif'}}>Our <span className="font-normal" style={{fontFamily: 'serif',textDecoration: "underline"}}> Core </span><span className="font-bold">Value</span> </h2>
           <div className="flex justify-center items-center w-full mb-8">
             <div className="flex w-full max-w-8xl bg-blue-100  overflow-hidden">
@@ -465,7 +479,7 @@ const Hero: React.FC = () => {
           </div>
           {/* DrLaBike Achievements Section */}
           <div className="w-full bg-[#f8fcfb] py-12">
-            <h2 className="text-4xl  text-center mb-10" style={{fontFamily: 'serif'}}>DrLaBike <span className="text-black, textDecoration: underline">Achievements</span></h2>
+            <h2 className="text-4xl  text-center mb-10" style={{fontFamily: 'serif'}}>DrLaBike <span className=" text-black, textDecoration: underline">Achievements</span></h2>
             <div className="flex flex-col items-center">
               {/* Achievements Images Row */}
               <div className="flex flex-row gap-0 justify-center items-center my-0 w-full px-9">
@@ -474,18 +488,17 @@ const Hero: React.FC = () => {
                 <img src={i} alt="Achievement 3" className="object-cover shadow-lg w-1/3 h-[350px]" />
               </div>
               {/* Download App Section */}
-              <div className="flex flex-row items-center justify-center gap-12 w-full mt-8">
-                <span className="text-2xl font-bold" style={{fontFamily: 'serif'}}>DOWNLOAD <span className="text-black">Our App</span></span>
-                <img src={gp} alt="Google Play" className="w-48 h-16" />
+              <div className="flex flex-row items-center justify-center gap-12 w-full mt-4 mb-0">
+                <span className="text-2xl font-extrabold text-purple-900" style={{fontFamily: 'serif'}}>DOWNLOAD <span className="text-purple-900">Our App</span></span>
+                <img src={gp} alt="Google Play" className="w-48 h-26" />
                 <img src={sc} alt="Google Play QR" className="w-32 h-32" />
                 <img src={app} alt="App Store" className="w-48 h-16" />
                 <img src={sc} alt="App Store QR" className="w-32 h-32" />
               </div>
             </div>
           </div>
-          {/* Address Section (moved upward) */}
-          <div className="max-w-7xl mx-auto mt-0 mb-8 flex flex-col md:flex-row items-start gap-0 text-white bg-black p-8">
-            {/* Logo on the left */}
+          <div className="w-full mt-0 mb-1 flex flex-col md:flex-row items-start gap-0 text-white bg-black p-8">
+            
             <div className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/5 mb-8 md:mb-0">
               <img src={logo} alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
               <span className="text-lg font-bold">DrLaBike</span>
@@ -539,8 +552,13 @@ const Hero: React.FC = () => {
               </div>
             </div>
           </div>
+          {/* Copyright Image below address section */}
+          <div className="w-full flex justify-center font-bold text-gray-600 mt-4">
+            <h6>Copyright © 2025 DrLaBike: Gateway to Pathology Lab Ownership | Powered by Swasthmnathan Meditech Pvt Ltd</h6>
+          </div>
         </div>
       </div>
+      
     </>
   );
 };
