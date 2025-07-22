@@ -25,18 +25,10 @@ const Footer: React.FC = () => {
               we've got you covered with expert services and top-quality products.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors">
-                <Youtube className="w-5 h-5" />
-              </a>
+              <a href="https://www.facebook.com/drlabike" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><Facebook className="w-5 h-5 hover:text-blue-600" /></a>
+              <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fdrlabike%2F&is_from_rle" aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="ml-4"><Instagram className="w-5 h-5 hover:text-pink-500" /></a>
+              <a href="https://x.com/account/access" aria-label="Twitter" target="_blank" rel="noopener noreferrer" className="ml-4"><Twitter className="w-5 h-5 hover:text-blue-400" /></a>
+              <a href="https://www.youtube.com/channel/UC9k-Me74MlQOgsmRWObyh6Q" aria-label="YouTube" target="_blank" rel="noopener noreferrer" className="ml-4"><Youtube className="w-5 h-5 hover:text-red-600" /></a>
             </div>
           </div>
 

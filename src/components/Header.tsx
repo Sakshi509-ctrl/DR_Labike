@@ -1,36 +1,36 @@
 import React from 'react';
 import { Search } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <>
       <header className="w-full bg-white">
-        {/* Top Bar */}
+       
         <div className="w-full bg-white text-sm">
           <div className="max-w-8xl mx-auto flex justify-between items-center py-2 ml-0">
-            {/* Social Icons and Contact Number */}
             <div className="flex items-center text-gray-600 font-serif font-bold ml-24 mt-2">
               <div className="flex items-center gap-4 text-gray-600 text-2xl">
-                <a href="#">
+                <a href="https://www.facebook.com/drlabike" target="_blank" rel="noopener noreferrer">
                   <img src="/assets/facebook-icon-hd-1.jpg" alt="Facebook" className="w-7 h-7 rounded-full" />
                 </a>
-                <a href="#">
+                <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fdrlabike%2F&is_from_rle">
                   <img src="/assets/insta.png" alt="Instagram" className="w-7 h-7 rounded-full" />
                 </a>
-                <a href="#">
+                <a href="https://x.com/account/access">
                   <img src="/assets/twitter.jpeg" alt="Twitter" className="w-7 h-7 rounded-full" />
                 </a>
-                <a href="#">
+                <a href="https://www.linkedin.com/company/drlabike/?trk=public_profile_topcard-current-company&originalSubdomain=in">
                   <img src="/assets/linkedin.jpeg" alt="LinkedIn" className="w-7 h-7 rounded-full" />
                 </a>
-                <a href="#">
+                <a href="https://www.youtube.com/channel/UC9k-Me74MlQOgsmRWObyh6Q" target="_blank" rel="noopener noreferrer">
                   <img src="/assets/utube.jpeg" alt="YouTube" className="w-7 h-7 rounded-full" />
                 </a>
               </div>
-              <span className="ml-6 text-blue-800 font-normal flex items-center">+91-706-555-0214</span>
+              <span className="ml-6 text-blue-800 font-generic flex items-center">+91-706-555-0214</span>
             </div>
-            {/* Search Bar */}
+           
             <div className="relative w-72 mr-16 font-serif font-bold">
               <input
               type="text"
@@ -44,16 +44,16 @@ const Header: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* Main Header (Navigation) */}
+        
         <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 font-serif font-bold">
-          {/* Logo and Text */}
+        
           <div className="flex items-center space-x-80 min-w-[290px] ml-16">
             <img src="https://drlabike.com/wp-content/uploads/2020/08/DrLabike-New-logo-trans.png" alt="DrLaBike Logo" className="h-20 w-35 object-contain" />
             <div className="flex flex-col leading-tight">
-              {/* Text intentionally left blank as per your last edit */}
+             
             </div>
           </div>
-          {/* Navigation */}
+         
           <nav className="flex-1 flex justify-center">
             <ul className="flex space-x-4 whitespace-nowrap">
               <li>
@@ -134,7 +134,8 @@ const Header: React.FC = () => {
           {/* Buttons */}
           <div className="flex items-center space-x-4 min-w-[220px] justify-end font-serif font-bold">
             {/* Internship Button */}
-            <button className="bg-[#a05a07] text-white border-2 border-[#a05a07] font-bold px-2 py-4 pl-4 pr-4 mr-2 ml-8 rounded transition-colors text-sm tracking-wide hover:bg-white hover:text-[#a05a07] active:bg-white active:text-[#a05a07] ">INTERNSHIP</button>
+            <button className="bg-[#a05a07] text-white border-2 border-[#a05a07] font-bold px-2 py-4 pl-4 pr-4 mr-2 rounded transition-colors text-sm tracking-wide hover:bg-white hover:text-[#a05a07] active:bg-white active:text-[#a05a07] ml-8" onClick={() => navigate('/internship')}>INTERNSHIP</button>
+
             {/* Book Now Button */}
             <button className="bg-blue-700 text-white border-2 border-blue-700 font-bold px-0 py-4 pl-4 pr-4 rounded transition-colors text-sm tracking-wide hover:bg-white hover:text-blue-700 active:bg-white active:text-blue-700 ">BOOK NOW</button>
           </div>

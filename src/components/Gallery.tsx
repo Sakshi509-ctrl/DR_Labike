@@ -14,11 +14,12 @@ import Injection from '../../public/assets/injection-C6C2jwlg.png';
 import I1 from '../../public/assets/i1-BPfNmFtl.png';
 import I from '../../public/assets/i-BF82gZgm.jpg';
 import Drlabikelogo from '../../public/assets/DrLabike-New-logo-trans (1)-D1SuIxFX.png';
-
+import Header from './Header';
 
 
 const Gallery = () => (
   <div style={{ height: '100vh', overflowY: 'auto', padding: '2rem', background: '#f8fcfb' }}>
+    <Header />
     {/* Our Innovation Section */}
     <section>
       <h2 style={{ background: '#aaf0fa', fontSize: '4rem', fontWeight: 'bold', textAlign: 'center', padding: '1rem 0', marginBottom: '2rem', fontFamily: 'serif' }}>Our Innovation</h2>
@@ -129,10 +130,10 @@ const Gallery = () => (
             <div className="mt-4">
               <div className="font-bold mb-2">Follow Us</div>
               <div className="flex gap-4 mb-4">
-                <a href="#" aria-label="Facebook"><Facebook className="w-5 h-5 hover:text-blue-600" /></a>
-                <a href="#" aria-label="Instagram" className="ml-4"><Instagram className="w-5 h-5 hover:text-pink-500" /></a>
-                <a href="#" aria-label="Twitter" className="ml-4"><Twitter className="w-5 h-5 hover:text-blue-400" /></a>
-                <a href="#" aria-label="YouTube" className="ml-4"><Youtube className="w-5 h-5 hover:text-red-600" /></a>
+                <a href="https://www.facebook.com/drlabike" aria-label="Facebook"><Facebook className="w-5 h-5 hover:text-blue-600" /></a>
+                <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fdrlabike%2F&is_from_rle" aria-label="Instagram" className="ml-4"><Instagram className="w-5 h-5 hover:text-pink-500" /></a>
+                <a href="https://x.com/account/access" aria-label="Twitter" className="ml-4"><Twitter className="w-5 h-5 hover:text-blue-400" /></a>
+                <a href="https://www.youtube.com/channel/UC9k-Me74MlQOgsmRWObyh6Q" aria-label="YouTube" className="ml-4"><Youtube className="w-5 h-5 hover:text-red-600" /></a>
               </div>
             </div>
           </div>

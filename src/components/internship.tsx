@@ -1,0 +1,188 @@
+import React from 'react';
+import Header from '../components/Header';  
+import {Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
+import logo from '../../public/assets/DrLabike-New-logo-trans (1)-D1SuIxFX.png';
+import { useNavigate } from 'react-router-dom';
+
+const Internship = () => {
+  const navigate = useNavigate();
+  return (
+    
+    <>
+      <Header />
+      <div className="px-6 md:px-16  bg-[#ffffff] text-[#2e2e2e]">
+        <div className="flex flex-col lg:flex-row items-center">
+
+          <div className="w-full lg:w-1/2 ml-16">
+            <img
+              src="/assets/intern.png"
+              alt="Internship"
+              className=" max-w-lg mx-auto h-96 object-contain"
+            />
+          </div>
+
+          
+          <div className="w-full lg:w-1/2 text-left  max-w-md space-y-4 ">
+            <p className="text-sm leading-relaxed font-genericmt-3" >
+              We are excited to invite you to our{' '}
+              <strong>10days – 2 months intensive hands-on training program</strong>
+              depending on the background of candidates, meticulously designed to equip participants 
+              with advanced skills in biomedical techniques and laboratory practices.
+              This training is ideal for <strong>Phlebotomists, DMLT, CMLT, MMLT, ANM, 
+              GNM Pharmacist, GDA & Emergency Technician</strong>, and those looking 
+              to expand their knowledge and gain comprehensive practical exposure.
+            </p>
+            <p className="text-base md:text-lg mb-4 font-generic">
+              <strong>Our Vision:</strong> “<strong>Empowering Youth: Real Building.”</strong>
+            </p>
+
+            <button
+              className="bg-[#0056D2] hover:bg-[#003a8c] text-white font-semibold px-5 py-3 mt-8"
+              onClick={() => navigate('/apply-internship')}
+            >
+              Apply for Internship
+            </button>
+          </div>
+        </div>
+
+        
+        <div className="px-8 md:px-20 py-8">
+  <h2 className="text-base font-bold font-generic text-[#0a0a0a] mb-4">About The Saksham Platform</h2>
+
+  <p className="text-sm font-generic text-[#111827] mb-4">
+    The Saksham Platform is a <strong>100% job assurance program</strong> that combines in-depth practical training
+    with various support systems, making it a holistic solution for building careers in the biomedical field. We leverage
+    government-backed schemes under MSME to provide long-term benefits for participants and aspiring lab professionals.
+  </p>
+
+  <p className="text-sm font-generic text-[#111827] mb-4">
+    Project Saksham, an initiative by Swasthgram, generously funded by Dr. Labike. This program bridges the gap between
+    theory and practical application in advanced clinical biochemistry, ensuring hands-on expertise for aspiring
+    healthcare professionals.
+  </p>
+
+  <p className="text-sm font-generic text-[#111827] mb-4 font-semibold">
+    Over 1,000 job opportunities available!
+  </p>
+
+  <p className="text-sm font-generic text-[#111827] mb-4">
+    <strong>Program Fee:</strong> Originally <strong>45,000,</strong> but thanks to Dr. Labike’s investment, selected candidates
+    can enroll for just <strong>Rs 5,000</strong>.
+  </p>
+
+  <p className="text-sm font-generic text-[#111827] mb-4 font-semibold">
+    Program Curriculum: (Hand-on-practice 200 to 500 times of all 200 Biomedical test )
+  </p>
+
+  <p className="text-sm font-generic text-[#111827]">
+    <strong>Laboratory Instruments:</strong> <br></br>Equipment Covered: Digital Microscope, Centrifuge, Biochemistry Analyzer,
+    BMI Machine, Urine Analyzer, Incubator, BP Machine, ECG Machine understanding<br></br>Types, Usage, and Maintenance, Managing Glassware and learning the basics of SI Units
+  </p><br></br>
+
+  <p className="text-sm font-generic text-[#111827]">
+    <strong>Microscopy Techniques:</strong> Preparing and analyzing slides: Peripheral Blood Smear, Sputum for Mycobacterium tuberculosis, Stool, Urine, Fungal, and Sickle Cell Slides, Cancer Screening: Rapid Pap smear and buccal mucosa analysis, Gram Staining for pus and sputum sample,  Slide Analysis: Practical and theoretical training.
+
+  </p><br></br><br></br>
+
+  <p className="text-sm font-generic text-[#111827]">
+    <strong>Urine Analysis:</strong>  Physical Parameters: Volume, color, transparency, pH, specific gravity, Chemical Parameters: Glucose, protein, blood, urobilinogen, ketone, nitrate, and leukocyte counts
+  </p><br></br><br></br>
+
+  <p className="text-sm font-generic text-[#111827]">
+    <strong>Phlebotomy Techniques:</strong> Introduction to Venipuncture, site selection, and blood collection types, Tourniquet Application, Order of Draw, Labeling, and Safe Handling
+  </p><br></br><br></br>
+
+  <p className="text-sm font-generic text-[#111827]">
+    <strong>Biochemistry Profile:</strong>  Comprehensive testing, including Sugar Profile, Liver Function Tests, Lipid Profile, and Electrolytes 
+  </p><br></br><br></br>
+
+  <p className="text-sm font-generic text-[#111827]">
+    <strong>Serological Examination:</strong> Testing for Widal, Typhoid, Malaria, Dengue, HIV, HCV, HBsAG, RA-Factor, CRP, Pregnancy (UPT), and RPR (VDRL)
+    Soft Skills Development: Enhancing Communication, Professional Writing, Time Management, and Leadership Skills, Developing Problem-Solving and Decision-Making Strategies
+  </p><br></br>
+
+<p className='text-sm font-bold font-generic text-[#111827]'>Program Benefits:</p>
+  <p className="text-sm font-generic text-[#111827]">
+    <strong>Industry-Recognized Certification</strong> Upon successful completion and assessment, you will receive a certification that enhances your career prospects.
+  </p><br></br><br></br>
+
+  <p className="text-sm font-generic text-[#111827]">
+    <strong>100% Job Guarantee</strong> – We provide assured placement in relevant roles for those seeking employment.
+  </p><br></br>
+
+  <p className="text-sm font-generic text-[#111827]">
+    <strong>Lab Setup Support for Entrepreneurs:- </strong>For aspiring business owners, we offer:
+  </p>
+  <p className='font-generic'>Loan assistance to help establish your own diagnostic lab.</p>
+  <p className='font-generic'>A 2-year business support contract worth Rs50,000–Rs70,000 per month.<br></br>Pathology & technical support, including cloud-based report systems.</p><br></br>
+
+<p className="text-sm font-bold font-generic text-[#111827]">Register Now!</p>
+<p className='font-generic'>Please fill out the form below to register for the training. If you have any questions, feel free to reach out to us at:</p>
+<p className="text-sm font-bold font-generic text-[#111827]">Contact Us: +91-9990038097 </p>
+</div>
+
+<div className="w-full mt-16 mb-1 flex flex-col md:flex-row items-start gap-0 text-white bg-black p-8">
+            
+            <div className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/5 mb-8 md:mb-0">
+              <img src={logo} alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
+              <span className="text-lg font-bold">DrLaBike</span>
+            </div>
+
+            <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-sm">
+              <div>
+                <h3 className="text-lg font-bold mb-3">Useful Links</h3>
+                <ul className="space-y-2">
+                  <li>&#9654; About</li>
+                  <li>&#9654; Gallery</li>
+                  <li>&#9654; Testimonial</li>
+                  <li>&#9654; Blogs</li>
+                  <li>&#9654; Inquiry</li>
+                  <li>&#9654; Verification</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-bold mb-3">Policies</h3>
+                <ul className="space-y-2">
+                  <li>&#9654; Privacy Policy</li>
+                  <li>&#9654; Shipping Policy</li>
+                  <li>&#9654; Terms & Conditions</li>
+                  <li>&#9654; Refund & Cancellation</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-lg font-bold mb-3">Address</h3>
+                <div className="mb-2">G.F, 424-CMR Building, Near MCD School, Ghitorni, New Delhi-110030</div>
+                <div className="flex items-center mb-2">
+                  <span className="mr-2">📍</span>
+                  <span>G.F, 424-CMR Building, Near MCD School, Ghitorni, New Delhi-110030</span>
+                </div>
+
+                <div className="flex items-center mb-2">
+                  <span className="mr-2">📞</span>
+                  <span>+91-706-555-0214</span>
+                </div>
+
+                <div className="mt-4">
+                  <div className="font-bold mb-2">Follow Us</div>
+                  <div className="flex gap-4 mb-4">
+                    <a href="" aria-label="Facebook"><Facebook className="w-5 h-5 hover:text-blue-600" /></a>
+                    <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fdrlabike%2F&is_from_rle" aria-label="Instagram" className="ml-4"><Instagram className="w-5 h-5 hover:text-pink-500" /></a>
+                    <a href="https://x.com/account/access" aria-label="Twitter" className="ml-4"><Twitter className="w-5 h-5 hover:text-blue-400" /></a>
+                    <a href="https://www.youtube.com/channel/UC9k-Me74MlQOgsmRWObyh6Q" aria-label="YouTube" className="ml-4"><Youtube className="w-5 h-5 hover:text-red-600" /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="w-full flex justify-center font-bold text-gray-600 mt-4 mb-4">
+            <h6>Copyright © 2025 DrLaBike: Gateway to Pathology Lab Ownership | Powered by Swasthmnathan Meditech Pvt Ltd</h6>
+          </div>
+        </div>
+     
+    </>
+  );
+}
+export default Internship;
