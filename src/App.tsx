@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Sidebar from './components/Sidebar';
+import Hero from './components/Hero';
 import Franchise from './components/Franchise';
 import Internship from './components/internship';
 import MarketChart from './components/marketing';
@@ -30,8 +31,8 @@ function App() {
         <Route path="/blogs/:id" element={<BlogDetailPage />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/franchise" element={<Franchise />} />
-        <Route path="/internship" element={<Internship/>}/>
+<Route path="/" element={<Hero />} />
+        <Route path="/franchise" element={<Franchise />} />        <Route path="/internship" element={<Internship/>}/>
         <Route path='/marketing' element={<MarketChart/>}/>
         <Route path='/internshipform' element={<InternshipForm/>}/>
         <Route path='/roicalculator' element={<ROICalculator/>}/>
