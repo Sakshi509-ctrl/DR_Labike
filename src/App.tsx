@@ -32,7 +32,8 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/contact" element={<Contact />} />
 <Route path="/" element={<Hero />} />
-        <Route path="/franchise" element={<Franchise />} />        <Route path="/internship" element={<Internship/>}/>
+        <Route path="/franchise" element={<Franchise />} />    
+            <Route path="/internship" element={<Internship/>}/>
         <Route path='/marketing' element={<MarketChart/>}/>
         <Route path='/internshipform' element={<InternshipForm/>}/>
         <Route path='/roicalculator' element={<ROICalculator/>}/>
