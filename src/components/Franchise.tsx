@@ -141,19 +141,19 @@ const FranchisePage = () => {
 
         <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-xs h-52 transition-transform duration-200 hover:shadow-2xl hover:scale-105 active:scale-95 cursor-pointer">
           <h2 className="text-xl font-semibold text-gray-500">Initial Investment</h2>
-          <p className="text-5xl font-generic text-[#1A2B5B] mt-2">₹<CountUp end={500000} duration={2.5} formattingFn={value => value.toLocaleString('en-IN')} /></p>
+          <p className="text-5xl font-generic text-[#1A2B5B] mt-2">₹<CountUp end={500000} duration={3.5} formattingFn={value => value.toLocaleString('en-IN')} /></p>
           <p className="text-sm text-gray-500 mt-1">To start your own diagnostic lab</p>
         </div>
 
         <div className="bg-white shadow-lg rounded-xl border-4 border-green-500 p-6 w-full max-w-sm h-52 transition-transform duration-200 hover:shadow-2xl hover:scale-105 active:scale-95 cursor-pointer">
           <h2 className="text-xl font-semibold text-gray-500 ">Total Business Worth</h2>
-          <p className="text-5xl font-generic text-green-500 mt-2">₹<CountUp end={12000000} duration={2.5} formattingFn={value => value.toLocaleString('en-IN')} /></p>
+          <p className="text-5xl font-generic text-green-500 mt-2">₹<CountUp end={12000000} duration={3.5} formattingFn={value => value.toLocaleString('en-IN')} /></p>
           <p className="text-sm text-gray-500 mt-1">With our 360° comprehensive support</p>
         </div>
 
         <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-xs h-52 transition-transform duration-200 hover:shadow-2xl hover:scale-105 active:scale-95 cursor-pointer">
           <h2 className="text-xl font-semibold text-gray-500">Earning Potential</h2>
-          <p className="text-5xl font-generic  text-[#1A2B5B] mt-2">₹<CountUp end={2100000} duration={2.5} formattingFn={value => value.toLocaleString('en-IN')} /></p>
+          <p className="text-5xl font-generic  text-[#1A2B5B] mt-2">₹<CountUp end={2100000} duration={3.5} formattingFn={value => value.toLocaleString('en-IN')} /></p>
           <p className="text-sm text-gray-500 mt-1">Projected over the first 3 years</p>
         </div>
 
