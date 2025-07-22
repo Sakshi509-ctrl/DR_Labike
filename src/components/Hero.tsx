@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
           </p>
           <button
             className="bg-teal-700 hover:bg-teal-800 text-white font-bold px-4 py-2 shadow-lg text-xl transition-colors flex items-center mb-16 mt-1"
-            onClick={() => window.open('/franchise', '_self')}
+            onClick={() => window.open('/franchise', '_blank')}
           >
             Book Your Franchise
             <ChevronRight size={18} />
