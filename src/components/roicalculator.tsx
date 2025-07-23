@@ -43,7 +43,7 @@ const ROICalculator = () => {
   return (
     <div className="mt-10 px-4">
       <div className="flex flex-wrap justify-center gap-2">
-        {[200, 300, 400, 500, 600].map((num) => (
+        {[200, 300, 400, 500].map((num) => (
           <button
             key={num}
             className={`rounded-full px-6 py-3 border-2 font-bold text-base shadow transition-colors duration-200 ${
@@ -56,6 +56,19 @@ const ROICalculator = () => {
             {num} Patients/Month
           </button>
         ))}
+      </div>
+      <div className="flex justify-center mt-8">
+        <button
+          key={600}
+          className={`rounded-full px-6 py-3 border-2 font-bold text-base shadow transition-colors duration-200 ${
+            selectedPatients === 600
+              ? "bg-[#1A2B5B] text-white border-blue-900"
+              : "bg-white text-[#1a2a5c] border-blue-500"
+          }`}
+          onClick={() => setSelectedPatients(600)}
+        >
+          600 Patients/Month
+        </button>
       </div>
 
       <div className="flex flex-col md:flex-row justify-center items-center gap-12 mt-14 md:ml-20 ">
