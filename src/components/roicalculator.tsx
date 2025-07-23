@@ -41,7 +41,7 @@ const ROICalculator = () => {
   ];
 
   return (
-    <div className="mt-10 px-4">
+    <div className="mt-10 px-4 ml-16">
       <div className="flex flex-wrap justify-center gap-2">
         {[200, 300, 400, 500].map((num) => (
           <button
