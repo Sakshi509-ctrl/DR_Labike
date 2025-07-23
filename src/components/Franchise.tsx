@@ -129,7 +129,7 @@ const FranchisePage = () => {
         <span className="text-[#1A2B5B]">Diagnostics Franchise</span>
       </h1>
 
-      
+                                                      
       <p className="text-lg text-gray-600 max-w-3xl mx-auto mt-4">
         A unique investment opportunity at the intersection of healthcare, franchising,
         and mobile technology. We empower entrepreneurs while making healthcare

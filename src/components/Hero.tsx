@@ -1,32 +1,31 @@
 import React, {useEffect } from 'react';
 import { ChevronRight } from "lucide-react";
 import { FacebookIcon, Instagram, Twitter, Youtube } from 'lucide-react';
-import nitish from '../../public/assets/Dr-Nitish-Kumar-257x300-DeIa8Lqu.png';
-import prafulla  from '../../public/assets/Dr.-Prafulla-J-Vishwanath-257x300-khka6hZz.png';
-import Rahul from '../../public/assets/Dr.-Rahul-Chandola-1-257x300-BvFZlWBM.png';
-import uday from '../../public/assets/dr-uday-Singh-257x300-iH-_WO_P.png';
-import sumit from '../../public/assets/Dr-sumit-sinha-257x300-DKm4FRiM.png';
-import mission from '../../public/assets/Mision-transformed-DTFoFgIL.png';
-import ud from '../../public/assets/ud-DqITPYgu.png';
-import bike from '../../public/assets/covered bike-Cb-8W9N2.png';
-import fda from '../../public/assets/fda.png';
-import icmr from '../../public/assets/icmrlogo-CbLuBsVi.jpg';
-import dst from '../../public/assets/DST-Dyr2yFDx.jpg';
-import nhsrc from '../../public/assets/NHSRC-logo-DXnlp4AW.jpg';
-import best from '../../public/assets/drlabikehealthbest-9mmz_beN.png';
-import health from '../../public/assets/DrLabike-health-DZGag8WP.jpeg';
-import client from '../../public/assets/Client-slide-1-1536x873-8fGei4z6.png';
-import logo from '../../public/assets/DrLabike-New-logo-trans (1)-D1SuIxFX.png';
-import deepti from '../../public/assets/deepti-Dtk-3Eof.png';
-import lubna from '../../public/assets/lubna-CI65w_dL.png';
-import achieve from '../../public/assets/achievements-CW_-_m4F.png';
-import i1 from '../../public/assets/i1-BPfNmFtl.png';
-import i from '../../public/assets/i-BF82gZgm.jpg';
-import gp from '../../public/assets/gp-BFRtjq6f.png';
-import sc from '../../public/assets/Qr.png';
-import app from '../../public/assets/apple-store-1-2048x741-Dk-V0vDI.png';
-import google from '../../public/assets/Google-Symbol-CcZVZOAF.png';
-
+const nitish = "/assets/Dr-Nitish-Kumar-257x300-DeIa8Lqu.png";
+const prafulla  = "/assets/Dr.-Prafulla-J-Vishwanath-257x300-khka6hZz.png";
+const Rahul = "/assets/Dr.-Rahul-Chandola-1-257x300-BvFZlWBM.png";
+const uday = "/assets/dr-uday-Singh-257x300-iH-_WO_P.png";
+const sumit = "/assets/Dr-sumit-sinha-257x300-DKm4FRiM.png";
+const mission = "/assets/Mision-transformed-DTFoFgIL.png";
+const ud = "/assets/ud-DqITPYgu.png";
+const bike = "/assets/covered bike-Cb-8W9N2.png";
+const fda = "/assets/fda.png";
+const icmr = "/assets/icmrlogo-CbLuBsVi.jpg";
+const dst = "/assets/DST-Dyr2yFDx.jpg";
+const nhsrc = "/assets/NHSRC-logo-DXnlp4AW.jpg";
+const best = "/assets/drlabikehealthbest-9mmz_beN.png";
+const health = "/assets/DrLabike-health-DZGag8WP.jpeg";
+const client = "/assets/Client-slide-1-1536x873-8fGei4z6.png";
+const logo = "/assets/DrLabike-New-logo-trans (1)-D1SuIxFX.png";
+const deepti = "/assets/deepti-Dtk-3Eof.png";
+const lubna = "/assets/lubna-CI65w_dL.png";
+const achieve = "/assets/achievements-CW_-_m4F.png";
+const i1 = "/assets/i1-BPfNmFtl.png";
+const i = "/assets/i-BF82gZgm.jpg";
+const gp = "/assets/gp-BFRtjq6f.png";
+const sc = "/assets/Qr.png";
+const app = "/assets/apple-store-1-2048x741-Dk-V0vDI.png";
+const google = "/assets/Google-Symbol-CcZVZOAF.png";
 
 
 const Hero: React.FC = () => {
