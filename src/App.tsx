@@ -23,12 +23,11 @@ function App() {
       <Sidebar />
       <ContactSidebar />
       <Routes>
-        
-        <Route path="/" element={<><Header /><Home/></>} />
-
-        <Route path="/testimonials" element={<TestimonialPage />} />
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/" element={<><Header /><Home/></>} />
+        <Route path='/' element={<Sidebar/>}/>
+        <Route path="/testimonials" element={<TestimonialPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/blogs/:id" element={<BlogDetailPage />} />
