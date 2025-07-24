@@ -4,146 +4,108 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const navigate = useNavigate();
+
   return (
-    <>
-      <header className="w-full bg-white">
-       
-        <div className="w-full bg-white text-sm">
-          <div className="max-w-8xl mx-auto flex justify-between items-center py-2 ml-0">
-            <div className="flex items-center text-gray-600 font-serif font-bold ml-24 mt-2">
-              <div className="flex items-center gap-4 text-gray-600 text-2xl">
-                <a href="https://www.facebook.com/drlabike" target="_blank" rel="noopener noreferrer">
-                  <img src="/assets/facebook-icon-hd-1.jpg" alt="Facebook" className="w-7 h-7 rounded-full" />
-                </a>
-                <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fdrlabike%2F&is_from_rle">
-                  <img src="/assets/insta.png" alt="Instagram" className="w-7 h-7 rounded-full" />
-                </a>
-                <a href="https://x.com/account/access">
-                  <img src="/assets/twitter.jpeg" alt="Twitter" className="w-7 h-7 rounded-full" />
-                </a>
-                <a href="https://www.linkedin.com/company/drlabike/?trk=public_profile_topcard-current-company&originalSubdomain=in">
-                  <img src="/assets/linkedin.jpeg" alt="LinkedIn" className="w-7 h-7 rounded-full" />
-                </a>
-                <a href="https://www.youtube.com/channel/UC9k-Me74MlQOgsmRWObyh6Q" target="_blank" rel="noopener noreferrer">
-                  <img src="/assets/utube.jpeg" alt="YouTube" className="w-7 h-7 rounded-full" />
-                </a>
-              </div>
-              <span className="ml-6 text-blue-800 font-generic flex items-center">+91-706-555-0214</span>
-            </div>
-           
-            <div className="relative w-72 mr-16 font-serif font-bold">
-              <input
-              type="text"
-              placeholder="Type & Hit Enter..."
-              className="w-full h-11 border px-4 py-2 pr-10 text-base focus:outline-none focus:ring-2 focus:ring-blue-200 bg-gray-100 placeholder-gray-400 font-serif font-bold"
-              />
-              
-               <button className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-800">
-              <Search className="w-5 h-5" />
-              </button>
-            </div>
-          </div>
+    <header className="w-full bg-white">
+      {/* Top Bar */}
+      <div className="w-full bg-white">
+  {/* Top Bar */}
+  <div className="bg-white text-sm px-4">
+    <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 py-2">
+      {/* Social Icons & Phone */}
+      <div className="flex flex-wrap items-center gap-3 text-gray-600 font-serif font-bold">
+        <div className="flex items-center gap-2 text-xl">
+          {/* Social icons */}
+          <a href="https://www.facebook.com/drlabike" target="_blank" rel="noreferrer">
+            <img src="/assets/facebook-icon-hd-1.jpg" alt="Facebook" className="w-5 h-5 rounded-full" />
+          </a>
+          <a href="https://www.instagram.com/drlabike/">
+            <img src="/assets/insta.png" alt="Instagram" className="w-5 h-5 rounded-full" />
+          </a>
+          <a href="https://x.com/account/access">
+            <img src="/assets/twitter.jpeg" alt="Twitter" className="w-5 h-5 rounded-full" />
+          </a>
+          <a href="https://www.linkedin.com/company/drlabike/" target="_blank" rel="noreferrer">
+            <img src="/assets/linkedin.jpeg" alt="LinkedIn" className="w-5 h-5 rounded-full" />
+          </a>
+          <a href="https://www.youtube.com/channel/UC9k-Me74MlQOgsmRWObyh6Q" target="_blank" rel="noreferrer">
+            <img src="/assets/utube.jpeg" alt="YouTube" className="w-5 h-5 rounded-full" />
+          </a>
         </div>
-        
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 font-serif font-bold">
-        
-          <div className="flex items-center space-x-80 min-w-[290px] ml-16">
-            <img src="https://drlabike.com/wp-content/uploads/2020/08/DrLabike-New-logo-trans.png" alt="DrLaBike Logo" className="h-20 w-35 object-contain" />
-            <div className="flex flex-col leading-tight">
-             
-            </div>
-          </div>
-         
-          <nav className="flex-1 flex justify-center">
-            <ul className="flex space-x-4 whitespace-nowrap">
-              <li>
-                <NavLink
-                  to="/"
-                  end
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-blue-600 font-bold fous:outline-none"
-                      : "text-black font-normal hover:text-blue-400 focus:outline-none"
-                  }
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/about"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-blue-600 mr-2 font-normal focus:outline-none"
-                      : "text-black font-normal hover:text-blue-400 focus:outline-none"
-                  }
-                >
-                  About Us
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/testimonials"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-blue-600 font-normal focus:outline-none"
-                      : "text-black font-normal hover:text-blue-400 focus:outline-none"
-                  }
-                >
-                  Testimonials
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/gallery"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-blue-600 font-normal focus:outline-none"
-                      : "text-black font-normal hover:text-blue-400 focus:outline-none"
-                  }
-                >
-                  Gallery
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/blogs"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-blue-600 font-normal focus:outline-none"
-                      : "text-black font-normal hover:text-blue-400 focus:outline-none"
-                  }
-                >
-                  Blogs
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/contact"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "text-blue-600 font-normal focus:outline-none"
-                      : "text-black font-normal hover:text-blue-400 focus:outline-none"
-                  }
-                >
-                  Contact Us
-                </NavLink>
-              </li>
-            </ul>
-          </nav>
-          {/* Buttons */}
-          <div className="flex items-center space-x-4 min-w-[220px] justify-end font-serif font-bold">
-            {/* Internship Button */}
-            <button className="bg-[#a05a07] text-white border-2 border-[#a05a07] font-bold px-2 py-4 pl-4 pr-4 mr-2 rounded transition-colors text-sm tracking-wide hover:bg-white hover:text-[#a05a07] active:bg-white active:text-[#a05a07] ml-8" onClick={() => navigate('/internship')}>INTERNSHIP</button>
+        <span className="text-blue-800 text-sm ml-3">+91-706-555-0214</span>
+      </div>
 
-            {/* Book Now Button */}
-            <button className="bg-blue-700 text-white border-2 border-blue-700 font-bold px-0 py-4 pl-4 pr-4 rounded transition-colors text-sm tracking-wide hover:bg-white hover:text-blue-700 active:bg-white active:text-blue-700 ">BOOK NOW</button>
-          </div>
-        </div>
-        {/* Hero Section */}
+      {/* Search Bar */}
+      <div className="relative w-full sm:w-72">
+        <input
+          type="text"
+          placeholder="Type & Hit Enter..."
+          className="w-full h-9 border px-3 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 bg-gray-100 placeholder-gray-400 font-serif"
+        />
+        <button className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-800">
+          <Search className="w-4 h-4" />
+        </button>
+      </div>
+    </div>
+  </div>
 
-      </header>
-    </>
+  {/* Main Header */}
+  <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+    {/* Logo */}
+    <div className="flex justify-center lg:justify-start">
+      <img
+        src="https://drlabike.com/wp-content/uploads/2020/08/DrLabike-New-logo-trans.png"
+        alt="DrLaBike Logo"
+        className="h-14 w-auto object-contain"
+      />
+    </div>
+
+    {/* Nav Links */}
+    <nav className="w-full">
+      <ul className="flex flex-wrap justify-center gap-3 text-sm font-serif">
+        {[
+          { to: "/", label: "Home" },
+          { to: "/about", label: "About Us" },
+          { to: "/testimonials", label: "Testimonials" },
+          { to: "/gallery", label: "Gallery" },
+          { to: "/blogs", label: "Blogs" },
+          { to: "/contact", label: "Contact Us" },
+        ].map(({ to, label }) => (
+          <li key={to}>
+            <NavLink
+              to={to}
+              end={to === "/"}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-blue-600 font-bold"
+                  : "text-black hover:text-blue-500 transition-colors"
+              }
+            >
+              {label}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    {/* Buttons */}
+    <div className="flex flex-col sm:flex-row items-center gap-2 justify-center">
+      <button
+        className="bg-[#a05a07] text-white border border-[#a05a07] px-4 py-1.5 rounded text-sm hover:bg-white hover:text-[#a05a07] transition-colors"
+        onClick={() => navigate('/internship')}
+      >
+        INTERNSHIP
+      </button>
+      <button
+        className="bg-blue-700 text-white border border-blue-700 px-4 py-1.5 rounded text-sm hover:bg-white hover:text-blue-700 transition-colors"
+      >
+        BOOK NOW
+      </button>
+    </div>
+  </div>
+</div>
+
+    </header>
   );
 };
 

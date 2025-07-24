@@ -66,6 +66,7 @@ const healthScreeningOptions = [
 const FranchisePage = () => {
   const navigate = useNavigate();
   const [selectedScreening, setSelectedScreening] = useState(healthScreeningOptions[4]);
+  const [menuOpen, setMenuOpen] = useState(false); // Add menuOpen state
   const marketRef = useRef<HTMLDivElement>(null);
   const roiRef = useRef<HTMLDivElement>(null);
   const offerRef = useRef<HTMLDivElement>(null);
@@ -74,19 +75,33 @@ const FranchisePage = () => {
 <>
     <div className="bg-[#f8fcfb] min-h-screen text-center mt-0 pt-0 py-12 px-0">
       <header className="w-full bg-white shadow mt-0">
-        <div className="flex items-center justify-between px-12 py-6">
-          
-          <div className="text-2xl font-bold">
+        <div className="flex flex-col md:flex-row items-center justify-between px-4 md:px-12 py-4 md:py-6 relative">
+          {/* Logo */}
+          <div className="text-2xl font-bold mb-2 md:mb-0">
             <span className="text-[#1a2a5c]">DR</span>{" "}
             <span className="text-green-600">Labike</span>
           </div>
 
-          <nav>
-            <ul className="flex gap-12 text-gray-600 text-1xl font-normal">
+          {/* Hamburger for mobile */}
+          <div className="md:hidden absolute right-4 top-4">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="focus:outline-none"
+              aria-label="Toggle navigation"
+            >
+              <svg className="w-7 h-7 text-[#1a2a5c]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 8h16M4 16h16"} />
+              </svg>
+            </button>
+          </div>
+
+          {/* Nav Links */}
+          <nav className={`w-full md:w-auto ${menuOpen ? "block" : "hidden"} md:block`}>
+            <ul className="flex flex-col md:flex-row gap-4 md:gap-12 text-gray-600 text-lg font-normal items-center">
               <li>
                 <button
                   className="focus:outline-none"
-                  onClick={() => marketRef.current?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => { setMenuOpen(false); marketRef.current?.scrollIntoView({ behavior: 'smooth' }); }}
                 >
                   Opportunity
                 </button>
@@ -94,7 +109,7 @@ const FranchisePage = () => {
               <li>
                 <button
                   className="focus:outline-none"
-                  onClick={() => roiRef.current?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => { setMenuOpen(false); roiRef.current?.scrollIntoView({ behavior: 'smooth' }); }}
                 >
                   ROI Calculator
                 </button>
@@ -102,7 +117,7 @@ const FranchisePage = () => {
               <li>
                 <button
                   className="focus:outline-none"
-                  onClick={() => offerRef.current?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => { setMenuOpen(false); offerRef.current?.scrollIntoView({ behavior: 'smooth' }); }}
                 >
                   The Offer
                 </button>
@@ -110,7 +125,7 @@ const FranchisePage = () => {
               <li>
                 <button
                   className="focus:outline-none"
-                  onClick={() => servicesRef.current?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => { setMenuOpen(false); servicesRef.current?.scrollIntoView({ behavior: 'smooth' }); }}
                 >
                   Services
                 </button>
@@ -118,9 +133,12 @@ const FranchisePage = () => {
             </ul>
           </nav>
 
-          <button className="bg-[#1a2a5c] text-white text-1xl font-normal rounded-full px-10 py-3" onClick={() => navigate('/Contact')}>
-            Invest Now  
-          </button>
+          {/* Button */}
+          <div className="mt-4 md:mt-0">
+            <button className="bg-[#1a2a5c] text-white text-lg font-normal rounded-full px-6 py-2" onClick={() => { setMenuOpen(false); navigate('/Contact'); }}>
+              Invest Now  
+            </button>
+          </div>
         </div>
       </header>
      

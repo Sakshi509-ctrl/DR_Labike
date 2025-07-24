@@ -13,13 +13,13 @@ const Internship = () => {
       <div className="px-6 md:px-16  bg-[#ffffff] text-[#2e2e2e]">
         <div className="flex flex-col lg:flex-row items-center">
 
-          <div className="w-full lg:w-1/2 ml-16">
-            <img
-              src="/assets/intern.png"
-              alt="Internship"
-              className=" max-w-lg mx-auto h-96 object-contain"
-            />
-          </div>
+        <div className="w-full lg:w-1/2 px-4 lg:ml-16 mb-8 lg:mb-0">
+  <img
+    src="/assets/intern.png"
+    alt="Internship"
+    className="w-full max-w-md mx-auto h-auto object-contain"
+  />
+</div>
 
           
           <div className="w-full lg:w-1/2 text-left  max-w-md space-y-4 ">

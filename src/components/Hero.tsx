@@ -36,231 +36,299 @@ const Hero: React.FC = () => {
 
   return (
     <>
-      <section className="relative flex items-center min-h-[60vh] bg-gradient-to-r from-cyan-200 via-blue-50 to-white overflow-hidden">
-        
-        <div className="flex-1 pl-16 pt-4  ">
-          <h1 className="text-5xl font-bold text-purple-900 leading-tight mb-2">
-            Join The Healthcare<br />
-            <span className="block mt-4">Revolution With</span>
-            <span className="block text-red-700 mt-6 text-5xl font-extrabold">DrLaBike !</span>
-          </h1>
-          <p className="text-2xl font-bold text-gray-700 mt-5 mb-3">
-            Portable Pathology Lab With Online Doctor Consultations
-          </p>
-          <button
-            className="bg-teal-700 hover:bg-teal-800 text-white font-bold px-4 py-2 shadow-lg text-xl transition-colors flex items-center mb-16 mt-1"
-            onClick={() => window.open('/franchise', '_self')}
-          >
-            Book Your Franchise
-            <ChevronRight size={18} />
-          </button>
-        </div>
-        <div className="flex-1 flex justify-end items-end h-full">
-          <img
-            src={mission}
-            alt="Doctors"
-            className="object-contain h-full max-h-[500px] mr-24 relative z-10"
-            style={{ minWidth: '400px' }}
-          />
-        </div>
-      </section>
+      <section className="relative flex flex-col-reverse lg:flex-row items-center min-h-[60vh] bg-gradient-to-r from-cyan-200 via-blue-50 to-white overflow-hidden px-4 sm:px-8 lg:px-16 py-10">
+  {/* Left Side Content */}
+  <div className="flex-1 text-center lg:text-left pt-6">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-purple-900 leading-tight mb-4">
+      Join The Healthcare
+      <span className="block mt-2">Revolution With</span>
+      <span className="block text-red-700 mt-4 font-extrabold text-4xl sm:text-5xl">DrLaBike !</span>
+    </h1>
+    <p className="text-lg sm:text-xl font-semibold text-gray-700 mt-4 mb-5">
+      Portable Pathology Lab With Online Doctor Consultations
+    </p>
+    <button
+      className="bg-teal-700 hover:bg-teal-800 text-white font-bold px-6 py-3 text-lg sm:text-xl shadow-lg transition-colors flex items-center mx-auto lg:mx-0"
+      onClick={() => window.open('/franchise', '_self')}
+    >
+      Book Your Franchise
+      <ChevronRight size={20} className="ml-2" />
+    </button>
+  </div>
+
+  {/* Right Side Image */}
+  <div className="flex-1 flex justify-center lg:justify-end items-end h-full mb-8 lg:mb-0">
+    <img
+      src={mission}
+      alt="Doctors"
+      className="object-contain max-h-[300px] sm:max-h-[400px] md:max-h-[500px] w-full max-w-[400px]"
+    />
+  </div>
+</section>
+
      
-      <div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-0 px-7 md:px-14 mb-8 -mt-12 relative z-30">
-       
-        <div className="flex-1 bg-teal-700 text-white rounded-l-2xl shadow-lg p-4 flex flex-col items-center text-center min-h-[140px]">
-          <div className="bg-white text-teal-700 rounded-full p-4 shadow-lg mb-3">
-           
-            <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm0 0v2m0 4h.01M21 21v-2a4 4 0 00-3-3.87M3 21v-2a4 4 0 013-3.87' />
-            </svg>
-          </div>
-          <h3 className="text-lg font-serif font-bold mb-2">Doctor Consultation</h3>
-          <p className="text-">Get Doctor consultation for your health concerns from verified doctors at DrLaBike Clinic without having to travel. Starting at just INR 50/-.</p>
-        </div>
-       
-        <div className="flex-1 bg-cyan-500 text-white rounded-none shadow-lg p-4 flex flex-col items-center text-center min-h-[160px]">
-          <div className="bg-white text-cyan-600 rounded-full p-4 shadow-lg mb-3">
-          
-            <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-              <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 17V7a2 2 0 114 0v10a4 4 0 11-4 0z' />
-            </svg>
-          </div>
-          <h3 className="text-lg font-bold mb-2">Pathology Tests</h3>
-          <p className="text-base">Get instant and accurate diagnostic services (Pathology tests) at a super affordable cost from DrLaBike clinic.</p>
-        </div>
-       
-        <div className="flex-1 bg-indigo-800 text-white rounded-r-2xl shadow-lg p-4 flex flex-col items-center text-center min-h-[160px]">
-          <div className="bg-white text-indigo-700 rounded-full p-4 shadow-lg mb-3">
-           
-            <svg xmlns='http://www.w3.org/2000/svg' className='h-16 w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-              <rect x='4' y='7' width='16' height='13' rx='2' stroke='currentColor' strokeWidth='2' fill='none'/>
-              <path d='M9 17h6M12 14v6' stroke='currentColor' strokeWidth='2' strokeLinecap='round'/>
-              <rect x='9' y='10' width='6' height='4' rx='1' stroke='currentColor' strokeWidth='2' fill='none'/>
-            </svg>
-          </div>
-          <h3 className="text-lg font-bold mb-2">Contact</h3>
-          <p className="text-base"><span className="block mb-1">📞 +91-70655-50214, Support@drlabike.com</span>📍 424-CMR Building, Near MCD School, Ghitorni, New Delhi-30</p>
-        </div>
-      </div>
+<div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-4 px-4 md:px-14 mb-8 -mt-12 relative z-30">
+  {/* Doctor Consultation */}
+  <div className="flex-1 bg-teal-700 text-white rounded-2xl md:rounded-l-2xl md:rounded-r-none shadow-lg p-6 flex flex-col items-center text-center min-h-[180px]">
+    <div className="bg-white text-teal-700 rounded-full p-4 shadow-lg mb-4">
+      <svg xmlns='http://www.w3.org/2000/svg' className='h-14 w-14 md:h-16 md:w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 11c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm0 0v2m0 4h.01M21 21v-2a4 4 0 00-3-3.87M3 21v-2a4 4 0 013-3.87' />
+      </svg>
+    </div>
+    <h3 className="text-lg font-serif font-bold mb-2">Doctor Consultation</h3>
+    <p className="text-sm sm:text-base px-2">Get consultation for your health concerns from verified doctors at DrLaBike Clinic. Starting at just INR 50/-.</p>
+  </div>
+
+  {/* Pathology Tests */}
+  <div className="flex-1 bg-cyan-500 text-white rounded-2xl shadow-lg p-6 flex flex-col items-center text-center min-h-[180px]">
+    <div className="bg-white text-cyan-600 rounded-full p-4 shadow-lg mb-4">
+      <svg xmlns='http://www.w3.org/2000/svg' className='h-14 w-14 md:h-16 md:w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 17V7a2 2 0 114 0v10a4 4 0 11-4 0z' />
+      </svg>
+    </div>
+    <h3 className="text-lg font-bold mb-2">Pathology Tests</h3>
+    <p className="text-sm sm:text-base px-2">Instant & accurate pathology tests at a super affordable cost at DrLaBike Clinic.</p>
+  </div>
+
+  {/* Contact */}
+  <div className="flex-1 bg-indigo-800 text-white rounded-2xl md:rounded-r-2xl md:rounded-l-none shadow-lg p-6 flex flex-col items-center text-center min-h-[180px]">
+    <div className="bg-white text-indigo-700 rounded-full p-4 shadow-lg mb-4">
+      <svg xmlns='http://www.w3.org/2000/svg' className='h-14 w-14 md:h-16 md:w-16' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+        <rect x='4' y='7' width='16' height='13' rx='2' stroke='currentColor' strokeWidth='2' fill='none'/>
+        <path d='M9 17h6M12 14v6' stroke='currentColor' strokeWidth='2' strokeLinecap='round'/>
+        <rect x='9' y='10' width='6' height='4' rx='1' stroke='currentColor' strokeWidth='2' fill='none'/>
+      </svg>
+    </div>
+    <h3 className="text-lg font-bold mb-2">Contact</h3>
+    <p className="text-sm sm:text-base px-2">
+      📞 +91-70655-50214<br />
+      📧 support@drlabike.com<br />
+      📍 424-CMR Building, Near MCD School, Ghitorni, New Delhi-30
+    </p>
+  </div>
+</div>
+
      
-      <div className="w-full flex flex-col md:flex-row justify-between items-start gap-8 my-4">
-       
-        <div className="flex-1 mt-8 text-black text-0lg font-serif md:pr-8 leading-relaxed ml-16 text-justify">
-          <p><b>DrLaBike</b> Portable Pathology Lab enables doorstep diagnostics services with online Doctor Consultations to deprived Rural & demographically remote village population who lack easy access & timely healthcare services. It’s the only available solution to provide<br/> “Last Mile Delivery” <br/><br/>of healthcare services.</p>
-          <p className="mt-6">DrLaBike enables online doctor consultations to a villager in rural/remote location by experienced and multispecialty doctors at affordable rates. Timely diagnosis, timely treatment & timely medication within the village prevents expensive travel, stay & treatment cost of the metros.</p>
-          
-          <div className="w-full flex flex-row justify-center items-center gap-16 mt-8 whitespace-nowrap">
-          
+<div className="w-full flex flex-col lg:flex-row justify-between items-start gap-8 my-8 px-4 lg:px-16">
+  {/* Text Section */}
+  <div className="flex-1 mt-4 text-black text-base font-serif leading-relaxed text-justify">
+    <p>
+      <b>DrLaBike</b> Portable Pathology Lab enables doorstep diagnostics services with online Doctor Consultations to deprived Rural & demographically remote village population who lack easy access & timely healthcare services. It’s the only available solution to provide
+      <br /> <strong>“Last Mile Delivery”</strong> <br />
+      <br />
+      of healthcare services.
+    </p>
+    <p className="mt-6">
+      DrLaBike enables online doctor consultations to a villager in rural/remote location by experienced and multispecialty doctors at affordable rates. Timely diagnosis, timely treatment & timely medication within the village prevents expensive travel, stay & treatment cost of the metros.
+    </p>
 
-            <div className="flex items-center">
-              <span className="text-2xl text-gray-700 mr-2">&#9654;</span>
-              <span className="text-1xl font-bold font-serif ">PATHOLOGY LAB</span>
-            </div>
-           
-          
-            <div className="flex items-center">
-              <span className="text-2xl text-gray-700 mr-2">&#9654;</span>
-              <span className="text-1xl font-bold font-serif">TELEMEDICINE</span>
-            </div>
-          
+    {/* Features Row */}
+    <div className="w-full flex flex-wrap justify-center md:justify-start items-center gap-6 mt-8">
+      {["PATHOLOGY LAB", "TELEMEDICINE", "MEDICINE"].map((label) => (
+        <div className="flex items-center" key={label}>
+          <span className="text-2xl text-gray-700 mr-2">&#9654;</span>
+          <span className="text-lg font-bold font-serif">{label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
 
-            <div className="flex items-center">
-              <span className="text-2xl text-gray-700 mr-2">&#9654;</span>
-              <span className="text-1xl font-bold font-serif">MEDICINE</span>
-            </div>
-          </div>
-        </div>
-   
-        <div className="flex-1 flex justify-center items-center mr-14">
-          <iframe width="100%" height="500" src="https://www.youtube.com/embed/fQ4oBvrEpkQ" title="DrLaBike e-Clinic & Lab tour" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className= "shadow-lg"></iframe>
-        </div>
-      </div>
+  {/* Video Section */}
+  <div className="flex-1 flex justify-center items-center mt-8 lg:mt-0">
+    <div className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px]">
+      <iframe
+        className="w-full h-full shadow-lg rounded-xl"
+        src="https://www.youtube.com/embed/fQ4oBvrEpkQ"
+        title="DrLaBike e-Clinic & Lab tour"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    </div>
+  </div>
+</div>
+
       
       
-      <div className="w-full flex flex-col items-center my-12 px-2">
-        <h2 className="text-4xl font-serif font-bold text-center mb-8 pb-2  inline-block">Franchise Model</h2>
-        <div className="flex flex-row w-full max-w-5xl gap-8 items-start justify-start">
-          
-          <table className="bg-white rounded-2xl shadow-2xl w-1/2 ml-0">
-            <thead>
-              <tr>
-                <th className="text-2xl font-serif font-bold shadow-2xl text-center mb-2 pb-4">Advanced <span className='underline'>Static</span> Lab</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="text-black text-0xl">
-                  <ol className="list-decimal pl-12 space-y-1">
-                    <li><span className="font-bold text-red-700">ADVANCED STATIC LAB</span> <span className="font-semibold">(Complete Lab Setup)</span></li>
-                    <li className="font-serif font-bold">IT Support</li>
-                    <li className="font-serif font-bold">Customer Support</li>
-                    <li className="font-serif font-bold">Skill Support</li>
-                    <li className="font-serif font-bold">Free of cost Digital marketing <span className="text-red-700">(6 months)</span></li>
-                    <li className="font-serif font-bold">Certifications</li>
-                    <li className="font-serif font-bold">Regularity assistance</li>
-                    <li className="font-serif font-bold">Camp support</li>
-                    <li className="font-serif font-bold">Key account manager</li>
-                    <li className="font-serif font-bold">Quality monitoring assurance</li>
-                    <li className="font-serif font-bold">Bio-waste consultation</li>
-                    <li className="font-serif font-bold">Unlimited Training</li>
-                  </ol>
-                  <div className="pt-2 text-center"><button className="w-40 h-10 bg-blue-700 hover:bg-blue-800 text-white font-bold shadow transition-colors" onClick={() => window.open('/franchise', '_self')}>Read More</button></div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          {/* Right: Image (no table) */}
-          <div className="bg-white rounded-2xl w-1/2 flex justify-center items-start p-4">
-            <img src={ud} alt="Lab" className="max-w-full h-auto rounded-0xl shadow-lg align-top transition-transform duration-200 transform hover:scale-110 hover:shadow-2xl" style={{ maxHeight: '250px', marginTop: 0 }} />
-          </div>
-        </div>
+<div className="w-full flex flex-col items-center my-12 px-4">
+  <h2 className="text-3xl sm:text-4xl font-serif font-bold text-center mb-8 pb-2">
+    Franchise Model
+  </h2>
+
+  <div className="flex flex-col lg:flex-row w-full max-w-6xl gap-8 items-center lg:items-start justify-between">
+    
+    {/* Table Section */}
+    <div className="bg-white rounded-2xl shadow-2xl w-full lg:w-1/2 p-4">
+      <h3 className="text-2xl font-serif font-bold text-center mb-4">
+        Advanced <span className="underline">Static</span> Lab
+      </h3>
+      <ol className="list-decimal pl-6 md:pl-10 space-y-2 text-black text-base">
+        <li>
+          <span className="font-bold text-red-700">ADVANCED STATIC LAB</span>{" "}
+          <span className="font-semibold">(Complete Lab Setup)</span>
+        </li>
+        <li className="font-serif font-bold">IT Support</li>
+        <li className="font-serif font-bold">Customer Support</li>
+        <li className="font-serif font-bold">Skill Support</li>
+        <li className="font-serif font-bold">
+          Free of cost Digital marketing{" "}
+          <span className="text-red-700">(6 months)</span>
+        </li>
+        <li className="font-serif font-bold">Certifications</li>
+        <li className="font-serif font-bold">Regularity assistance</li>
+        <li className="font-serif font-bold">Camp support</li>
+        <li className="font-serif font-bold">Key account manager</li>
+        <li className="font-serif font-bold">Quality monitoring assurance</li>
+        <li className="font-serif font-bold">Bio-waste consultation</li>
+        <li className="font-serif font-bold">Unlimited Training</li>
+      </ol>
+
+      <div className="pt-6 text-center">
+        <button
+          className="w-40 h-10 bg-blue-700 hover:bg-blue-800 text-white font-bold shadow transition-colors"
+          onClick={() => window.open("/franchise", "_self")}
+        >
+          Read More
+        </button>
       </div>
+    </div>
+
+    {/* Image Section */}
+    <div className="w-full lg:w-1/2 flex justify-center items-start p-4">
+      <img
+        src={ud}
+        alt="Lab"
+        className="max-w-full h-auto rounded-xl shadow-lg transition-transform duration-300 transform hover:scale-105"
+        style={{ maxHeight: "300px" }}
+      />
+    </div>
+  </div>
+</div>
+
       
-         <div className="w-full flex flex-col md:flex-row items-start justify-center my-12 gap-8 px-2">
+<div className="w-full flex flex-col md:flex-row items-center justify-center my-12 gap-8 px-4">
+  
+  {/* Left Image */}
+  <div className="w-full md:w-1/2 flex justify-center items-center">
+    <img
+      src={bike}
+      alt="Covered Bike"
+      className="max-w-full h-auto rounded-xl shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl"
+      style={{ maxHeight: '500px' }}
+    />
+  </div>
 
-        <div className="flex-1 flex justify-center items-start">
-          <img src={bike} alt="Covered Bike" className="max-w-full h-auto rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl" style={{ maxHeight: '700px' }} />
-        </div>
+  {/* Right Text Box */}
+  <div className="w-full md:w-1/2 flex justify-center">
+    <div className="bg-white rounded-2xl shadow-2xl w-full max-w-xl p-6 sm:p-8 max-h-[600px] overflow-y-auto">
+      <h2 className="text-2xl sm:text-3xl font-serif font-bold text-center mb-4 pb-2 border-b-2 border-blue-200">
+        DrLaBike
+      </h2>
 
-        <div className="flex-1 flex flex-col items-center">
-          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-6 md:p-8" style={{ maxHeight: '600px', overflowY: 'auto' }}>
-            <h2 className="text-3xl font-serif font-bold text-center mb-3 pb-1 border-b-2 border-blue-200 inline-block w-full">DrLaBike</h2>
-            <ol className="list-decimal pl-4 text-base text-black space-y-3 leading-tight">
-              <li className="font-serif font-bold">DrLaBike (Complete Lab Setup)</li>
-              <li className="font-serif font-bold">Assured actual business- guaranteed income of Rs 60,000/month</li>
-              <li className="font-serif font-bold">Financing support(SBI tie-up National Level)</li>
-              <li className="font-serif font-bold">Smart Device & Printer</li>
-              <li className="font-serif font-bold">DrLaBike Teleconsultation App</li>
-              <li className="font-serif font-bold">Digital stethoscope, BP machine, first aid kit, thermal scanner, otoscope, SPO2 & weighing scale,</li>
-              <li className="font-serif font-bold">Free of cost Digital marketing <span className="text-red-700">(6 months)</span></li>
-              <li className="font-serif font-bold">Reagents, Consumables & disposables</li>
-              <li className="font-serif font-bold">Branding kit (Facade, Pamphlets, Banner& Sun-board)</li>
-              <li className="font-serif font-bold">Certifications</li>
-              <li className="font-serif font-bold">Regularity assistance</li>
-              <li className="font-serif font-bold">Camp support</li>
-              <li className="font-serif font-bold">Key account manager</li>
-              <li className="font-serif font-bold">Quality monitoring assurance</li>
-              <li className="font-serif font-bold">Bio-waste consultation</li>
-              <li className="font-serif font-bold">Unlimited Training</li>
-            </ol>
-            <button className="mt-4 w-32 h-10 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-lg shadow transition-colors mx-auto block text-base" onClick={() => window.open('/franchise', '_self')}>Book Now</button>
-          </div>
-        </div>
+      <ol className="list-decimal pl-5 pr-2 text-base text-black space-y-2 leading-snug">
+        <li className="font-serif font-bold">DrLaBike (Complete Lab Setup)</li>
+        <li className="font-serif font-bold">Assured actual business - guaranteed income of ₹60,000/month</li>
+        <li className="font-serif font-bold">Financing support (SBI tie-up National Level)</li>
+        <li className="font-serif font-bold">Smart Device & Printer</li>
+        <li className="font-serif font-bold">DrLaBike Teleconsultation App</li>
+        <li className="font-serif font-bold">
+          Digital stethoscope, BP machine, first aid kit, thermal scanner, otoscope, SPO2 & weighing scale
+        </li>
+        <li className="font-serif font-bold">
+          Free of cost Digital marketing <span className="text-red-700">(6 months)</span>
+        </li>
+        <li className="font-serif font-bold">Reagents, Consumables & Disposables</li>
+        <li className="font-serif font-bold">Branding kit (Facade, Pamphlets, Banner & Sun-board)</li>
+        <li className="font-serif font-bold">Certifications</li>
+        <li className="font-serif font-bold">Regulatory assistance</li>
+        <li className="font-serif font-bold">Camp support</li>
+        <li className="font-serif font-bold">Key account manager</li>
+        <li className="font-serif font-bold">Quality monitoring assurance</li>
+        <li className="font-serif font-bold">Bio-waste consultation</li>
+        <li className="font-serif font-bold">Unlimited Training</li>
+      </ol>
+
+      <div className="mt-6 text-center">
+        <button
+          className="w-36 h-10 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-lg shadow text-base"
+          onClick={() => window.open('/franchise', '_self')}
+        >
+          Book Now
+        </button>
       </div>
+    </div>
+  </div>
+</div>
 
-      <div className="w-full py-0">
-        <div className="w-full bg-cyan-400 flex items-center justify-center min-h-[110px]">
-          <h2 className="text-5xl font-serif font-bold text-center text-white mb-3">India's Best Doctors Joined Us</h2>
-        </div>
-        <p className="text-center text-1lg font-bold text-black mb-9 mt-5">
-          Doctor on boarded with us (general physician or specialty doctors) which are 200+ in numbers, Patients are getting consulting at affordable price
-        </p>
-      </div>
-      <div className="w-full flex flex-col items-center bg-white pb-8">
 
-        <div className="relative w-full max-w-6xl mx-auto">
-          <div className="flex flex-row items-end justify-center gap-1 min-w-[1000px]">
-            {[
-              { img: nitish},
-              { img: Rahul },
-              { img: prafulla},
-              { img: uday },
-              { img: sumit},
-              { img: nitish},
-            ].map((doc, idx) => (
-              <div key={idx} className="flex flex-col items-center min-w-[160px] max-w-[160px] m-0 p-0">
-                <img src={doc.img} className="w-full h-[180px] object-cover m-0 p-0 rounded-none" />
-                <div className="w-full bg-[#00796b] text-white text-center py-2 px-0 m-0 rounded-none">
-                  <div className="text-base font-extrabold leading-tight"></div>
-                  <div className="text-sm font-semibold leading-tight"></div>
-                  <div className="text-xs font-semibold leading-tight"></div>
-                </div>
-              </div>
-            ))}
-          </div>
+     {/* Section: Heading */}
+<div className="w-full py-0">
+  <div className="w-full bg-cyan-400 flex items-center justify-center min-h-[110px] px-4">
+    <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif font-bold text-center text-white mb-2">
+      India's Best Doctors Joined Us
+    </h2>
+  </div>
+  <p className="text-center text-base sm:text-lg font-semibold text-black mb-6 mt-4 px-4 max-w-3xl mx-auto">
+    Doctors onboarded with us (general physicians and specialists) number over 200+. Patients are getting consultations at affordable prices.
+  </p>
+</div>
 
-          <div className="flex justify-center mt-4 gap-2">
-            {[0,1,2,3,4].map(i => (
-              <span key={i} className={`w-3 h-3 rounded-full ${i===0 ? 'bg-cyan-900' : 'bg-gray-300'} inline-block`}></span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="w-full flex flex-col items-center bg-white pt-2 pb-8">
-        <div className="flex flex-row w-full max-w-6xl mx-auto mb-8 mt-2 items-center justify-between">
-          <div className="flex flex-col">
-            <h3 className="text-3xl font-bold text-gray-600 whitespace-nowrap mb-2" style={{fontFamily: 'inherit'}}>Our Innovations Certification</h3>
-            <div className="border-t-2 border-teal-400 w-1/3"></div>
-          </div>
-          <div className="flex flex-row justify-end items-center gap-12">
-            <img src={fda} alt="FDA" className="h-16 object-contain" />
-            <img src={icmr} alt="ICMR" className="h-16 object-contain" />
-            <img src={dst} alt="DST" className="h-16 object-contain" />
-            <img src={nhsrc} alt="NHSRC" className="h-16 object-contain" />
+{/* Section: Doctor Cards Carousel */}
+<div className="w-full flex flex-col items-center bg-white pb-10">
+  <div className="relative w-full max-w-6xl mx-auto px-4">
+    <div className="flex overflow-x-auto no-scrollbar gap-4 sm:gap-6 justify-start sm:justify-center py-4">
+      {[
+        { img: nitish },
+        { img: Rahul },
+        { img: prafulla },
+        { img: uday },
+        { img: sumit },
+        { img: nitish },
+      ].map((doc, idx) => (
+        <div key={idx} className="flex-shrink-0 w-[160px]">
+          <img src={doc.img} alt={`Doctor ${idx + 1}`} className="w-full h-[180px] object-cover rounded-md shadow" />
+          <div className="bg-[#00796b] text-white text-center py-2 px-1 mt-1 rounded-b-md">
+            <div className="text-base font-bold leading-tight">Dr. Name</div>
+            <div className="text-sm font-medium leading-tight">Specialty</div>
+            <div className="text-xs font-medium leading-tight">Experience</div>
           </div>
         </div>
-      </div>
+      ))}
+    </div>
+
+    {/* Dots Pagination */}
+    <div className="flex justify-center mt-4 gap-2">
+      {[0, 1, 2, 3, 4].map(i => (
+        <span
+          key={i}
+          className={`w-3 h-3 rounded-full ${i === 0 ? 'bg-cyan-900' : 'bg-gray-300'} inline-block`}
+        ></span>
+      ))}
+    </div>
+  </div>
+</div>
+
+{/* Section: Certifications */}
+<div className="w-full flex flex-col items-center bg-white pt-2 pb-10">
+  <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto px-4 mb-6 md:mb-10 items-center justify-between gap-6">
+    {/* Heading */}
+    <div className="flex flex-col text-center md:text-left">
+      <h3 className="text-2xl sm:text-3xl font-bold text-gray-700 mb-2" style={{ fontFamily: 'inherit' }}>
+        Our Innovations Certification
+      </h3>
+      <div className="border-t-2 border-teal-400 w-1/3 mx-auto md:mx-0"></div>
+    </div>
+
+    {/* Logos */}
+    <div className="flex flex-wrap justify-center md:justify-end items-center gap-6">
+      <img src={fda} alt="FDA" className="h-12 sm:h-16 object-contain" />
+      <img src={icmr} alt="ICMR" className="h-12 sm:h-16 object-contain" />
+      <img src={dst} alt="DST" className="h-12 sm:h-16 object-contain" />
+      <img src={nhsrc} alt="NHSRC" className="h-12 sm:h-16 object-contain" />
+    </div>
+  </div>
+</div>
+
 
       <div className="w-full flex flex-col md:flex-row items-stretch justify-center max-w-6xl mx-auto my-12 rounded-2xl overflow-hidden shadow-lg bg-white">
 
@@ -423,95 +491,127 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-            <div className="w-full bg-[#f8fcfb]  shadow p-6 bg-yellow-50  py-4">
-            <h2 className="text-4xl font-bold text-center mb-1" style={{fontFamily: 'serif', textDecoration: 'underline'}}>Our Happy <span className="text-black">Google Reviews</span></h2>
-            <div className="flex flex-col md:flex-row items-center  justify-center gap-4">
+          <div className="w-full bg-yellow-50 shadow py-8 px-4 sm:px-6 lg:px-8">
+  <h2 className="text-3xl sm:text-4xl font-bold text-center mb-6 font-serif underline">
+    Our Happy <span className="text-black">Google Reviews</span>
+  </h2>
 
-              <div className="flex flex-col items-center bg-white min-w-[220px] max-w-[220px]">
-                <img src={logo} alt="DrLaBike Logo" className="w-20 h-20 mb-2" />
-                <div className="text-2xl font-bold mb-1">DrLaBike</div>
-                <div className="flex items-center mb-1">
-                  <span className="text-yellow-400 text-2xl">★★★★★</span>
-                </div>
-                <div className="text-lg font-semibold mb-4">16 Google reviews</div>
-                <a
-                  href="https://www.google.com/maps/place/DrLaBike/@28.4915619,77.1407529,17z/data=!3m1!4b1!4m6!3m5!1s0x390d1f3ed9a57c61:0xd07b35fffdd04998!8m2!3d28.4915619!4d77.1407529!16s%2Fg%2F11rn5dh94z?entry=ttu&g_ep=EgoyMDI1MDcxNi4wIKXMDSoASAFQAw%3D%3D"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded inline-block text-center"
-                >
-                  Write a review
-                </a>
-              </div>
-              <div className="flex flex-row gap-4 overflow-x-auto">
+  <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+    {/* DrLaBike Box */}
+    <div className="flex flex-col items-center bg-white px-6 py-4 shadow rounded-md w-full max-w-xs">
+      <img src={logo} alt="DrLaBike Logo" className="w-20 h-20 mb-2" />
+      <div className="text-2xl font-bold mb-1">DrLaBike</div>
+      <div className="text-yellow-400 text-2xl mb-1">★★★★★</div>
+      <div className="text-lg font-semibold mb-4">16 Google reviews</div>
+      <a
+        href="https://www.google.com/maps/place/DrLaBike/@28.4915619,77.1407529,17z"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded text-center"
+      >
+        Write a review
+      </a>
+    </div>
 
-                <div className="bg-white rounded-xl shadow p-6 min-w-[300px] max-w-[300px] flex flex-col">
-                  <div className="flex items-center mb-2">
-                    <div className="w-12 h-12 rounded-full bg-gray-400 text-white flex items-center justify-center text-xl font-bold mr-3">S</div>
-                    <div>
-                      <div className="font-bold text-lg">SHASHI BHUSHAN <span className="inline-block align-middle ml-1"><img src={google} alt="Google" className="w-7 h-4 inline" /></span></div>
-                      <div className="text-gray-500 text-sm">2022-01-31</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center mb-2">
-                    <span className="text-yellow-400 text-xl">★★★★★</span>
-                    <span className="ml-2"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#2196f3"/><path d="M10.5 14.5l-2-2 1.4-1.4 0.6 0.6 2.6-2.6 1.4 1.4-4 4z" fill="#fff"/></svg></span>
-                  </div>                
-                  
-                </div>
-
-                <div className="bg-white rounded-xl shadow p-6 min-w-[300px] max-w-[300px] flex flex-col">
-                  <div className="flex items-center mb-2">
-                    <img src={deepti} alt="Priya Rani" className="w-12 h-12 rounded-full mr-3 object-cover" />
-                    <div>
-                      <div className="font-bold text-lg">Priya Rani <span className="inline-block align-middle ml-1"><img src={google} alt="Google" className="w-7 h-4 inline" /></span></div>
-                      <div className="text-gray-500 text-sm">2022-01-31</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center mb-2">
-                    <span className="text-yellow-400 text-xl">★★★★★</span>
-                    <span className="ml-2"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#2196f3"/><path d="M10.5 14.5l-2-2 1.4-1.4 0.6 0.6 2.6-2.6 1.4 1.4-4 4z" fill="#fff"/></svg></span>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl shadow p-6 min-w-[300px] max-w-[300px] flex flex-col">
-                  <div className="flex items-center mb-2">
-                    <img src={lubna} alt="Nikita" className="w-12 h-12 rounded-full mr-3 object-cover" />
-                    <div className="w-12 h-12 rounded-full bg-pink-400 text-white flex items-center justify-center text-xl font-bold mr-3">N</div>
-                    <div>
-                      <div className="font-bold text-lg">Nikita Eshtam <span className="inline-block align-middle ml-1"><img src={google} alt="Google" className="w-7 h-4 inline" /></span></div>
-                      <div className="text-gray-500 text-sm">2022-01-31</div>
-                    </div>
-                  </div>
-                  <div className="flex items-center mb-2">
-                    <span className="text-yellow-400 text-xl">★★★★★</span>
-                    <span className="ml-2"><svg width="18" height="18" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#2196f3"/><path d="M10.5 14.5l-2-2 1.4-1.4 0.6 0.6 2.6-2.6 1.4 1.4-4 4z" fill="#fff"/></svg></span>
-                  </div>
-                 
-                </div>
-              </div>
-            </div>
+    {/* Reviews Scroll Container */}
+    <div className="flex overflow-x-auto gap-4 py-4 w-full max-w-full scrollbar-hide">
+      {/* Review Card 1 */}
+      <div className="flex-shrink-0 bg-white rounded-xl shadow p-4 w-[280px]">
+        <div className="flex items-center mb-3">
+          <div className="w-12 h-12 rounded-full bg-gray-400 text-white flex items-center justify-center text-xl font-bold mr-3">
+            S
           </div>
-
-          <div className="w-full bg-[#f8fcfb] py-12">
-            <h2 className="text-4xl  text-center mb-10" style={{fontFamily: 'serif'}}>DrLaBike <span className=" text-black, textDecoration: underline">Achievements</span></h2>
-            <div className="flex flex-col items-center">
-
-              <div className="flex flex-row gap-0 justify-center items-center my-0 w-full px-9">
-                <img src={achieve} alt="Achievement 1" className="object-cover  shadow-lg w-1/3 h-[350px]" />
-                <img src={i1} alt="Achievement 2" className="object-cover  shadow-lg w-1/3 h-[350px]" />
-                <img src={i} alt="Achievement 3" className="object-cover shadow-lg w-1/3 h-[350px]" />
-              </div>
-
-              <div className="flex flex-row items-center justify-center gap-12 w-full mt-4 mb-0">
-                <span className="text-2xl font-extrabold text-purple-900" style={{fontFamily: 'serif'}}>DOWNLOAD <span className="text-purple-900">Our App</span></span>
-                <img src={gp} alt="Google Play" className="w-48 h-26" />
-                <img src={sc} alt="Google Play QR" className="w-32 h-32" />
-                <img src={app} alt="App Store" className="w-48 h-16" />
-                <img src={sc} alt="App Store QR" className="w-32 h-32" />
-              </div>
+          <div>
+            <div className="font-bold text-lg">
+              SHASHI BHUSHAN <img src={google} alt="Google" className="inline w-6 h-4 ml-1" />
             </div>
+            <div className="text-gray-500 text-sm">2022-01-31</div>
           </div>
+        </div>
+        <div className="flex items-center">
+          <span className="text-yellow-400 text-xl">★★★★★</span>
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" className="ml-2">
+            <circle cx="12" cy="12" r="10" fill="#2196f3" />
+            <path d="M10.5 14.5l-2-2 1.4-1.4 0.6 0.6 2.6-2.6 1.4 1.4-4 4z" fill="#fff" />
+          </svg>
+        </div>
+      </div>
+
+      {/* Review Card 2 */}
+      <div className="flex-shrink-0 bg-white rounded-xl shadow p-4 w-[280px]">
+        <div className="flex items-center mb-3">
+          <img src={deepti} alt="Priya Rani" className="w-12 h-12 rounded-full mr-3 object-cover" />
+          <div>
+            <div className="font-bold text-lg">
+              Priya Rani <img src={google} alt="Google" className="inline w-6 h-4 ml-1" />
+            </div>
+            <div className="text-gray-500 text-sm">2022-01-31</div>
+          </div>
+        </div>
+        <div className="flex items-center">
+          <span className="text-yellow-400 text-xl">★★★★★</span>
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" className="ml-2">
+            <circle cx="12" cy="12" r="10" fill="#2196f3" />
+            <path d="M10.5 14.5l-2-2 1.4-1.4 0.6 0.6 2.6-2.6 1.4 1.4-4 4z" fill="#fff" />
+          </svg>
+        </div>
+      </div>
+
+      {/* Review Card 3 */}
+      <div className="flex-shrink-0 bg-white rounded-xl shadow p-4 w-[280px]">
+        <div className="flex items-center mb-3">
+          <img src={lubna} alt="Nikita" className="w-12 h-12 rounded-full mr-3 object-cover" />
+          <div>
+            <div className="font-bold text-lg">
+              Nikita Eshtam <img src={google} alt="Google" className="inline w-6 h-4 ml-1" />
+            </div>
+            <div className="text-gray-500 text-sm">2022-01-31</div>
+          </div>
+        </div>
+        <div className="flex items-center">
+          <span className="text-yellow-400 text-xl">★★★★★</span>
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" className="ml-2">
+            <circle cx="12" cy="12" r="10" fill="#2196f3" />
+            <path d="M10.5 14.5l-2-2 1.4-1.4 0.6 0.6 2.6-2.6 1.4 1.4-4 4z" fill="#fff" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div className="w-full bg-[#f8fcfb] py-12">
+  <h2 className="text-4xl text-center mb-10 font-serif underline text-black">
+    DrLaBike <span className="text-black">Achievements</span>
+  </h2>
+
+  <div className="flex flex-col items-center">
+    {/* Responsive Image Grid */}
+    <div className="flex flex-col sm:flex-row gap-6 justify-center items-center w-full px-4">
+      <img src={achieve} alt="Achievement 1" className="object-cover shadow-lg w-full sm:w-1/3 h-[250px] sm:h-[350px]" />
+      <img src={i1} alt="Achievement 2" className="object-cover shadow-lg w-full sm:w-1/3 h-[250px] sm:h-[350px]" />
+      <img src={i} alt="Achievement 3" className="object-cover shadow-lg w-full sm:w-1/3 h-[250px] sm:h-[350px]" />
+    </div>
+
+    {/* Download Section */}
+    <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 w-full mt-10 px-4 text-center md:text-left">
+      <span className="text-2xl font-extrabold text-purple-900 font-serif">
+        DOWNLOAD <span className="text-purple-900">Our App</span>
+      </span>
+
+      <div className="flex flex-col sm:flex-row items-center gap-6">
+        <img src={gp} alt="Google Play" className="w-40 sm:w-48 h-auto" />
+        <img src={sc} alt="Google Play QR" className="w-24 sm:w-32 h-auto" />
+        <img src={app} alt="App Store" className="w-40 sm:w-48 h-auto" />
+        <img src={sc} alt="App Store QR" className="w-24 sm:w-32 h-auto" />
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
           <div className="w-full mt-0 mb-1 flex flex-col md:flex-row items-start gap-0 text-white bg-black p-8">
             
             <div className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/5 mb-8 md:mb-0">
