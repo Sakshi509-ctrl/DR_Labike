@@ -23,6 +23,8 @@ function App() {
       <Sidebar />
       <ContactSidebar />
       <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/" element={<><Header /><Home/></>} />
         <Route path="/testimonials" element={<TestimonialPage />} />
         <Route path="/about" element={<About />} />
