@@ -1,8 +1,7 @@
 import React from 'react';
-import { Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
-import Drlabikelogo from '../../public/assets/DrLabike-New-logo-trans (1)-D1SuIxFX.png';
 import former from '../../public/assets/former-CHfKJIy1.png';
 import Header from './Header';
+import Footer from './footer';
 
 const TestimonialPage: React.FC = () => {
   return (
@@ -35,63 +34,8 @@ const TestimonialPage: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="max-w-6xl mx-auto mt-16 mb-8 flex flex-col md:flex-row items-start gap-8 text-white bg-black rounded-xl p-8">
-          
-          
-          <div className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/5 mb-8 md:mb-0">
-            <img src={Drlabikelogo} alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
-            <span className="text-lg font-bold">DrLaBike</span>
-          </div>
-
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-sm">
-  
-              <div>
-              <h3 className="text-lg font-bold mb-3">Useful Links</h3>
-              <ul className="space-y-2">
-                <li>&#9654; About</li>
-                <li>&#9654; Gallery</li>
-                <li>&#9654; Testimonial</li>
-                <li>&#9654; Blogs</li>
-                <li>&#9654; Inquiry</li>
-                <li>&#9654; Verification</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-3">Policies</h3>
-              <ul className="space-y-2">
-                <li>&#9654; Privacy Policy</li>
-                <li>&#9654; Shipping Policy</li>
-                <li>&#9654; Terms & Conditions</li>
-                <li>&#9654; Refund & Cancellation</li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold mb-3">Address</h3>
-              <div className="mb-2">G.F, 424-CMR Building, Near MCD School, Ghitorni, New Delhi-110030</div>
-              <div className="flex items-center mb-2">
-                <span className="mr-2">📍</span>
-                <span>G.F, 424-CMR Building, Near MCD School, Ghitorni, New Delhi-110030</span>
-              </div>
-              <div className="flex items-center mb-2">
-                <span className="mr-2">📞</span>
-                <span>+91-706-555-0214</span>
-              </div>
-
-              <div className="mt-4">
-                <div className="font-bold mb-2">Follow Us</div>
-                <div className="flex gap-4 mb-4">
-                  <a href="https://www.facebook.com/drlabike" aria-label="Facebook"><Facebook className="w-5 h-5 hover:text-blue-600" /></a>
-                  <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fdrlabike%2F&is_from_rle" aria-label="Instagram" className="ml-4"><Instagram className="w-5 h-5 hover:text-pink-500" /></a>
-                  <a href="https://x.com/account/access" aria-label="Twitter" className="ml-4"><Twitter className="w-5 h-5 hover:text-blue-400" /></a>
-                  <a href="https://www.youtube.com/channel/UC9k-Me74MlQOgsmRWObyh6Q" aria-label="YouTube" className="ml-4"><Youtube className="w-5 h-5 hover:text-red-600" /></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-        <div className="w-full flex justify-center font-bold text-gray-600 mt-0 mb-0  ">
+        <Footer />
+          <div className="w-full flex justify-center font-bold text-gray-600 mt-5   ">
             <h6>Copyright © 2025 DrLaBike: Gateway to Pathology Lab Ownership | Powered by Swasthmnathan Meditech Pvt Ltd</h6>
           </div>
       </div>

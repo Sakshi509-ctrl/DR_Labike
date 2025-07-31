@@ -13,9 +13,15 @@ import Sidebar from './components/Sidebar';
 import Franchise from './components/Franchise';
 import Internship from './components/internship';
 import MarketChart from './components/marketing';
-import InternshipForm from './components/internshipform';
+// import InternshipForm from './components/internshipform';
 import ROICalculator from './components/roicalculator';
-
+import Footer from './components/footer';
+import InquiryPage from './components/InquiryPage';
+import CertificateVerification from './components/CertificateVerification';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import ShippingPolicy from './components/shippingpolicy';
+import TermsAndConditions from './components/terms&conditions';
+import AdminPanel from './components/adminpanel';
 
 function App() {
   return (
@@ -33,9 +39,14 @@ function App() {
         <Route path="/franchise" element={<Franchise />} />    
         <Route path="/internship" element={<Internship/>}/>
         <Route path='/marketing' element={<MarketChart/>}/>
-        <Route path='/internshipform' element={<InternshipForm/>}/>
         <Route path='/roicalculator' element={<ROICalculator/>}/>
-        
+        <Route path="/inquiry" element={<InquiryPage />} />
+        <Route path="/certificate-verification" element={<CertificateVerification />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/footer" element={<Footer />} />
+        <Route path="/shipping-policy" element={<ShippingPolicy />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/admin" element={<AdminPanel />} />
       </Routes>
     </ContactSidebarProvider>
   );

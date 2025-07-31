@@ -1,31 +1,31 @@
 import React, {useEffect } from 'react';
 import { ChevronRight } from "lucide-react";
-import { FacebookIcon, Instagram, Twitter, Youtube } from 'lucide-react';
-const nitish = "/assets/Dr-Nitish-Kumar-257x300-DeIa8Lqu.png";
-const prafulla  = "/assets/Dr.-Prafulla-J-Vishwanath-257x300-khka6hZz.png";
-const Rahul = "/assets/Dr.-Rahul-Chandola-1-257x300-BvFZlWBM.png";
-const uday = "/assets/dr-uday-Singh-257x300-iH-_WO_P.png";
-const sumit = "/assets/Dr-sumit-sinha-257x300-DKm4FRiM.png";
-const mission = "/assets/Mision-transformed-DTFoFgIL.png";
-const ud = "/assets/ud-DqITPYgu.png";
-const bike = "/assets/covered bike-Cb-8W9N2.png";
-const fda = "/assets/fda.png";
-const icmr = "/assets/icmrlogo-CbLuBsVi.jpg";
-const dst = "/assets/DST-Dyr2yFDx.jpg";
-const nhsrc = "/assets/NHSRC-logo-DXnlp4AW.jpg";
-const best = "/assets/drlabikehealthbest-9mmz_beN.png";
-const health = "/assets/DrLabike-health-DZGag8WP.jpeg";
-const client = "/assets/Client-slide-1-1536x873-8fGei4z6.png";
-const logo = "/assets/DrLabike-New-logo-trans (1)-D1SuIxFX.png";
-const deepti = "/assets/deepti-Dtk-3Eof.png";
-const lubna = "/assets/lubna-CI65w_dL.png";
-const achieve = "/assets/achievements-CW_-_m4F.png";
-const i1 = "/assets/i1-BPfNmFtl.png";
-const i = "/assets/i-BF82gZgm.jpg";
-const gp = "/assets/gp-BFRtjq6f.png";
-const sc = "/assets/Qr.png";
-const app = "/assets/apple-store-1-2048x741-Dk-V0vDI.png";
-const google = "/assets/Google-Symbol-CcZVZOAF.png";
+import Footer from './footer';
+import nitish from "../../public/assets/Dr-Nitish-Kumar-257x300-DeIa8Lqu.png";
+import prafulla from "../../public/assets/Dr.-Prafulla-J-Vishwanath-257x300-khka6hZz.png";
+import Rahul from "../../public/assets/Dr.-Rahul-Chandola-1-257x300-BvFZlWBM.png";
+import uday from "../../public/assets/dr-uday-Singh-257x300-iH-_WO_P.png";
+import sumit from "../../public/assets/Dr-sumit-sinha-257x300-DKm4FRiM.png";
+import mission from "../../public/assets/Mision-transformed-DTFoFgIL.png";
+import ud from "../../public/assets/ud-DqITPYgu.png";
+import bike from "../../public/assets/covered bike-Cb-8W9N2.png";
+import fda from "../../public/assets/fda.png";
+import icmr from "../../public/assets/icmrlogo-CbLuBsVi.jpg";
+import dst from "../../public/assets/DST-Dyr2yFDx.jpg";
+import nhsrc from "../../public/assets/NHSRC-logo-DXnlp4AW.jpg";
+import best from "../../public/assets/drlabikehealthbest-9mmz_beN.png";
+import health from "../../public/assets/DrLabike-health-DZGag8WP.jpeg";
+import client from "../../public/assets/Client-slide-1-1536x873-8fGei4z6.png";
+import logo from "../../public/assets/DrLabike-New-logo-trans (1)-D1SuIxFX.png";
+import deepti from "../../public/assets/deepti-Dtk-3Eof.png";
+import lubna from "../../public/assets/lubna-CI65w_dL.png";
+import achieve from "../../public/assets/achievements-CW_-_m4F.png";
+import i1 from "../../public/assets/i1-BPfNmFtl.png";
+import i from "../../public/assets/i-BF82gZgm.jpg";
+import gp from "../../public/assets/gp-BFRtjq6f.png";
+import sc from "../../public/assets/Qr.png";
+import app from "../../public/assets/apple-store-1-2048x741-Dk-V0vDI.png";
+import google from "../../public/assets/Google-Symbol-CcZVZOAF.png";
 
 
 const Hero: React.FC = () => {
@@ -110,7 +110,7 @@ const Hero: React.FC = () => {
 
      
 <div className="w-full flex flex-col lg:flex-row justify-between items-start gap-8 my-8 px-4 lg:px-16">
-  {/* Text Section */}
+
   <div className="flex-1 mt-4 text-black text-base font-serif leading-relaxed text-justify">
     <p>
       <b>DrLaBike</b> Portable Pathology Lab enables doorstep diagnostics services with online Doctor Consultations to deprived Rural & demographically remote village population who lack easy access & timely healthcare services. It’s the only available solution to provide
@@ -122,7 +122,7 @@ const Hero: React.FC = () => {
       DrLaBike enables online doctor consultations to a villager in rural/remote location by experienced and multispecialty doctors at affordable rates. Timely diagnosis, timely treatment & timely medication within the village prevents expensive travel, stay & treatment cost of the metros.
     </p>
 
-    {/* Features Row */}
+   
     <div className="w-full flex flex-wrap justify-center md:justify-start items-center gap-6 mt-8">
       {["PATHOLOGY LAB", "TELEMEDICINE", "MEDICINE"].map((label) => (
         <div className="flex items-center" key={label}>
@@ -133,7 +133,6 @@ const Hero: React.FC = () => {
     </div>
   </div>
 
-  {/* Video Section */}
   <div className="flex-1 flex justify-center items-center mt-8 lg:mt-0">
     <div className="w-full h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px]">
       <iframe
@@ -352,7 +351,7 @@ const Hero: React.FC = () => {
           <div className="flex justify-center w-full">
             <button
               className="mt-6 w-40 h-12 bg-blue-700 hover:bg-blue-800 text-white font-bold rounded-lg shadow transition-colors"
-              
+              onClick={() => window.open('/franchise', '_self')}
             >
               Book Now
             </button>
@@ -402,7 +401,7 @@ const Hero: React.FC = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 17v-2a4 4 0 014-4h1V7a2 2 0 10-4 0v4H7a2 2 0 100 4h2zm0 0v2a2 2 0 002 2h2a2 2 0 002-2v-2" /></svg>
               </div>
               <div className="text-2xl font-bold font-serif text-white  ">Affordable</div>
-              <div className="text-1xl text-gray-600 font-semibold ml-8 ">Our Tests starts INR 50/- Get Doctor Consultation @90% discounted.</div>
+              <div className="text-base text-gray-600 font-semibold ml-8">Our Tests starts INR 50/- Get Doctor Consultation @90% discounted.</div>
             </div>
 
             <div className="flex-1 flex flex-col items-center ml-5 mt-3">
@@ -514,7 +513,7 @@ const Hero: React.FC = () => {
     </div>
 
     {/* Reviews Scroll Container */}
-    <div className="flex overflow-x-auto gap-4 py-4 w-full max-w-full scrollbar-hide">
+    <div className="flex overflow-x-auto gap-4 py-4 w-full max-w-full no-scrollbar">
       {/* Review Card 1 */}
       <div className="flex-shrink-0 bg-white rounded-xl shadow p-4 w-[280px]">
         <div className="flex items-center mb-3">
@@ -612,68 +611,16 @@ const Hero: React.FC = () => {
 
 
 
-          <div className="w-full mt-0 mb-1 flex flex-col md:flex-row items-start gap-0 text-white bg-black p-8">
-            
-            <div className="flex-shrink-0 flex flex-col items-center md:items-start w-full md:w-1/5 mb-8 md:mb-0">
-              <img src={logo} alt="DrLaBike Logo" className="w-24 h-auto mb-2" />
-              <span className="text-lg font-bold">DrLaBike</span>
-            </div>
-
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-6 w-full text-sm">
-
-              <div>
-                <h3 className="text-lg font-bold mb-3">Useful Links</h3>
-                <ul className="space-y-2">
-                  <li>&#9654; About</li>
-                  <li>&#9654; Gallery</li>
-                  <li>&#9654; Testimonial</li>
-                  <li>&#9654; Blogs</li>
-                  <li>&#9654; Inquiry</li>
-                  <li>&#9654; Verification</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-bold mb-3">Policies</h3>
-                <ul className="space-y-2">
-                  <li>&#9654; Privacy Policy</li>
-                  <li>&#9654; Shipping Policy</li>
-                  <li>&#9654; Terms & Conditions</li>
-                  <li>&#9654; Refund & Cancellation</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-bold mb-3">Address</h3>
-                <div className="mb-2">G.F, 424-CMR Building, Near MCD School, Ghitorni, New Delhi-110030</div>
-                <div className="flex items-center mb-2">
-                  <span className="mr-2">📍</span>
-                  <span>G.F, 424-CMR Building, Near MCD School, Ghitorni, New Delhi-110030</span>
-                </div>
-                <div className="flex items-center mb-2">
-                  <span className="mr-2">📞</span>
-                  <span>+91-706-555-0214</span>
-                </div>
-
-                <div className="mt-4">
-                  <div className="font-bold mb-2">Follow Us</div>
-                  <div className="flex gap-4 mb-4">
-                    <a href="https://www.facebook.com/drlabike" aria-label="Facebook"><FacebookIcon className="w-5 h-5 hover:text-blue-600" /></a>
-                    <a href="https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fdrlabike%2F&is_from_rle" aria-label="Instagram" className="ml-4"><Instagram className="w-5 h-5 hover:text-pink-500" /></a>
-                    <a href="https://x.com/account/access" aria-label="Twitter" className="ml-4"><Twitter className="w-5 h-5 hover:text-blue-400" /></a>
-                    <a href="https://www.youtube.com/channel/UC9k-Me74MlQOgsmRWObyh6Q" aria-label="YouTube" className="ml-4"><Youtube className="w-5 h-5 hover:text-red-600" /></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full flex justify-center font-bold text-gray-600 mt-4">
-            <h6>Copyright © 2025 DrLaBike: Gateway to Pathology Lab Ownership | Powered by Swasthmnathan Meditech Pvt Ltd</h6>
-          </div>
+          
         </div>
+        <Footer />
+        <div className="w-full flex justify-center font-bold text-gray-600 mt-4 px-4 pb-4 text-center text-xs sm:text-sm">
+        <h6>
+          Copyright © 2025 DrLaBike: Gateway to Pathology Lab Ownership |
+          Powered by Swasthmnathan Meditech Pvt Ltd
+        </h6>
       </div>
-      
+  </div>
     </>
   );
 };

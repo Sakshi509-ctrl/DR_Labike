@@ -28,14 +28,83 @@ export const ContactSidebarProvider: React.FC<{ children: React.ReactNode }> = (
 
 const ContactSidebar: React.FC = () => {
   const { isOpen, close } = useContactSidebar();
-  const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    
+    setIsSubmitting(true);
+
+    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.phone.trim() || !formData.email.trim() || !formData.message.trim()) {
+      alert('Please fill in all required fields');
+      setIsSubmitting(false);
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      alert('Please enter a valid email address');
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/api/inquiry/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName.trim(),
+          lastName: formData.lastName.trim(),
+          phone: formData.phone.trim(),
+          email: formData.email.trim(),
+          message: formData.message.trim(),
+          timestamp: new Date().toISOString()
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      
+      alert(result.message || 'Thank you! Your message has been sent successfully.');
+      
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        phone: '',
+        email: '',
+        message: ''
+      });
+      
+      // Close the sidebar
+      close();
+      
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      alert(`Failed to submit form: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   if (!isOpen) return null;
   return (
@@ -64,33 +133,57 @@ const ContactSidebar: React.FC = () => {
               <X className="w-6 h-6" />
             </button>
             <h2 className="text-xl font-semibold text-[#7c3aed] mb-6">Contact Form</h2>
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
-                placeholder="Name"
+                name="firstName"
+                placeholder="First Name*"
+                value={formData.firstName}
+                onChange={handleInputChange}
                 className="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-gray-700"
+                required
+              />
+              <input
+                type="text"
+                name="lastName"
+                placeholder="Last Name*"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                className="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-gray-700"
+                required
               />
               <input
                 type="tel"
+                name="phone"
                 placeholder="Phone*"
+                value={formData.phone}
+                onChange={handleInputChange}
                 className="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-gray-700"
                 required
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email*"
+                value={formData.email}
+                onChange={handleInputChange}
                 className="w-full border border-gray-300 rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-gray-700"
                 required
               />
               <textarea
-                placeholder="Message"
+                name="message"
+                placeholder="Message*"
+                value={formData.message}
+                onChange={handleInputChange}
                 className="w-full border border-gray-300 rounded-2xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#7c3aed] text-gray-700 min-h-[80px] resize-none"
+                required
               />
               <button
                 type="submit"
-                className="w-full bg-[#7c3aed] hover:bg-[#6d28d9] text-white font-bold py-3 rounded-full text-lg mt-2 transition-colors"
+                disabled={isSubmitting}
+                className="w-full bg-[#7c3aed] hover:bg-[#6d28d9] disabled:bg-gray-400 text-white font-bold py-3 rounded-full text-lg mt-2 transition-colors"
               >
-                Submit
+                {isSubmitting ? 'Submitting...' : 'Submit'}
               </button>
             </form>
           </div>
