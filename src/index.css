@@ -12,7 +12,6 @@
   }
 }
 
-/* Custom animations */
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -55,12 +54,10 @@
   animation-delay: 600ms;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -78,18 +75,15 @@ html {
   background: #2563eb;
 }
 
-/* Focus styles */
 *:focus {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
 }
 
-/* Smooth transitions for all interactive elements */
 button, a, input, select, textarea {
   transition: all 0.3s ease;
 }
 
-/* Ensure proper contrast for accessibility */
 .bg-blue-600 {
   background-color: #2563eb;
 }
@@ -98,7 +92,6 @@ button, a, input, select, textarea {
   color: #2563eb;
 }
 
-/* Custom utility classes */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -117,7 +110,6 @@ button, a, input, select, textarea {
   }
 }
 
-/* Responsive typography */
 h1 {
   font-size: 2.5rem;
   line-height: 1.2;
@@ -161,13 +153,11 @@ h3 {
   }
 }
 
-/* Loading states */
 .loading {
   opacity: 0.6;
   pointer-events: none;
 }
 
-/* Hover effects */
 .hover-lift:hover {
   transform: translateY(-2px);
 }
@@ -176,7 +166,6 @@ h3 {
   transform: scale(1.05);
 }
 
-/* Card shadows */
 .card-shadow {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
@@ -185,7 +174,6 @@ h3 {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Gradient backgrounds */
 .gradient-primary {
   background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
 }
