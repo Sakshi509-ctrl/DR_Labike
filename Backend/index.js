@@ -3,7 +3,6 @@ require("dotenv").config({ path: path.join(__dirname, '.env') });
 
 const express = require("express");
 const cors = require("cors");
-const morgan = require("morgan");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -15,14 +14,13 @@ if (!process.env.MONGO_URI) {
 
 app.use(cors());
 app.use(express.json());
-app.use(morgan("dev"));
 
 const inquiryRoutes = require("./routes/inquiryroute");
 app.use("/api/inquiry", inquiryRoutes);
 
 const dbConnect = require("./config/database");
 
-const buildPath = path.join(__dirname, './client', 'dist');
+const buildPath = path.join(__dirname, '../', 'dist');
 app.use(express.static(buildPath));
 
 app.get('/*', (req, res) => {
