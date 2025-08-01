@@ -6,21 +6,21 @@ const PrivacyPolicy: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="mt-24 mb-28">
+      <div className=" mt-24 mb-28">
         <div className="flex justify-center items-start pt-20 bg-white pb-8">
           <div className="w-full max-w-4xl px-8">
-            <h1 className="text-2xl font-sans-serif font-semibold text-gray-900 mb-4 -mt-8 -ml-40">
+            <h1 className="text-2xl font-sans-serif font-semibold text-gray-900 mb-4 px-4 px:md-8">
               DrLaBike Technologies Pvt. Ltd. Privacy Policy (Revised)
             </h1><br/>
             
             <div className="bg-white rounded-lg  p-8">
               <div className="mb-6">
-                <h2 className="text-2xl font-extrabold text-gray-900 mb-4 -ml-48">
+                <h2 className="text-2xl font-extrabold text-gray-900 mb-4 px-4 px:md-8">
                   W.E.F. March 2019
                 </h2><br/>
               </div>
               
-              <div className="prose prose-lg max-w-none text-gray-500 leading-relaxed -ml-48">
+              <div className="prose prose-lg max-w-none text-gray-500 leading-relaxed px-4 px:md-8">
                 <p className="mb-6">
                   DrLaBike Technologies Pvt. Ltd. respects the privacy of our users. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our mobile applications or web portals.
                   

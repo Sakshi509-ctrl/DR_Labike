@@ -87,7 +87,6 @@ const ContactSidebar: React.FC = () => {
       
       alert(result.message || 'Thank you! Your message has been sent successfully.');
       
-      // Reset form
       setFormData({
         firstName: '',
         lastName: '',
@@ -96,7 +95,6 @@ const ContactSidebar: React.FC = () => {
         message: ''
       });
       
-      // Close the sidebar
       close();
       
     } catch (error) {

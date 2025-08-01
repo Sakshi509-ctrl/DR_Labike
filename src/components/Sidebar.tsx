@@ -5,7 +5,7 @@ import { useContactSidebar } from './ContactSidebar';
 const Sidebar = () => {
   const { open } = useContactSidebar();
   return (
-    <div className="fixed top-60 left-0 z-50 flex flex-col items-center" style={{height: 250}}>
+    <div className="fixed top-60 left-0 z-50 flex flex-col items-center " style={{height: 250}}>
    
     <div className="w-12 h-9 bg-black rounded-tr-xl  flex items-center justify-center">
       <span className="text-white text-2xl">&#8592;</span>
