@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/inquiry/create', {
+      const response = await fetch('https://dr-labike.onrender.com/api/inquiry/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
