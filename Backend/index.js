@@ -17,11 +17,8 @@ if (!process.env.MONGO_URI) {
 app.use(cors());
 app.use(express.json());
 
-const inquiryRoutes = require("./routes/inquiryroute");
-const signupRoutes = require("./routes/signupRoute");
 const contactRoutes = require("./routes/contactRoute");
-app.use("/api/inquiry", inquiryRoutes);
-app.use("/api/user", signupRoutes);
+
 app.use("/api/contact", contactRoutes);
 
 const dbConnect = require("./config/database");

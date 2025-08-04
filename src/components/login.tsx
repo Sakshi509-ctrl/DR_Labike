@@ -121,7 +121,7 @@ const Login: React.FC = () => {
         </div>
 
         <div className="text-center text-sm text-gray-500">
-          Demo credentials: sakshi.otusone@gmail.com / test@123
+          Demo credentials: sakshi.otusone@gmail.com /123
         </div>
       </div>
     </div>
