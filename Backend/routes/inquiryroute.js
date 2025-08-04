@@ -8,7 +8,7 @@
   router.get('/', async (req, res) => {
     try {
       const inquiries = await Inquiry.find().sort({ timestamp: -1 });
-      res.status(200).json({ data: inquiries }); // wrap in { data: ... } for frontend match
+      res.status(200).json({ data: inquiries }); 
     } catch (error) {
       console.error('Error fetching inquiries:', error);
       res.status(500).json({ message: 'Server error' });
