@@ -63,14 +63,13 @@ const ContactSidebar: React.FC = () => {
     }
 
     try {
-      const response = await fetch('https://dr-labike.onrender.com/api/inquiry', {
+      const response = await fetch('http://localhost:5000/api/contact/contact-forms', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          firstName: formData.firstName.trim(),
-          lastName: formData.lastName.trim(),
+          name: `${formData.firstName.trim()} ${formData.lastName.trim()}`,
           phone: formData.phone.trim(),
           email: formData.email.trim(),
           message: formData.message.trim(),
