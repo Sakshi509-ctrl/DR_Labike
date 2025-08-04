@@ -3,7 +3,7 @@
   const createInquiry = require('../controller/form');
   const Inquiry = require('../models/inquiry');
 
-  router.post('/', createInquiry);
+  router.post("/", createInquiry);
 
   router.get('/', async (req, res) => {
     try {

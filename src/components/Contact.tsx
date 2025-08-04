@@ -51,19 +51,20 @@ const Contact: React.FC = () => {
     }
 
     try {
-const response = await fetch("https://dr-labike.onrender.com/api/inquiry", {
-  method: 'POST',
+        const response = await fetch("https://dr-labike.onrender.com/api/inquiry", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          name: `${firstName.trim()} ${lastName.trim()}`,
-          phone: phone.trim(),
-          email: email.trim(),
-          message: message.trim(),
-          timestamp: new Date().toISOString()
-        }),
+          firstName,
+          lastName,
+          email,
+          phone,
+          message
+        })
       });
+      
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
