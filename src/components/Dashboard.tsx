@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
 import { RefreshCw, LogOut, Users, Mail, Phone, MessageSquare, Calendar, Hash, Trash2, Eye } from 'lucide-react';
 // @ts-expect-error - JavaScript module without TypeScript declarations
 import apiService from '../services/apiService';
 import ViewPageModal from './ViewPageModal';
+import { useNavigate } from 'react-router-dom';
 
 interface ContactFormData {
   _id: string;
@@ -22,7 +22,8 @@ const Dashboard: React.FC = () => {
   const [error, setError] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<ContactFormData | null>(null);
-  const { logout } = useAuth();
+
+  const navigate = useNavigate();
   useEffect(() => {
     fetchData();
   }, []);
@@ -42,9 +43,7 @@ const Dashboard: React.FC = () => {
     }
   };
 
-  const handleLogout = () => {
-    logout();
-  };
+
 
   const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this submission?')) {
@@ -88,13 +87,13 @@ const Dashboard: React.FC = () => {
                 <p className="text-sm text-gray-500">Manage contact submissions</p>
               </div>
             </div>
-            <button
-              onClick={handleLogout}
-              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
-            >
-              <LogOut className="h-4 w-4 mr-2" />
-              Logout
-            </button>
+              <button
+               onClick={() => navigate('/contact')}
+               className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
+             >
+                <LogOut className="h-4 w-4 mr-2" />
+               Logout
+             </button>
           </div>
         </div>
       </div>

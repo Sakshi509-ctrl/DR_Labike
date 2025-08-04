@@ -35,10 +35,10 @@ const Header: React.FC = () => {
         <input
           type="text"
           placeholder="Type & Hit Enter..."
-          className="w-full h-9 border px-3 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 bg-gray-100 placeholder-gray-400 font-serif"
+          className="w-full h-9 border px-3 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200 bg-gray-100 placeholder-gray-400 font-serif text-black"
         />
         <button className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-800">
-          <Search className="w-4 h-4" />
+        <Search className="w-4 h-4" />
         </button>
       </div>
     </div>

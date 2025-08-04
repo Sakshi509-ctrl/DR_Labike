@@ -45,6 +45,57 @@ const apiService = {
       throw new Error('Failed to delete contact form');
     }
   },
+
+  async submitInquiryForm(formData) {
+    try {
+      const response = await fetch(`${API_BASE_URL}/inquiry/inquiry-forms`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        const errorData = await response.text();
+        console.error('Server response:', response.status, errorData);
+        throw new Error(`Server error: ${response.status} - ${errorData}`);
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('Network error:', error);
+      if (error.message.includes('Server error:')) {
+        throw error;
+      }
+      throw new Error('Network error: Unable to connect to server');
+    }
+  },
+
+  async getInquiryForms() {
+    try {
+      const response = await fetch(`${API_BASE_URL}/inquiry/inquiry-forms`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch inquiry forms');
+      }
+      const data = await response.json();
+      return data.data || data;
+    } catch {
+      throw new Error('Failed to fetch inquiry forms');
+    }
+  },
+
+  async deleteInquiryForm(id) {
+    try {
+      const response = await fetch(`${API_BASE_URL}/inquiry/inquiry-forms/${id}`, {
+        method: 'DELETE',
+      });
+      if (!response.ok) {
+        throw new Error('Failed to delete inquiry form');
+      }
+      return await response.json();
+    } catch {
+      throw new Error('Failed to delete inquiry form');
+    }
+  },
 };
 
 export default apiService;

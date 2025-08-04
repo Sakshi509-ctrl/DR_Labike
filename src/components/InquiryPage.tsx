@@ -91,7 +91,7 @@ const InquiryPage: React.FC = () => {
              <div className="ml-8">
             <h2 className="text-2xl  text-gray-700 text-left mb-0">Inquiry</h2>
 </div>
-            <form onSubmit={handleSubmit} className="bg-white  p-8 ">
+                         <form onSubmit={handleSubmit} className="bg-white  p-8 ">
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Full Name *
@@ -245,12 +245,12 @@ const InquiryPage: React.FC = () => {
                 </div>
               </div>
 
-              <button
-                type="submit"
-                className="text-xs bg-blue-700 text-white py-3 px-4 rounded-lg  font-medium hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
-              >
-                Submit 
-              </button>
+                             <button
+                 type="submit"
+                 className="text-xs bg-blue-700 text-white py-3 px-4 rounded-lg  font-medium hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
+               >
+                 Submit 
+               </button>
             </form>
           </div>
         </div>
