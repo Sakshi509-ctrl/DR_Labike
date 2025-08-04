@@ -69,7 +69,8 @@ const ContactSidebar: React.FC = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: `${formData.firstName.trim()} ${formData.lastName.trim()}`,
+          firstName: formData.firstName.trim(),
+          lastName: formData.lastName.trim(),
           phone: formData.phone.trim(),
           email: formData.email.trim(),
           message: formData.message.trim(),

@@ -3,8 +3,6 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 import Header from '../components/Header';  
 import Footer from './footer';
 import PhoneInputComponent from './phone-input';
-// @ts-expect-error - JavaScript module without TypeScript declarations
-import apiService from '../services/apiService';
 
 const Contact: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -53,17 +51,28 @@ const Contact: React.FC = () => {
     }
 
     try {
-      const formData = {
-        name: `${firstName} ${lastName}`.trim(),
-        email,
-        phone,
-        message,
-        timestamp: new Date().toISOString(),
-      };
-
-      await apiService.submitContactForm(formData);
+      const response = await fetch("https://dr-labike.onrender.com/api/contact/contact-forms", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: `${firstName} ${lastName}`,
+          email,
+          phone,
+          message
+        })
+      });
       
-      alert('Thank you! Your message has been sent successfully.');
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      
+      alert(result.message || 'Thank you! Your message has been sent successfully.');
       
       setFirstName('');
       setLastName('');
