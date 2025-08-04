@@ -48,7 +48,7 @@ const apiService = {
 
   async submitInquiryForm(formData) {
     try {
-      const response = await fetch(`${API_BASE_URL}/inquiry/inquiry-forms`, {
+      const response = await fetch(`${API_BASE_URL}/inquiry/create`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ const apiService = {
 
   async getInquiryForms() {
     try {
-      const response = await fetch(`${API_BASE_URL}/inquiry/inquiry-forms`);
+      const response = await fetch(`${API_BASE_URL}/inquiry/forms`);
       if (!response.ok) {
         throw new Error('Failed to fetch inquiry forms');
       }
@@ -85,7 +85,7 @@ const apiService = {
 
   async deleteInquiryForm(id) {
     try {
-      const response = await fetch(`${API_BASE_URL}/inquiry/inquiry-forms/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/inquiry/delete/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
