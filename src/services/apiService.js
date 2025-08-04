@@ -1,11 +1,4 @@
-// Determine API URL based on environment
-const isDevelopment = process.env.NODE_ENV === 'development';
-const API_BASE_URL = isDevelopment 
-  ? 'http://localhost:5000/api' 
-  : 'https://your-backend-render-url.onrender.com/api';
-
-console.log('Environment:', process.env.NODE_ENV);
-console.log('API Base URL:', API_BASE_URL);
+const API_BASE_URL = 'http://localhost:5000/api';
 
 const apiService = {
   async submitContactForm(formData) {
@@ -55,7 +48,7 @@ const apiService = {
 
   async submitInquiryForm(formData) {
     try {
-      const response = await fetch(`${API_BASE_URL}/inquiry/create`, {
+      const response = await fetch(`${API_BASE_URL}/inquiry/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
