@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
+const Inquiry = require("../models/inquiry");
 const { getContactForms } = require("../controller/getContactForms");
 
 router.get("/contact-forms", getContactForms);
 
 router.delete("/contact-forms/:id", async (req, res) => {
     try {
-        const Inquiry = require("../models/inquiry");
+        
         const { id } = req.params;
         
         const deletedForm = await Inquiry.findByIdAndDelete(id);

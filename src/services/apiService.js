@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api/contact';
+const API_BASE_URL = 'https://dr-labike.onrender.com/api/contact';
 
 const apiService = {
   async getContactForms() {
@@ -29,4 +29,4 @@ const apiService = {
   },
 };
 
-export default apiService; 
+export default apiService;
