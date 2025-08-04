@@ -21,10 +21,13 @@ import CertificateVerification from './components/CertificateVerification';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import ShippingPolicy from './components/shippingpolicy';
 import TermsAndConditions from './components/terms&conditions';
-import AdminPanel from './components/adminpanel';
+import Login from './components/login';
+import Dashboard from './components/Dashboard';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
+    <AuthProvider>
     <ContactSidebarProvider>
       <Sidebar />
       <ContactSidebar />
@@ -46,9 +49,11 @@ function App() {
         <Route path="/footer" element={<Footer />} />
         <Route path="/shipping-policy" element={<ShippingPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-        <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </ContactSidebarProvider>
+    </AuthProvider>
   );
 }
 

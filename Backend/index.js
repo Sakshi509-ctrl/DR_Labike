@@ -1,8 +1,10 @@
 const path = require("path");
 require("dotenv").config({ path: path.join(__dirname, '.env') });
-
 const express = require("express");
 const cors = require("cors");
+
+
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -16,7 +18,11 @@ app.use(cors());
 app.use(express.json());
 
 const inquiryRoutes = require("./routes/inquiryroute");
+const signupRoutes = require("./routes/signupRoute");
+const contactRoutes = require("./routes/contactRoute");
 app.use("/api/inquiry", inquiryRoutes);
+app.use("/api/user", signupRoutes);
+app.use("/api/contact", contactRoutes);
 
 const dbConnect = require("./config/database");
 
@@ -40,13 +46,13 @@ app.use((err, req, res, next) => {
 const startServer = async () => {
     try {
         await dbConnect();
-        console.log("✅ Database connected successfully");
+        console.log(" Database connected successfully");
 
         app.listen(PORT, () => {
-            console.log(`🚀 Server running at http://localhost:${PORT}`);
+            console.log(` Server running at http://localhost:${PORT}`);
         });
     } catch (error) {
-        console.error("❌ Failed to start server:", error.message);
+        console.error(" Failed to start server:", error.message);
         process.exit(1);
     }
 };
