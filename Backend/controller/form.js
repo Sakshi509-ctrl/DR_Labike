@@ -2,7 +2,7 @@ const Inquiry = require("../models/inquiry");
 
 const createInquiry = async (req, res) => {
     try {
-        const { firstName, lastName, email, phone, message, timestamp } = req.body;
+        const { firstName, lastName, email, phone, message, timestamp, viewpage  } = req.body;
 
         if (!firstName || !lastName || !email || !phone || !message) {
             return res.status(400).json({ 
@@ -22,7 +22,8 @@ const createInquiry = async (req, res) => {
             email, 
             phone, 
             message, 
-            timestamp: timestamp || new Date()
+            timestamp: timestamp || new Date(),
+            viewpage: viewpage
         });
         
         await inquiry.save();
@@ -35,7 +36,8 @@ const createInquiry = async (req, res) => {
                 email: inquiry.email,
                 phone: inquiry.phone,
                 message: inquiry.message,
-                timestamp: inquiry.timestamp
+                timestamp: inquiry.timestamp,
+                viewpage: inquiry.viewpage
             }
         });
     } catch (error) {

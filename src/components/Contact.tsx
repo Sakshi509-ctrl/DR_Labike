@@ -51,8 +51,8 @@ const Contact: React.FC = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/api/contact/contact-forms', {
-        method: 'POST',
+const response = await fetch('http://localhost:5000/api/contact/contact-forms', {
+  method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },

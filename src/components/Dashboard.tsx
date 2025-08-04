@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { RefreshCw, LogOut, Users, Mail, Phone, MessageSquare, Calendar, Hash, Trash2 } from 'lucide-react';
+import { RefreshCw, LogOut, Users, Mail, Phone, MessageSquare, Calendar, Hash, Trash2, Eye } from 'lucide-react';
 // @ts-expect-error - JavaScript module without TypeScript declarations
 import apiService from '../services/apiService';
-
+import ViewPageModal from './ViewPageModal';
 
 interface ContactFormData {
   _id: string;
@@ -13,14 +13,16 @@ interface ContactFormData {
   message: string;
   timestamp: string;
   __v: number;
+  viewpage: string;
 }
 
 const Dashboard: React.FC = () => {
   const [data, setData] = useState<ContactFormData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectedItem, setSelectedItem] = useState<ContactFormData | null>(null);
   const { logout } = useAuth();
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -60,6 +62,16 @@ const Dashboard: React.FC = () => {
     return new Date(timestamp).toLocaleString();
   };
 
+  const handleViewPage = (item: ContactFormData) => {
+    setSelectedItem(item);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedItem(null);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white shadow-sm border-b border-gray-200">
@@ -87,74 +99,7 @@ const Dashboard: React.FC = () => {
         </div>
       </div>
 
-      {/* <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <div className="flex items-center">
-              <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                <Mail className="h-6 w-6 text-blue-600" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-500">Total Submissions</p>
-                <p className="text-2xl font-bold text-gray-900">{data.length}</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <div className="flex items-center">
-              <div className="h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center">
-                <Users className="h-6 w-6 text-green-600" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-500">Today</p>
-                <p className="text-2xl font-bold text-gray-900">
-                  {data.filter(item => {
-                    const today = new Date().toDateString();
-                    return new Date(item.timestamp).toDateString() === today;
-                  }).length}
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <div className="flex items-center">
-              <div className="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                <MessageSquare className="h-6 w-6 text-purple-600" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-500">This Week</p>
-                <p className="text-2xl font-bold text-gray-900">
-                  {data.filter(item => {
-                    const weekAgo = new Date();
-                    weekAgo.setDate(weekAgo.getDate() - 7);
-                    return new Date(item.timestamp) >= weekAgo;
-                  }).length}
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <div className="flex items-center">
-              <div className="h-12 w-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                <Calendar className="h-6 w-6 text-orange-600" />
-              </div>
-              <div className="ml-4">
-                <p className="text-sm font-medium text-gray-500">This Month</p>
-                <p className="text-2xl font-bold text-gray-900">
-                  {data.filter(item => {
-                    const monthAgo = new Date();
-                    monthAgo.setMonth(monthAgo.getMonth() - 1);
-                    return new Date(item.timestamp) >= monthAgo;
-                  }).length}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div> */}
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-white shadow-sm rounded-xl border border-gray-200">
           <div className="px-6 py-5 border-b border-gray-200">
             <div className="flex justify-between items-center">
@@ -239,12 +184,11 @@ const Dashboard: React.FC = () => {
                           Timestamp
                         </div>
                       </th>
-                      <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Version
-                      </th>
+                     
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Actions
                       </th>
+                      
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
@@ -289,9 +233,6 @@ const Dashboard: React.FC = () => {
                           <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                             {formatTimestamp(item.timestamp)}
                           </td>
-                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            v{item.__v}
-                          </td>
                           <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                             <button
                               onClick={() => handleDelete(item._id)}
@@ -300,6 +241,15 @@ const Dashboard: React.FC = () => {
                             >
                               <Trash2 className="h-4 w-4" />
                             </button>
+                            <div className="flex items-center space-x-2">
+                            <button
+                              onClick={() => handleViewPage(item)}
+                              className="text-indigo-600 hover:text-indigo-800 transition-colors p-1 rounded"
+                              title="View page"
+                            >
+                              <Eye className="h-4 w-4" />
+                            </button>
+                            </div>
                           </td>
                         </tr>
                       ))
@@ -311,7 +261,13 @@ const Dashboard: React.FC = () => {
           </div>
         </div>
       </div>
-  
+      
+      <ViewPageModal 
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        data={selectedItem}
+      />
+    </div>
   );
 };
 

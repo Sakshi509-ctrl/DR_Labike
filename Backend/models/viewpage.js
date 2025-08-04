@@ -1,10 +1,13 @@
 const mongoose = require('mongoose');
 
-const inquirySchema = new mongoose.Schema({
+const viewpageSchema = new mongoose.Schema({
+    id: {
+        type: String,
+        required: true,
+    },
     name: {
         type: String,
         required: true,
-        trim: true,
     },
     email: {
         type: String,
@@ -13,21 +16,16 @@ const inquirySchema = new mongoose.Schema({
     phone: {
         type: String,
         required: true,
-    },  
+    },
     message: {
         type: String,
         required: true,
-        trim: true,
     },
     timestamp: {
         type: Date,
         default: Date.now,
     },
-    viewpage: {
-        type: String,
-        required: false,
-    }
 });
 
-const Inquiry = mongoose.model("Inquiry", inquirySchema);
-module.exports = Inquiry;
+const Viewpage = mongoose.model('Viewpage', viewpageSchema);
+module.exports = Viewpage;

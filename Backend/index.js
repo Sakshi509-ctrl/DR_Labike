@@ -23,11 +23,13 @@ app.use(express.json());
 const inquiryRoutes = require("./routes/inquiryroute");
 const signupRoutes = require("./routes/signupRoute");
 const contactRoutes = require("./routes/contactRoute");
-
+const logoutRoutes = require("./routes/logout");
+const viewpageRoutes = require("./routes/viewpageRoute");
 app.use("/api/inquiry", inquiryRoutes);
 app.use("/api/user", signupRoutes);
 app.use("/api/contact", contactRoutes);
-
+app.use("/api/logout", logoutRoutes);
+app.use("/api/viewpage", viewpageRoutes);
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`);
     next();

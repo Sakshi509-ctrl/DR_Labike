@@ -9,7 +9,7 @@ router.post("/contact-forms", async (req, res) => {
     console.log("Request URL:", req.url);
     console.log("Request method:", req.method);
     try {
-        const { name, email, phone, message } = req.body;
+        const { name, email, phone, message, viewpage } = req.body;
         
         if (!name || !email || !phone || !message) {
             return res.status(400).json({
@@ -23,7 +23,8 @@ router.post("/contact-forms", async (req, res) => {
             email,
             phone,
             message,
-            timestamp: new Date()
+            timestamp: new Date(),
+            viewpage: viewpage
         });
         
         await newInquiry.save();
