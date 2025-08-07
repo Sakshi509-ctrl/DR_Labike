@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Header from './components/Header';
 import About from './components/About';
@@ -13,7 +14,6 @@ import Sidebar from './components/Sidebar';
 import Franchise from './components/Franchise';
 import Internship from './components/internship';
 import MarketChart from './components/marketing';
-
 import ROICalculator from './components/roicalculator';
 import Footer from './components/footer';
 import InquiryPage from './components/InquiryPage';
@@ -24,6 +24,8 @@ import TermsAndConditions from './components/terms&conditions';
 import Login from './components/login';
 import Dashboard from './components/Dashboard';
 import { AuthProvider } from './context/AuthContext';
+import MedicalBlogs from './components/medicalBlogs';
+import MedicalBlogsPage2 from './components/medicalBlogsPage2';
 
 
 function App() {
@@ -52,6 +54,9 @@ function App() {
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/medical-blogs" element={<MedicalBlogs />} />
+        <Route path="/medical-blogs/page2" element={<MedicalBlogsPage2 />} />
+      
       </Routes>
     </ContactSidebarProvider>
     </AuthProvider>

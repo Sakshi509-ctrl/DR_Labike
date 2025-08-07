@@ -17,8 +17,10 @@ export const useContactSidebar = () => {
 
 export const ContactSidebarProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
+
   const open = () => setIsOpen(true);
   const close = () => setIsOpen(false);
+
   return (
     <ContactSidebarContext.Provider value={{ isOpen, open, close }}>
       {children}

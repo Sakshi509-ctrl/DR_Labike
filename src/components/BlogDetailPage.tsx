@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./footer";
 
+
 const BlogDetailPage = () => {
     return (
       <div>
@@ -38,10 +39,15 @@ const BlogDetailPage = () => {
             </p><br></br><br></br><br></br>
           </div>
         </div>
+        <div className="flex justify-end mr-24">
+          <button className="bg-blue-500 text-white px-4 py-2 rounded-md mb-10 mt-0 " onClick={() => window.open('/medical-blogs', '_self')}>
+            Click here
+          </button>
+        </div>
         <Footer />
         <div className="w-full flex justify-center font-bold text-gray-600 mt-4 mb-4">
             <h6>Copyright © 2025 DrLaBike: Gateway to Pathology Lab Ownership | Powered by Swasthmnathan Meditech Pvt Ltd</h6>
-          </div> 
+          </div>
       </div>
     );
   };

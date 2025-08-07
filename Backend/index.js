@@ -15,9 +15,11 @@ if (!process.env.MONGO_URI) {
 }
 
 app.use(cors({
-    origin: '*',
-    credentials: false
+  origin: ['https://dr-labike.onrender.com'], 
+  methods: ['GET', 'POST', 'DELETE'],
+  credentials: true 
 }));
+
 app.use(express.json());
 
 const inquiryRoutes = require("./routes/inquiryroute");
@@ -25,6 +27,9 @@ const signupRoutes = require("./routes/signupRoute");
 const contactRoutes = require("./routes/contactRoute");
 const logoutRoutes = require("./routes/logout");
 const viewpageRoutes = require("./routes/viewpageRoute");
+
+
+
 app.use("/api/inquiry", inquiryRoutes);
 app.use("/api/user", signupRoutes);
 app.use("/api/contact", contactRoutes);

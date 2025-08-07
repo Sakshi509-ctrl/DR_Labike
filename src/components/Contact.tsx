@@ -33,61 +33,57 @@ const Contact: React.FC = () => {
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    setIsSubmitting(true);
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    if (!firstName.trim() || !lastName.trim() || !phone.trim() || !email.trim() || !message.trim()) {
-      alert('Please fill in all required fields');
-      setIsSubmitting(false);
-      return;
+  if (!firstName.trim() || !lastName.trim() || !phone.trim() || !email.trim() || !message.trim()) {
+    alert('Please fill in all required fields');
+    setIsSubmitting(false);
+    return;
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address');
+    setIsSubmitting(false);
+    return;
+  }
+
+  try {
+    const response = await fetch("https://dr-labike.onrender.com/api/inquiry", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: `${firstName} ${lastName}`,
+        email,
+        phone,
+        message
+      })
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
     }
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert('Please enter a valid email address');
-      setIsSubmitting(false);
-      return;
-    }
+    const result = await response.json();
+    alert(result.message || 'Thank you! Your message has been sent successfully.');
 
-    try {
-      const response = await fetch("https://dr-labike.onrender.com/api/contact/contact-forms", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          name: `${firstName} ${lastName}`,
-          email,
-          phone,
-          message
-        })
-      });
-      
+    setFirstName('');
+    setLastName('');
+    setPhone('');
+    setEmail('');
+    setMessage('');
+  } catch (error) {
+    console.error('Contact form submission error:', error);
+    alert(`Failed to submit form: ${error instanceof Error ? error.message : 'Unknown error'}`);
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
-      if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
-      }
-
-      const result = await response.json();
-      
-      alert(result.message || 'Thank you! Your message has been sent successfully.');
-      
-      setFirstName('');
-      setLastName('');
-      setPhone('');
-      setEmail('');
-      setMessage('');
-      
-    } catch (error) {
-      console.error('Contact form submission error:', error);
-      alert(`Failed to submit form: ${error instanceof Error ? error.message : 'Unknown error'}`);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-  
   
   
 
