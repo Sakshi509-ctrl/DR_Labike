@@ -3,9 +3,6 @@ require("dotenv").config({ path: path.join(__dirname, '.env') });
 const express = require("express");
 const cors = require("cors");
 
-
-
-
 const app = express();
 const PORT = process.env.PORT || 5000;
 
@@ -14,20 +11,23 @@ if (!process.env.MONGO_URI) {
     process.exit(1);
 }
 
+
 app.use(cors({
-  origin: ['https://dr-labike.onrender.com'], 
-  methods: ['GET', 'POST', 'DELETE'],
-  credentials: true 
+    origin: '*', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    credentials: true 
 }));
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public'))); 
+
 
 const inquiryRoutes = require("./routes/inquiryroute");
 const signupRoutes = require("./routes/signupRoute");
 const contactRoutes = require("./routes/contactRoute");
 const logoutRoutes = require("./routes/logout");
 const viewpageRoutes = require("./routes/viewpageRoute");
-
+const blogRoutes = require("./routes/blogR");
 
 
 app.use("/api/inquiry", inquiryRoutes);
@@ -35,6 +35,8 @@ app.use("/api/user", signupRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/logout", logoutRoutes);
 app.use("/api/viewpage", viewpageRoutes);
+app.use("/api/blog", blogRoutes);
+
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`);
     next();
@@ -44,7 +46,10 @@ app.get("/api/test", (req, res) => {
     res.json({ message: "Backend is working!" });
 });
 
+
 const dbConnect = require("./config/database");
+
+
 
 const buildPath = path.join(__dirname, '../', 'dist');
 app.use(express.static(buildPath));
@@ -52,6 +57,7 @@ app.use(express.static(buildPath));
 app.get('/*', (req, res) => {
     res.sendFile(path.join(buildPath, 'index.html'));
 });
+
 
 app.use((req, res, next) => {
     res.status(404).json({ message: "Route not found" });
@@ -66,13 +72,13 @@ app.use((err, req, res, next) => {
 const startServer = async () => {
     try {
         await dbConnect();
-        console.log(" Database connected successfully");
+        console.log("Database connected successfully");
 
         app.listen(PORT, () => {
-            console.log(` Server running at http://localhost:${PORT}`);
+            console.log(`Server running at http://localhost:${PORT}`);
         });
     } catch (error) {
-        console.error(" Failed to start server:", error.message);
+        console.error("Failed to start server:", error.message);
         process.exit(1);
     }
 };
