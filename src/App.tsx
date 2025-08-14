@@ -28,6 +28,10 @@ import MedicalBlogs from './components/medicalBlogs';
 import MedicalBlogsPage2 from './components/medicalBlogsPage2';
 import Projects from './components/project';
 import EditMedicalPage from './components/editmedical';
+import Readmore from './components/pcodRead';
+import IvfRead from './components/ivfRead';
+import DigRead from './components/digRead';
+import FamiliesRead from './components/familiesRead';
 
 function App() {
   return (
@@ -59,7 +63,11 @@ function App() {
         <Route path="/medical-blogs/page2" element={<MedicalBlogsPage2 />} />
         <Route path="/projects" element={<Projects />} /> 
         <Route path="editmedical" element={<EditMedicalPage/>}/>
-      </Routes>
+        <Route path="/readmore" element={<Readmore />} />
+        <Route path="/ivfread" element={<IvfRead />} />
+        <Route path="/digRead" element={<DigRead/>} />
+        <Route path="/familiesRead" element={<FamiliesRead/>}/>
+        </Routes>
     </ContactSidebarProvider>
     </AuthProvider>
   );

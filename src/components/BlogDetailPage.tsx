@@ -40,7 +40,7 @@ const BlogDetailPage = () => {
           </div>
         </div>
         <div className="flex justify-end mr-24">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded-md mb-10 mt-0 " onClick={() => window.open('/medicalBlogs', '_self')}>
+          <button className="bg-blue-500 text-white px-4 py-2 rounded-md mb-10 mt-0 " onClick={() => window.open('/medical-blogs', '_self')}>
             Click here
           </button>
         </div>

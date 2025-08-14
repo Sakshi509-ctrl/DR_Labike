@@ -12,6 +12,7 @@ interface BlogData {
 	title: string;
 	content: string;
 	image: string;
+	createdAt: string;
 	updatedAt: string;
 }
 
@@ -23,7 +24,6 @@ const MedicalBlogs = () => {
 	const [blogs, setBlogs] = useState<BlogData[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState('');
-	// const [showFull, setShowFull] = useState(false);
 
 	
 	const today = new Date().toLocaleDateString('en-IN', {
@@ -103,16 +103,14 @@ const MedicalBlogs = () => {
 				         </div>
 				         <div className="self-start mb-4 ml-4">
 				             
-				             <p className="text-gray-600">
-				                 {mainBlog.content}
-				             </p>
+				             
 				         </div>
 				         <p  className="text-gray-600 mb-4 ml-4">
 				          {mainBlog.content}
 				          </p>
 				          <div className="flex justify-end w-full pr-8">
 				            <button
-				              className="w-36 h-10 bg-red-500 hover:bg-blue-800 text-white font-bold rounded-lg shadow text-base mb-4">
+				              className="w-36 h-10 bg-red-500 hover:bg-blue-800 text-white font-bold rounded-lg shadow text-base mb-4" onClick={()=>navigate('/familiesRead')}>
 				              Read More 
 				            </button>
 				          </div>
@@ -125,13 +123,13 @@ const MedicalBlogs = () => {
 				   </div>
 				 )}
 				<div className="bg-white shadow-lg w-[700px] overflow-hidden mt-4 min-h-[600px]">
-				   <img src={'/assets/lord.png'} alt="Lord" className="w-[800px] h-[400px] object-cover"/>
+				   	<img src={'/assets/lord.png'} alt="Lord" className="w-[800px] h-[400px] object-cover"/>
 				   <p className='text-2xl font-normal font-semibold mt-9 ml-5'>
 				 Get instant and accurate diagnostic services Pathology tests at a super affordable cost from DrLaBike clinic.
 				 </p>
-				 <div className="self-end text-right mr-4 mb-2 text-gray-500 text-sm">
-				         Date : {formatDateTime(mainBlog.updatedAt)}
-				         </div>
+				{/* <div className="self-end text-right mr-4 mb-2 text-gray-500 text-sm">
+					Date : {formatDateTime(mainBlog.updatedAt)}
+				</div> */}
 				 <div className="flex items-center gap-2 ml-5 mt-4">
 				 <Bookmark className="w-5 h-5 text-gray-500" />
 				 <span className="text-gray-600 text-base">news and media</span>
@@ -139,7 +137,7 @@ const MedicalBlogs = () => {
 				 
 				 <div className="flex justify-end w-full pr-8">
 				       <button
-				         className="w-36 h-10 bg-red-500 hover:bg-blue-800 text-white font-bold rounded-lg shadow text-base mb-4">
+				         className="w-36 h-10 bg-red-500 hover:bg-blue-800 text-white font-bold rounded-lg shadow text-base mb-4" onClick={()=>navigate('/digRead')}>
 				         Read More
 				       </button>
 				     </div>
@@ -150,9 +148,9 @@ const MedicalBlogs = () => {
 				   <p className='text-2xl font-normal font-semibold mt-9 ml-5'>
 				 PCOD Diet Chart                                 
 				 </p>
-				 <div className="self-end text-right mr-4 mb-2 text-gray-500 text-sm">
-				         Date : {formatDateTime(mainBlog.updatedAt)}
-				         </div>  
+				 {/* <div className="self-end text-right mr-4 mb-2 text-gray-500 text-sm">
+					Date : {formatDateTime(mainBlog.updatedAt)}
+				 </div> */}
 				 <div className="flex items-center gap-2 ml-5 mt-4">
 				 <Bookmark className="w-5 h-5 text-gray-500" />
 				 <span className="text-gray-600 text-base">
@@ -164,20 +162,20 @@ const MedicalBlogs = () => {
 
 				 <div className="flex justify-end w-full pr-8">
 				       <button
-				         className="w-36 h-10 bg-red-500 hover:bg-blue-800 text-white font-bold rounded-lg shadow text-base mb-4">
+				         	className="w-36 h-10 bg-red-500 hover:bg-blue-800 text-white font-bold rounded-lg shadow text-base mb-4" onClick={() => navigate('/readmore')}>
 				         Read More
 				       </button>
 				     </div>
 				 </div>
-				 
+				
 				 
 				   <div className="bg-white shadow-lg w-[700px] overflow-hidden mt-4 min-h-[600px]">
-				       <img src={'/assets/ivfsafe.png'} alt="Lord" className="w-[800px] h-[400px] object-cover"/>
+				       <img src={'/assets/ivff.png'} alt="Lord" className="w-[800px] h-[400px] object-cover"/>
 				       <p className='text-2xl font-normal font-semibold mt-9 ml-5'>
 				       After how many weeks IVF pregnancy is considered safe ?  </p>
-					   <div className="self-end text-right mr-4 mb-2 text-gray-500 text-sm">
-				         Date : {formatDateTime(mainBlog.updatedAt)}
-				         </div>
+					{/* <div className="self-end text-right mr-4 mb-2 text-gray-500 text-sm">
+						Date : {formatDateTime(mainBlog.updatedAt)}
+					</div> */}
 				   <div className="flex items-center gap-2 ml-5 mt-4">
 				 <Bookmark className="w-5 h-5 text-gray-500" />
 				 <span className="text-gray-600 text-base">surrogacy cost</span>
@@ -187,7 +185,7 @@ const MedicalBlogs = () => {
 
 				 <div className="flex justify-end w-full pr-8">
 				       <button
-				         className="w-36 h-10 bg-red-500 hover:bg-blue-800 text-white font-bold rounded-lg shadow text-base mb-4">
+				         className="w-36 h-10 bg-red-500 hover:bg-blue-800 text-white font-bold rounded-lg shadow text-base mb-4" onClick={() => navigate('/ivfread')}>
 				         Read More
 				       </button>
 				     </div>
