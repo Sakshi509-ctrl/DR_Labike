@@ -1,15 +1,21 @@
-const Blog = require('../models/blogM');
+const Blog = require('../models/Blog');
 
-const createBlog = async (req, res) => {
-    const { title, content, image } = req.body;
+app.put('/api/blogs/:id', async (req, res) => {
     try {
-        const blog = new Blog({ title, content, image });
-        await blog.save();
-        res.status(201).json({ message: 'Blog created successfully', blog });
-    } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
+      const { id } = req.params;
+      const { title, content, image } = req.body;
+  
+      const updatedBlog = await Blog.findByIdAndUpdate(
+        id,
+        { title, content, image },
+        { new: true }
+      );
+  
+      if (!updatedBlog) return res.status(404).json({ message: 'Blog not found' });
+  
+      res.json(updatedBlog);
+    } catch (err) {
+      res.status(500).json({ message: 'Error updating blog', error: err });
     }
-}   
-
-module.exports = createBlog;
-    
+  });
+  

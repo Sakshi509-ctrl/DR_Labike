@@ -74,7 +74,6 @@ app.post('/api/contact', async (req, res) => {
   try {
     const { firstName, lastName, phone, email, message, timestamp } = req.body;
     
-    // Validate required fields
     if (!firstName || !lastName || !phone || !email || !message) {
       return res.status(400).json({
         success: false,
@@ -82,7 +81,6 @@ app.post('/api/contact', async (req, res) => {
       });
     }
     
-    // Log the contact request
     console.log('📧 Contact form submission received:');
     console.log('Name:', `${firstName} ${lastName}`);
     console.log('Phone:', phone);
@@ -90,14 +88,13 @@ app.post('/api/contact', async (req, res) => {
     console.log('Message:', message);
     console.log('Timestamp:', timestamp);
     
-    // Send success response
     res.json({
       success: true,
       message: 'Thank you! Your message has been received successfully.'
     });
     
   } catch (error) {
-    console.error('❌ Contact form error:', error);
+    console.error(' Contact form error:', error);
     res.status(500).json({
       success: false,
       message: 'Internal server error'
@@ -107,7 +104,7 @@ app.post('/api/contact', async (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(` Server running on port ${PORT}`);
 });
 ```
 
@@ -162,9 +159,7 @@ app.listen(PORT, () => {
 Update the API URL in `src/components/Contact.tsx`:
 
 ```javascript
-// Change this line in handleSubmit function:
 const response = await fetch('http://localhost:5000/api/contact', {
-// To your production URL:
 const response = await fetch('https://your-backend-domain.com/api/contact', {
 ```
 
@@ -188,11 +183,9 @@ You can enhance your backend by adding:
 
 ### 1. Database Integration
 ```javascript
-// Example with MongoDB
 const mongoose = require('mongoose');
 const Contact = require('./models/Contact');
 
-// In your POST endpoint:
 const contact = new Contact({
   firstName, lastName, phone, email, message, timestamp
 });
@@ -201,10 +194,8 @@ await contact.save();
 
 ### 2. Email Notifications
 ```javascript
-// Example with Nodemailer
 const nodemailer = require('nodemailer');
 
-// Send email notification
 await transporter.sendMail({
   from: 'your-email@domain.com',
   to: 'admin@drlabike.com',
@@ -215,13 +206,11 @@ await transporter.sendMail({
 
 ### 3. Additional Endpoints
 ```javascript
-// Get all contact submissions
 app.get('/api/contacts', async (req, res) => {
   const contacts = await Contact.find().sort({ timestamp: -1 });
   res.json(contacts);
 });
 
-// Delete a contact submission
 app.delete('/api/contacts/:id', async (req, res) => {
   await Contact.findByIdAndDelete(req.params.id);
   res.json({ success: true });
@@ -239,7 +228,6 @@ app.delete('/api/contacts/:id', async (req, res) => {
 
 ### Testing the API:
 ```bash
-# Test with curl
 curl -X POST http://localhost:5000/api/contact \
   -H "Content-Type: application/json" \
   -d '{

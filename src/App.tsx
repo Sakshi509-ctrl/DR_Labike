@@ -26,7 +26,8 @@ import Dashboard from './components/Dashboard';
 import { AuthProvider } from './context/AuthContext';
 import MedicalBlogs from './components/medicalBlogs';
 import MedicalBlogsPage2 from './components/medicalBlogsPage2';
-
+import Projects from './components/project';
+import EditMedicalPage from './components/editmedical';
 
 function App() {
   return (
@@ -56,7 +57,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/medical-blogs" element={<MedicalBlogs />} />
         <Route path="/medical-blogs/page2" element={<MedicalBlogsPage2 />} />
-      
+        <Route path="/projects" element={<Projects />} /> 
+        <Route path="editmedical" element={<EditMedicalPage/>}/>
       </Routes>
     </ContactSidebarProvider>
     </AuthProvider>

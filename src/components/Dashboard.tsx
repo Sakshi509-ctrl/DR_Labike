@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { RefreshCw, LogOut, Users, Mail, Phone, MessageSquare, Calendar, Hash, Trash2, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
+import { RefreshCw, LogOut, Users, Mail, Phone, MessageSquare, Calendar, Hash, Trash2, Eye, ChevronLeft, ChevronRight, Plus, Edit, Save, X } from 'lucide-react';
 // @ts-expect-error - JavaScript module without TypeScript declarations
 import apiService from '../services/apiService';
 import ViewPageModal from './ViewPageModal';
@@ -16,20 +16,41 @@ interface ContactFormData {
   viewpage: string;
 }
 
+interface BlogData {
+  _id: string;
+  title: string;
+  content: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 const Dashboard: React.FC = () => {
   const [data, setData] = useState<ContactFormData[]>([]);
+  const [blogs, setBlogs] = useState<BlogData[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isBlogsLoading, setIsBlogsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
+  const [success, setSuccess] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedItem, setSelectedItem] = useState<ContactFormData | null>(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
   const [showSubmissions, setShowSubmissions] = useState<boolean>(false);
   const [showProject, setShowProject] = useState<boolean>(false);
+  
+  const [selectedBlog, setSelectedBlog] = useState<BlogData | null>(null);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [blogForm, setBlogForm] = useState({
+    title: '',
+    content: '',
+    image: ''
+  });
 
   const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
+    fetchBlogs();
   }, []);
 
   const fetchData = async () => {
@@ -47,6 +68,29 @@ const Dashboard: React.FC = () => {
     }
   };
 
+  const fetchBlogs = async () => {
+    try {
+      setIsBlogsLoading(true);
+      console.log('Fetching blogs...');
+      const blogsData = await apiService.getBlogs();
+      console.log('Blogs API response:', blogsData);
+      
+      if (Array.isArray(blogsData)) {
+        setBlogs(blogsData);
+      } else if (blogsData && blogsData.data && Array.isArray(blogsData.data)) {
+        setBlogs(blogsData.data);
+      } else {
+        console.warn('Unexpected blogs data format:', blogsData);
+        setBlogs([]);
+      }
+    } catch (err: unknown) {
+      console.error('Error fetching blogs:', err);
+      setBlogs([]); 
+    } finally {
+      setIsBlogsLoading(false);
+    }
+  };
+
   const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this submission?')) {
       try {
@@ -57,6 +101,81 @@ const Dashboard: React.FC = () => {
         setError(errorMessage);
       }
     }
+  };
+
+  const handleBlogDelete = async (id: string) => {
+    if (window.confirm('Are you sure you want to delete this blog?')) {
+      try {
+        await apiService.deleteBlog(id);
+        fetchBlogs();
+        setSelectedBlog(null);
+        setIsEditing(false);
+      } catch (err: unknown) {
+        console.error('Error deleting blog:', err);
+      }
+    }
+  };
+
+  const handleBlogEdit = (blog: BlogData) => {
+    setSelectedBlog(blog);
+    setBlogForm({
+      title: blog.title,
+      content: blog.content,
+      image: blog.image
+    });
+    setIsEditing(true);
+  };
+
+  const handleBlogSave = async () => {
+    if (!selectedBlog) return;
+    
+    try {
+      console.log('Updating blog with ID:', selectedBlog._id);
+      console.log('Update data:', blogForm);
+      
+      const result = await apiService.updateBlog(selectedBlog._id, blogForm);
+      console.log('Update result:', result);
+      
+      fetchBlogs();
+      setIsEditing(false);
+      setSelectedBlog(null);
+      setBlogForm({ title: '', content: '', image: '' });
+      setSuccessMessage('Blog updated successfully!');
+    } catch (err: unknown) {
+      console.error('Error updating blog:', err);
+      setErrorMessage('Failed to update blog. Please try again.');
+    }
+  };
+
+  const handleBlogCreate = async () => {
+    try {
+      if (!blogForm.title.trim() || !blogForm.content.trim() || !blogForm.image.trim()) {
+        setErrorMessage('Please fill in all required fields (title, content, and image)');
+        return;
+      }
+
+      console.log('Creating blog with form data:', blogForm);
+      
+      const result = await apiService.createBlog(blogForm);
+      console.log('Blog created successfully:', result);
+      
+      setBlogForm({ title: '', content: '', image: '' });
+      fetchBlogs();
+      
+      console.log('Blog created successfully!');
+      setSuccessMessage('Blog created successfully!');
+      
+    } catch (err: unknown) {
+      console.error('Error creating blog:', err);
+      const errorMessage = err instanceof Error ? err.message : 'Failed to create blog';
+      setErrorMessage(errorMessage);
+    }
+  };
+
+  const handleBlogCancel = () => {
+    setIsEditing(false);
+    setSelectedBlog(null);
+    setBlogForm({ title: '', content: '', image: '' });
   };
 
   const formatTimestamp = (timestamp: string) => {
@@ -73,8 +192,42 @@ const Dashboard: React.FC = () => {
     setSelectedItem(null);
   };
 
+  const setSuccessMessage = (message: string) => {
+    setSuccess(message);
+    setTimeout(() => setSuccess(''), 3000);
+  };
+
+  const setErrorMessage = (message: string) => {
+    setError(message);
+    setTimeout(() => setError(''), 5000);
+  };
+
   return (
     <div className="min-h-screen bg-gray-200 flex">
+      {error && (
+        <div className="fixed top-0 left-0 right-0 bg-red-500 text-white p-4 text-center z-50">
+          <p>Error: {error}</p>
+          <button 
+            onClick={() => setError('')}
+            className="ml-4 px-2 py-1 bg-white text-red-500 rounded text-sm"
+          >
+            Dismiss
+          </button>
+        </div>
+      )}
+      
+      {success && (
+        <div className="fixed top-0 left-0 right-0 bg-green-500 text-white p-4 text-center z-50">
+          <p>Success: {success}</p>
+          <button 
+            onClick={() => setSuccess('')}
+            className="ml-4 px-2 py-1 bg-white text-green-500 rounded text-sm"
+          >
+            Dismiss
+          </button>
+        </div>
+      )}
+      
       <div className={`bg-blue-400 shadow-lg transition-all duration-300 ${isSidebarOpen ? 'w-80' : 'w-16'}`}>
         <div className="p-4 border-b border-gray-200">
           <div className="flex items-center justify-between">
@@ -120,7 +273,7 @@ const Dashboard: React.FC = () => {
                   </div>
                 )}
               </div>
-                             <div
+                <div
                  onClick={() => {
                    setShowSubmissions(false);
                    setShowProject(!showProject);
@@ -190,79 +343,233 @@ const Dashboard: React.FC = () => {
               ) : showProject ? (
              <div className="bg-white shadow-sm rounded-xl border border-gray-200">
                <div className="px-6 py-5 border-b border-gray-200">
-                 <h2 className="text-xl font-semibold text-gray-900">Medical Blog Content Editor</h2>
+                 <div className="flex justify-between items-center">
+                   <h2 className="text-xl font-semibold text-gray-900">Medical Blog Content Editor</h2>
+                   <div className="flex space-x-2">
+                     <button
+                       onClick={fetchBlogs}
+                       className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors"
+                     >
+                       <RefreshCw className="h-4 w-4 mr-2" />
+                       Refresh
+                     </button>
+                     <button
+                       onClick={() => {
+                         setIsEditing(false);
+                         setSelectedBlog(null);
+                         setBlogForm({ title: '', content: '', image: '' });
+                       }}
+                       className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                     >
+                       <Plus className="h-4 w-4 mr-2" />
+                       New Blog
+                     </button>
+                   </div>
+                 </div>
                </div>
+               
                <div className="p-6">
-                 <div className="space-y-6">
-                   <div>
-                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                       Blog Title
-                     </label>
-                     <input
-                       type="text"
-                       placeholder="Enter your blog title here..."
-                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500"
-                     />
-                   </div>
+                 {!isEditing && !selectedBlog ? (
+                   <div className="space-y-6">
+                     <div>
+                       <label className="block text-sm font-medium text-gray-700 mb-2">
+                         Blog Title
+                       </label>
+                       <input
+                         type="text"
+                         value={blogForm.title}
+                         onChange={(e) => setBlogForm({...blogForm, title: e.target.value})}
+                         placeholder="Enter your blog title here..."
+                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500"
+                       />
+                     </div>
 
-                   <div>
-                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                       Blog Change title
-                     </label>
-                     <input
-                       type="text"
-                       placeholder="Enter your blog title here..."
-                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500"
-                     />
-                    </div>
+                     
 
-                   <div>
-                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                       Blog Content
-                     </label>
-                     <textarea
-                       placeholder="Write your medical blog content here..."
-                       rows={8}
-                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500 resize-none"
-                     />
-                   </div>
+                     <div>
+                       <label className="block text-sm font-medium text-gray-700 mb-2">
+                         Blog Content
+                       </label>
+                       <textarea
+                         value={blogForm.content}
+                         onChange={(e) => setBlogForm({...blogForm, content: e.target.value})}
+                         placeholder="Write your medical blog content here..."
+                         rows={8}
+                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500 resize-none"
+                       />
+                     </div>
 
-                  
+                     <div>
+                       <label className="block text-sm font-medium text-gray-700 mb-2">
+                         Blog Image
+                       </label>
+                       <input
+                         type="file"
+                         accept="image/*"
+                         onChange={async (e) => {
+                           const file = e.target.files?.[0];
+                           if (!file) return;
+                           try {
+                             console.log('File selected for edit:', file.name, 'Size:', file.size);
+                             const res = await apiService.uploadBlogImage(file);
+                             console.log('Upload response in edit form:', res);
+                             setBlogForm({ ...blogForm, image: res.image });
+                             setSuccessMessage('Image uploaded successfully!');
+                           } catch (err) {
+                             console.error('Upload error in edit form:', err);
+                             setErrorMessage('Image upload failed');
+                           }
+                         }}
+                         className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                       />
+                       {blogForm.image && (
+                         <p className="text-xs text-gray-500 mt-1">Selected: {blogForm.image}</p>
+                       )}
+                     </div>
 
-                   <div>
-                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                       Blog Image
-                     </label>
-                     <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-indigo-400 transition-colors">
-                       <div className="space-y-2">
-                         <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center mx-auto">
-                           <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                           </svg>
-                         </div>
-                         <div>
-                           <p className="text-sm text-gray-600">
-                             <span className="font-medium text-indigo-600 hover:text-indigo-500 cursor-pointer">
-                               Click to upload
-                             </span>{" "}
-                             or drag and drop
-                           </p>
-                           <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
-                         </div>
-                       </div>
+                     <div className="flex space-x-3 pt-4">
+                       <button 
+                         onClick={handleBlogCreate}
+                         className="px-6 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                       >
+                         Create Blog
+                       </button>
+                       <button 
+                         onClick={() => setBlogForm({ title: '',  content: '', image: '' })}
+                         className="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                       >
+                         Reset
+                       </button>
                      </div>
                    </div>
+                 ) : (
+                   <div className="space-y-6">
+                     <div>
+                       <label className="block text-sm font-medium text-gray-700 mb-2">
+                         Blog Title
+                       </label>
+                       <input
+                         type="text"
+                         value={blogForm.title}
+                         onChange={(e) => setBlogForm({...blogForm, title: e.target.value})}
+                         placeholder="Enter your blog title here..."
+                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500"
+                       />
+                     </div>
 
-                   <div className="flex space-x-3 pt-4">
-                     <button className="px-6 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
-                       Save Changes
-                     </button>
-                     <button className="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
-                       Preview
-                     </button>
-                     <button className="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
-                       Reset
-                     </button>
+                    
+
+                     <div>
+                       <label className="block text-sm font-medium text-gray-700 mb-2">
+                         Blog Content
+                       </label>
+                       <textarea
+                         value={blogForm.content}
+                         onChange={(e) => setBlogForm({...blogForm, content: e.target.value})}
+                         placeholder="Write your medical blog content here..."
+                         rows={8}
+                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500 resize-none"
+                       />
+                     </div>
+
+                     <div>
+                       <label className="block text-sm font-medium text-gray-700 mb-2">
+                         Blog Image URL
+                       </label>
+                       <input
+                         type="text"
+                         value={blogForm.image}
+                         onChange={(e) => setBlogForm({...blogForm, image: e.target.value})}
+                         placeholder="Enter image URL..."
+                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900 placeholder-gray-500"
+                       />
+                     </div>
+
+                     <div>
+                       <label className="block text-sm font-medium text-gray-700 mb-2">
+                         Blog Image
+                       </label>
+                       <input
+                         type="file"
+                         accept="image/*"
+                         onChange={async (e) => {
+                           const file = e.target.files?.[0];
+                           if (!file) return;
+                           try {
+                             const res = await apiService.uploadBlogImage(file);
+                             setBlogForm({ ...blogForm, image: res.image });
+                             setSuccessMessage('Image uploaded');
+                           } catch (err) {
+                             setErrorMessage('Image upload failed');
+                           }
+                         }}
+                         className="w-full px-4 py-2 border border-gray-300 rounded-lg bg-white"
+                       />
+                       {blogForm.image && (
+                         <p className="text-xs text-gray-500 mt-1">Selected: {blogForm.image}</p>
+                       )}
+                     </div>
+
+                     <div className="flex space-x-3 pt-4">
+                       <button 
+                         onClick={handleBlogSave}
+                         className="px-6 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                       >
+                         <Save className="h-4 w-4 mr-2" />
+                         Save Changes
+                       </button>
+                       <button 
+                         onClick={handleBlogCancel}
+                         className="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+                       >
+                         <X className="h-4 w-4 mr-2" />
+                         Cancel
+                       </button>
+                     </div>
+                   </div>
+                 )}
+
+                 <div className="mt-8">
+                   <h3 className="text-lg font-semibold text-gray-900 mb-4">Existing Blogs</h3>
+                   <div className="space-y-4">
+                     {isBlogsLoading ? (
+                       <div className="text-center py-8">
+                         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600 mx-auto"></div>
+                         <p className="text-gray-500 mt-2">Loading blogs...</p>
+                       </div>
+                     ) : Array.isArray(blogs) && blogs.length > 0 ? (
+                       blogs.map((blog) => (
+                         <div key={blog._id} className="border border-gray-200 rounded-lg p-4">
+                           <div className="flex justify-between items-start">
+                             <div className="flex-1">
+                               <h4 className="text-lg font-medium text-gray-900">{blog.title}</h4>
+                               <p className="text-gray-700 mt-2 line-clamp-3">{blog.content}</p>
+                               <p className="text-xs text-gray-500 mt-2">Created: {formatTimestamp(blog.createdAt)}</p>
+                             </div>
+                             <div className="flex space-x-2 ml-4">
+                               <button
+                                 onClick={() => handleBlogEdit(blog)}
+                                 className="text-indigo-600 hover:text-indigo-800 transition-colors p-2 rounded"
+                                 title="Edit blog"
+                               >
+                                 <Edit className="h-4 w-4" />
+                               </button>
+                               <button
+                                 onClick={() => handleBlogDelete(blog._id)}
+                                 className="text-red-600 hover:text-red-800 transition-colors p-2 rounded"
+                                 title="Delete blog"
+                               >
+                                 <Trash2 className="h-4 w-4" />
+                               </button>
+                             </div>
+                           </div>
+                         </div>
+                       ))
+                     ) : (
+                       <div className="text-center py-8">
+                         <p className="text-gray-500">No blogs available. Create your first blog post!</p>
+                       </div>
+                     )}
                    </div>
                  </div>
                </div>
