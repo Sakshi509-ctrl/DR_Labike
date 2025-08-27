@@ -8,7 +8,7 @@ const getContactForms = async (req, res) => {
 
     const total = await Inquiry.countDocuments();
     const forms = await Inquiry.find()
-      .sort({ timestamp: -1 }) // newest first
+      .sort({ timestamp: -1 }) 
       .skip(skip)
       .limit(limit);
 

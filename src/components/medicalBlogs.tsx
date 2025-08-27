@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Footer from './footer';
 import Header from './Header';
 import { Bookmark } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -11,12 +10,13 @@ interface BlogData {
 	_id: string;
 	title: string;
 	content: string;
+	readMoreContent: string;
 	image: string;
 	createdAt: string;
 	updatedAt: string;
 }
 
-	
+
 
 const MedicalBlogs = () => {
 	const navigate = useNavigate();
@@ -24,6 +24,9 @@ const MedicalBlogs = () => {
 	const [blogs, setBlogs] = useState<BlogData[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState('');
+	const [currentPage, setCurrentPage] = useState(1);
+	const blogsPerPage = 5;
+
 
 	
 	const today = new Date().toLocaleDateString('en-IN', {
@@ -36,6 +39,9 @@ const MedicalBlogs = () => {
 		fetchBlogs();
 	}, []);
 
+
+
+	
 	const fetchBlogs = async () => {
 		try {
 			setIsLoading(true);
@@ -49,6 +55,12 @@ const MedicalBlogs = () => {
 			setIsLoading(false);
 		}
 	};
+
+	// Calculate pagination
+	const totalPages = Math.ceil(blogs.length / blogsPerPage);
+	const startIndex = (currentPage - 1) * blogsPerPage;
+	const endIndex = startIndex + blogsPerPage;
+	const currentBlogs = blogs.slice(startIndex, endIndex);
 
 	const formatDateTime = (isoString: string) => {
 		try {
@@ -64,7 +76,14 @@ const MedicalBlogs = () => {
 		}
 	};
 
-	const mainBlog = blogs[0];
+	const openReadMore = (blog: BlogData) => {
+		navigate(`/blog/${blog._id}`);
+	};
+
+	const handlePageChange = (page: number) => {
+		setCurrentPage(page);
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	};
 
 	return (
 		<div>
@@ -87,49 +106,85 @@ const MedicalBlogs = () => {
 				       Retry
 				     </button>
 				   </div>
-				 ) : mainBlog ? (
+				 ) : blogs.length > 0 ? (
 				   <>
-				     <div className="bg-white shadow-lg w-[700px] overflow-hidden mb-6">
-				       <img src={mainBlog.image} alt="Medical Blogs" className="w-[800px] h-[400px] object-cover"/>
-				     </div>
+				     {currentBlogs.length > 0 ? (
+				       currentBlogs.map((blog) => (
+				         <div key={blog._id} className="mb-6">
+				           <div className="bg-white shadow-lg w-[700px] overflow-hidden">
+				             <img src={blog.image} alt={blog.title} className="w-[800px] h-[400px] object-cover"/>
+				           </div>
 
-				     <div className="bg-white shadow-lg w-[700px] overflow-hidden mt-4 min-h-[200px]">
-				       <div className="flex flex-col items-center justify-center min-h-[200px]">
-				         <h1 className="text-3xl font-bold text-gray-800 mb-1 mt-4">
-				             {mainBlog.title}
-				         </h1>
-				         <div className="self-end mr-4 mb-2 text-gray-500 text-sm">
-				         Date : {formatDateTime(mainBlog.updatedAt)}
+				           <div className="bg-white shadow-lg w-[700px] overflow-hidden mt-4 min-h-[200px]">
+				             <div className="flex flex-col items-center justify-center min-h-[200px]">
+				               <h1 className="text-3xl font-bold text-gray-800 mb-1 mt-4 text-center px-4">
+				                   {blog.title}
+				               </h1>
+				               <div className="self-end mr-4 mb-2 text-gray-500 text-sm">
+				               Date : {formatDateTime(blog.updatedAt || blog.createdAt)}
+				               </div>
+				               <div className="self-start mb-4 ml-4">
+				                   
+				                   
+				               </div>
+				               <p className="text-gray-600 mb-4 ml-4 px-4 text-center">
+				                {blog.content}
+				                </p>
+				                <div className="flex justify-end w-full pr-8">
+				                  <button
+				                    className="w-36 h-10 bg-red-500 hover:bg-blue-800 text-white font-bold rounded-lg shadow text-base mb-4" 
+				                    onClick={() => openReadMore(blog)}>
+				                    Read More 
+				                  </button>
+				                </div>
+				             </div>
+				           </div>
 				         </div>
-				         <div className="self-start mb-4 ml-4">
-				             
-				             
-				         </div>
-				         <p  className="text-gray-600 mb-4 ml-4">
-				          {mainBlog.content}
-				          </p>
-				          <div className="flex justify-end w-full pr-8">
-				            <button
-				              className="w-36 h-10 bg-red-500 hover:bg-blue-800 text-white font-bold rounded-lg shadow text-base mb-4" onClick={()=>navigate('/familiesRead')}>
-				              Read More 
-				            </button>
-				          </div>
+				       ))
+				     ) : (
+				       <div className="bg-white shadow-lg w-[700px] overflow-hidden mb-6 p-8 text-center">
+				         <p className="text-gray-600">No blogs on this page. Use pagination to navigate.</p>
 				       </div>
-				     </div>
+				     )}
 				   </>
 				 ) : (
 				   <div className="bg-white shadow-lg w-[700px] overflow-hidden mb-6 p-8 text-center">
-				     <p className="text-gray-600">No medical blogs available</p>
 				   </div>
 				 )}
+				 
+				 {blogs.length > 0 && (
+				   <div className="bg-white shadow-lg w-[700px] overflow-hidden mb-6 p-4 text-center">
+				     <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-3">
+				       <p className="text-blue-800 font-semibold text-lg">
+				         Page {currentPage} of {totalPages}
+				       </p>
+				       <p className="text-blue-600 text-sm">
+				         Showing blogs {startIndex + 1} to {Math.min(endIndex, blogs.length)} of {blogs.length} total blogs
+				       </p>
+				       <p className="text-blue-500 text-xs mt-1">
+				         {blogsPerPage} blogs per page
+				       </p>
+				       <div className="mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded text-xs">
+				         <p><strong>Debug Info:</strong></p>
+				         <p>Current Page: {currentPage}</p>
+				         <p>Start Index: {startIndex}</p>
+				         <p>End Index: {endIndex}</p>
+				         <p>Blogs on this page: {currentBlogs.length}</p>
+				         <p>Total blogs: {blogs.length}</p>
+				       </div>
+				     </div>
+				   </div>
+				 )}
+
+
+				
 				<div className="bg-white shadow-lg w-[700px] overflow-hidden mt-4 min-h-[600px]">
 				   	<img src={'/assets/lord.png'} alt="Lord" className="w-[800px] h-[400px] object-cover"/>
 				   <p className='text-2xl font-normal font-semibold mt-9 ml-5'>
 				 Get instant and accurate diagnostic services Pathology tests at a super affordable cost from DrLaBike clinic.
 				 </p>
-				{/* <div className="self-end text-right mr-4 mb-2 text-gray-500 text-sm">
-					Date : {formatDateTime(mainBlog.updatedAt)}
-				</div> */}
+				
+				
 				 <div className="flex items-center gap-2 ml-5 mt-4">
 				 <Bookmark className="w-5 h-5 text-gray-500" />
 				 <span className="text-gray-600 text-base">news and media</span>
@@ -148,9 +203,6 @@ const MedicalBlogs = () => {
 				   <p className='text-2xl font-normal font-semibold mt-9 ml-5'>
 				 PCOD Diet Chart                                 
 				 </p>
-				 {/* <div className="self-end text-right mr-4 mb-2 text-gray-500 text-sm">
-					Date : {formatDateTime(mainBlog.updatedAt)}
-				 </div> */}
 				 <div className="flex items-center gap-2 ml-5 mt-4">
 				 <Bookmark className="w-5 h-5 text-gray-500" />
 				 <span className="text-gray-600 text-base">
@@ -171,11 +223,10 @@ const MedicalBlogs = () => {
 				 
 				   <div className="bg-white shadow-lg w-[700px] overflow-hidden mt-4 min-h-[600px]">
 				       <img src={'/assets/ivff.png'} alt="Lord" className="w-[800px] h-[400px] object-cover"/>
-				       <p className='text-2xl font-normal font-semibold mt-9 ml-5'>
+				       <p className='text-2xl font-semibold mt-9 ml-5'>
 				       After how many weeks IVF pregnancy is considered safe ?  </p>
-					{/* <div className="self-end text-right mr-4 mb-2 text-gray-500 text-sm">
-						Date : {formatDateTime(mainBlog.updatedAt)}
-					</div> */}
+			
+				
 				   <div className="flex items-center gap-2 ml-5 mt-4">
 				 <Bookmark className="w-5 h-5 text-gray-500" />
 				 <span className="text-gray-600 text-base">surrogacy cost</span>
@@ -235,7 +286,9 @@ const MedicalBlogs = () => {
 					  </div>
 					  
 					  <div>
-						<label className="block text-gray-800 font-bold mb-2">Mobile Number</label>
+						<label className="block text-sm font-medium text-gray-700 mb-2">
+							Mobile Number
+						</label>
 						<input 
 						  type="tel" 
 						  placeholder="Enter your mobile number" 
@@ -244,7 +297,7 @@ const MedicalBlogs = () => {
 					  </div>
 					  
 					  <div>
-						<label className="block text-gray-800 font-bold mb-2">Select Service</label>
+						<label className="block text-sm font-medium text-gray-700 mb-2">Select Service</label>
 						<select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
 						  <option>Teleconsultation</option>
 						  <option>Pathology Tests</option>
@@ -298,38 +351,48 @@ const MedicalBlogs = () => {
 			</div>
 				
 			
-			<div className="flex justify-center items-center mt-8 mb-8">
-			  <div className="flex items-center space-x-2">
-				
-				<button className="text-gray-500 hover:text-gray-700 p-2">
-				  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-				  </svg>
-				</button>
-				
-				<button className="px-3 py-2 text-gray-500 hover:text-gray-700 bg-red-100 rounded">1</button>
-				<button 
-				  onClick={() => navigate('/medical-blogs/page2')}
-				  className="px-3 py-2 text-gray-500 hover:text-gray-700 cursor-pointer"
-				>
-				  2
-				</button>
-				<button className="px-3 py-2 text-gray-500 hover:text-gray-700">3</button>
-				<button className="px-3 py-2 text-gray-500 hover:text-gray-700">4</button>
-				<button className="px-3 py-2 text-gray-500 hover:text-gray-700">5</button>
-				<button className="px-3 py-2 text-gray-500 hover:text-gray-700">6</button>
-				
-				<button className="text-gray-500 hover:text-gray-700 p-2">
-				  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-				  </svg>
-				</button>
-				
-				<button className="text-gray-500 hover:text-gray-700 px-3 py-2">Last</button>
-			  </div>
-			</div>
+			{blogs.length > 0 && (
+				<div className="flex justify-center items-center mt-8 mb-8">
+				  <div className="flex items-center space-x-2">
+					
+					<button 
+						onClick={() => handlePageChange(currentPage - 1)}
+						disabled={currentPage === 1}
+						className={`p-2 ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-500 hover:text-gray-700'}`}
+					>
+					  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+					  </svg>
+					</button>
+					
+					{Array.from({ length: totalPages }, (_, index) => (
+						<button
+							key={index + 1}
+							onClick={() => handlePageChange(index + 1)}
+							className={`px-3 py-2 rounded ${
+								currentPage === index + 1
+									? 'bg-red-500 text-white'
+									: 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+							}`}
+						>
+							{index + 1}
+						</button>
+					))}
+					
+					<button 
+						onClick={() => handlePageChange(currentPage + 1)}
+						disabled={currentPage === totalPages}
+						className={`p-2 ${currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-gray-500 hover:text-gray-700'}`}
+					>
+					  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+					  </svg>
+					</button>
+				  </div>
+				</div>
+			)}
 			
-		<Footer />
+		
 				
 			<div className="fixed bottom-20 right-6 z-50">
 			  <button 
@@ -357,6 +420,31 @@ const MedicalBlogs = () => {
 			  isOpen={isContactModalOpen} 
 			  onClose={() => setIsContactModalOpen(false)} 
 			/>
+
+			<div className="flex justify-center items-center mt-8 mb-8">
+				<div className="flex items-center space-x-2">
+					<button 
+						onClick={() => setCurrentPage(1)}
+						className={`px-3 py-2 text-gray-500 hover:text-gray-700 cursor-pointer ${
+							currentPage === 1 ? 'bg-red-100 rounded' : ''
+						}`}
+					>
+						1
+					</button>
+					<button 
+						onClick={() => navigate('/medical-blogs/page2')}
+						className="px-3 py-2 text-gray-500 hover:text-gray-700 cursor-pointer"
+					>
+						2
+					</button>
+					<button 
+						onClick={() => setCurrentPage(3)}
+						className="px-3 py-2 text-gray-500 hover:text-gray-700 cursor-pointer"
+					>
+						3
+					</button>
+				</div>
+			</div>
 			</div>
 		);
 }

@@ -3,6 +3,7 @@ const router = express.Router();
 const Inquiry = require("../models/inquiry");
 const { getContactForms } = require("../controller/getContactForms");
 
+
 router.post("/contact-forms", async (req, res) => {
     console.log("Contact form submission received:", req.body);
     console.log("Request URL:", req.url);

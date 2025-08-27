@@ -32,6 +32,15 @@ import Readmore from './components/pcodRead';
 import IvfRead from './components/ivfRead';
 import DigRead from './components/digRead';
 import FamiliesRead from './components/familiesRead';
+import OTPReset from './components/OTPReset';
+import BlogChangeLogs from './components/blogchangelogs';
+import BlogCreator from './components/BlogCreator';
+import BlogFullPage from './components/BlogFullPage';
+import AdminPanel from './components/AdminPanel';
+import UserActivityView from './components/UserActivityView';
+import UserPanel from './components/UserPanel';
+import AdminBlogApproval from './components/AdminBlogApproval';
+import UserBlogStatus from './components/UserBlogStatus';
 
 function App() {
   return (
@@ -61,12 +70,22 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/medical-blogs" element={<MedicalBlogs />} />
         <Route path="/medical-blogs/page2" element={<MedicalBlogsPage2 />} />
+        <Route path="/blog/:blogId" element={<BlogFullPage />} />
         <Route path="/projects" element={<Projects />} /> 
         <Route path="editmedical" element={<EditMedicalPage/>}/>
         <Route path="/readmore" element={<Readmore />} />
         <Route path="/ivfread" element={<IvfRead />} />
         <Route path="/digRead" element={<DigRead/>} />
         <Route path="/familiesRead" element={<FamiliesRead/>}/>
+        <Route path="/OTPReset" element={<OTPReset/>}/>
+        <Route path="/blogchangelogs" element={<BlogChangeLogs/>}/>
+        <Route path="/blog-creator" element={<BlogCreator/>}/>
+        <Route path="/adminpanel" element={<AdminPanel/>}/>
+        <Route path="/admin-blog-approval" element={<AdminBlogApproval/>}/>
+        <Route path="/userpanel/:email" element={<UserActivityView/>}/>
+        <Route path="/user-blog-panel/:email" element={<UserPanel/>}/>
+        <Route path="/userpanel" element={<UserPanel/>}/>
+        <Route path="/user-blog-status/:email" element={<UserBlogStatus/>}/>
         </Routes>
     </ContactSidebarProvider>
     </AuthProvider>
