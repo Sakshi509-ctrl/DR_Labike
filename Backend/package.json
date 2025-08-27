@@ -26,6 +26,7 @@
     "node-fetch": "^3.3.2"
   },
   "devDependencies": {
+    "nodemailer": "^6.x.x",
     "nodemon": "^3.1.10"
   }
 }
