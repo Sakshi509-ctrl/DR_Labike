@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Footer from './footer';
+// import Footer from './footer';
 import Header from './Header';
 import { Bookmark } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import ContactModal from './ContactModal';
 
 interface ReadMoreContent {
@@ -21,7 +21,7 @@ interface BlogData {
 }
 
 const MedicalBlogsPage2 = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     
     const [readMoreModal, setReadMoreModal] = useState({
@@ -356,7 +356,7 @@ const MedicalBlogsPage2 = () => {
                 </div>
             </div>
             
-            <div className="flex justify-center items-center mt-8 mb-8">
+            {/* <div className="flex justify-center items-center mt-8 mb-8">
                 <div className="flex items-center space-x-2">
                     <button 
                         onClick={() => navigate('/medical-blogs')}
@@ -387,9 +387,9 @@ const MedicalBlogsPage2 = () => {
                     
                     <button className="text-gray-500 hover:text-gray-700 px-3 py-2">Last</button>
                 </div>
-            </div>
+            </div> */}
             
-            <Footer />
+            {/* <Footer /> */}
             
             <div className="fixed bottom-20 right-6 z-50">
                 <button 
