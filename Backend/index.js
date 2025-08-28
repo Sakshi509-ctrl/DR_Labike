@@ -15,8 +15,8 @@ if (!process.env.MONGO_URI) {
 
 console.log("Environment check:");
 console.log("PORT:", PORT);
-console.log("MONGO_URI:", process.env.MONGO_URI ? "✅ Set" : "❌ Missing");
-console.log("JWT_SECRET:", process.env.JWT_SECRET ? "✅ Set" : "❌ Missing");
+console.log("MONGO_URI:", process.env.MONGO_URI ? "Set" : "Missing");
+console.log("JWT_SECRET:", process.env.JWT_SECRET ? "Set" : "Missing");
 
 app.use(
   cors({
@@ -114,12 +114,12 @@ const startServer = async () => {
     
     const server = app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
-      console.log(`🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
+      console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
         console.log(`Health check: http://localhost:${PORT}/api/health`);
     });
 
     server.on('error', (error) => {
-      console.error('❌ Server error:', error.message);
+      console.error('Server error:', error.message);
       if (error.code === 'EADDRINUSE') {
         console.error(`Port ${PORT} is already in use`);
       }
@@ -127,14 +127,14 @@ const startServer = async () => {
     });
 
     const shutdown = () => {
-      console.log('\n🔄 Shutting down gracefully...');
+      console.log('\nShutting down gracefully...');
       server.close(() => {
-        console.log('✅ Server closed');
+        console.log('Server closed');
         process.exit(0);
       });
       
       setTimeout(() => {
-        console.error('⏰ Could not close connections in time, forcefully shutting down');
+        console.error('Could not close connections in time, forcefully shutting down');
         process.exit(1);
       }, 10000);
     };
@@ -143,7 +143,7 @@ const startServer = async () => {
     process.on('SIGINT', shutdown);
 
   } catch (error) {
-    console.error('❌ Failed to start server:', error.message);
+    console.error('Failed to start server:', error.message);
     process.exit(1);
   }
 };

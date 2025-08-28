@@ -340,11 +340,10 @@ const UserPanel: React.FC = () => {
   };
 
   const handleLogout = () => {
-    // Clear all session data
     localStorage.removeItem('userPanelUser');
     localStorage.removeItem('userPanelLoginState');
     
-    // Reset all states
+    
     setIsLoggedIn(false);
     setCurrentUser({ name: '', email: '' });
     setLoginForm({ name: '', email: '', password: '' });
@@ -354,7 +353,7 @@ const UserPanel: React.FC = () => {
     setSessionStartTime(null);
     setSuccessMessage('Logged out successfully');
     
-    // Clear any ongoing operations
+    
     setDeletingBlog('');
     setEditingBlog(null);
     setReadingBlog(null);
@@ -373,7 +372,7 @@ const UserPanel: React.FC = () => {
       return;
     }
     
-    // Check if email matches hardcoded email
+    
     const HARDCODED_EMAIL = 'guptasakshi9838@gmail.com';
     
     if (forgotPasswordEmail.trim() !== HARDCODED_EMAIL) {
@@ -385,10 +384,10 @@ const UserPanel: React.FC = () => {
       setOtpLoading(true);
       setError('');
       
-      // Generate demo OTP for testing
+      
       const demoOtp = Math.floor(100000 + Math.random() * 900000).toString();
       
-      // Store the OTP in state so it can be displayed and used
+      
       setOtpCode(demoOtp);
       setOtpSent(true);
       
@@ -419,8 +418,7 @@ const UserPanel: React.FC = () => {
       setOtpLoading(true);
       setError('');
       
-      // For demo purposes, accept any OTP (in real app, you'd verify the OTP)
-      // Since this is hardcoded, we'll just show success message
+      
       
       setSuccessMessage('OTP verified successfully! You can now set your new password.');
       setOtpVerified(true);
@@ -458,8 +456,7 @@ const UserPanel: React.FC = () => {
       setOtpLoading(true);
       setError('');
       
-      // For demo purposes, simulate password reset
-      // In a real app, you would update the password in the database
+      
       
       setSuccessMessage('Password reset successfully! You can now login with your new password.');
       
@@ -467,7 +464,7 @@ const UserPanel: React.FC = () => {
         setSuccessMessage('');
       }, 5000);
       
-      // Reset form and close modal
+        
       setShowForgotPassword(false);
       setOtpSent(false);
       setOtpVerified(false);
