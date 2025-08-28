@@ -12,11 +12,7 @@ module.exports = {
     
     database: {
         options: {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
             serverSelectionTimeoutMS: 10000,
-            socketTimeoutMS: 45000,
-            bufferMaxEntries: 0,
             maxPoolSize: 10,
             minPoolSize: 2,
             retryWrites: true,

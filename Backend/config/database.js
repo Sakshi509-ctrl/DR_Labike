@@ -5,12 +5,9 @@ const dbConnect = async () => {
         console.log('Attempting to connect to MongoDB...');
         
         const conn = await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 5000, 
-            bufferMaxEntries: 0, 
-            maxPoolSize: 10, 
-            minPoolSize: 2, 
+            serverSelectionTimeoutMS: 10000,
+            maxPoolSize: 10,
+            minPoolSize: 2,
         });
         
         console.log(`MongoDB Connected: ${conn.connection.host}`);
@@ -22,11 +19,11 @@ const dbConnect = async () => {
         });
         
         mongoose.connection.on('error', (err) => {
-            console.error('❌ Mongoose connection error:', err);
+            console.error('Mongoose connection error:', err);
         });
         
         mongoose.connection.on('disconnected', () => {
-            console.log('⚠️  Mongoose disconnected from MongoDB');
+            console.log('Mongoose disconnected from MongoDB');
         });
         
         process.on('SIGINT', async () => {
@@ -37,8 +34,8 @@ const dbConnect = async () => {
         
         return conn;
     } catch (error) {
-        console.error('❌ MongoDB connection error:', error.message);
-        console.error('🔍 Error details:', error);
+        console.error('MongoDB connection error:', error.message);
+        console.error('Error details:', error);
         
         if (error.name === 'MongoNetworkError') {
             console.error('Network Error: Check your internet connection and MongoDB URI');
