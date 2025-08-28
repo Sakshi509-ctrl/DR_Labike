@@ -8,15 +8,19 @@ const dbConnect = require("./config/database");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-
 if (!process.env.MONGO_URI) {
-  console.error(" MONGO_URI environment variable is required");
+  console.error("MONGO_URI environment variable is required");
   process.exit(1);
 }
 
+console.log("Environment check:");
+console.log("PORT:", PORT);
+console.log("MONGO_URI:", process.env.MONGO_URI ? "✅ Set" : "❌ Missing");
+console.log("JWT_SECRET:", process.env.JWT_SECRET ? "✅ Set" : "❌ Missing");
+
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://dr-labike.onrender.com"],
+    origin: ["http://localhost:5173", "https://dr-labike.onrender.com", "https://dr-labike-frontend.onrender.com"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -53,7 +57,37 @@ app.use("/api/login", loginRoute);
 
 
 app.get("/api/test", (req, res) => {
-  res.json({ message: "Backend is working!" });
+  res.json({ 
+    message: "Backend is working!", 
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
+app.get("/api/health", async (req, res) => {
+  try {
+    const mongoose = require('mongoose');
+    const dbState = mongoose.connection.readyState;
+    const dbStatus = {
+      0: 'disconnected',
+      1: 'connected',
+      2: 'connecting',
+      3: 'disconnecting'
+    };
+    
+    res.json({
+      status: 'healthy',
+      timestamp: new Date().toISOString(),
+      database: dbStatus[dbState] || 'unknown',
+      uptime: process.uptime()
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: 'unhealthy',
+      error: error.message,
+      timestamp: new Date().toISOString()
+    });
+  }
 });
 
 app.use("/api/*", (req, res) => {
@@ -73,56 +107,34 @@ app.use((err, req, res, next) => {
 
 const startServer = async () => {
   try {
-    await dbConnect();
-
-    const findAvailablePort = async (startPort) => {
-      const net = require('net');
-      return new Promise((resolve, reject) => {
-        const server = net.createServer();
-        server.unref();
-        server.on('error', (err) => {
-          if (err.code === 'EADDRINUSE') {
-            resolve(findAvailablePort(startPort + 1));
-          } else {
-            reject(err);
-          }
-        });
-        
-        server.listen(startPort, () => {
-          server.close(() => {
-            resolve(startPort);
-          });
-        });
-      });
-    };
-
-    const availablePort = await findAvailablePort(PORT);
+    console.log("Starting server...");
     
-    const server = app.listen(availablePort, () => {
-      console.log(` Server running at http://localhost:${availablePort}`);
-      if (availablePort !== PORT) {
-        console.log(` Original port ${PORT} was in use, using port ${availablePort} instead`);
-      }
+    await dbConnect();
+    console.log("Database connected successfully");
+    
+    const server = app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+      console.log(`🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
+        console.log(`Health check: http://localhost:${PORT}/api/health`);
     });
 
     server.on('error', (error) => {
+      console.error('❌ Server error:', error.message);
       if (error.code === 'EADDRINUSE') {
-        console.error(`Port ${PORT} is already in use. Please try a different port.`);
-      } else {
-        console.error(' Server error:', error.message);
+        console.error(`Port ${PORT} is already in use`);
       }
       process.exit(1);
     });
 
     const shutdown = () => {
-      console.log('\nShutting down gracefully...');
+      console.log('\n🔄 Shutting down gracefully...');
       server.close(() => {
-        console.log('Server closed');
+        console.log('✅ Server closed');
         process.exit(0);
       });
       
       setTimeout(() => {
-        console.error('Could not close connections in time, forcefully shutting down');
+        console.error('⏰ Could not close connections in time, forcefully shutting down');
         process.exit(1);
       }, 10000);
     };
@@ -131,13 +143,12 @@ const startServer = async () => {
     process.on('SIGINT', shutdown);
 
   } catch (error) {
-    console.error('Failed to start server:', error.message);
+    console.error('❌ Failed to start server:', error.message);
     process.exit(1);
   }
 };
 
-
-if (process.platform === 'win32') {
+if (process.env.NODE_ENV !== 'production' && process.platform === 'win32') {
   const { execSync } = require('child_process');
   try {
     execSync(`netstat -ano | findstr :${PORT}`).toString().split('\n').forEach(line => {
@@ -147,12 +158,10 @@ if (process.platform === 'win32') {
           execSync(`taskkill /F /PID ${pid}`);
           console.log(`Killed process ${pid} using port ${PORT}`);
         } catch (e) {
-         
         }
       }
     });
   } catch (e) {
-
   }
 }
 
