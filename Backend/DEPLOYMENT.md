@@ -16,17 +16,17 @@ PORT=5000
 ```
 
 ### 2. MongoDB Atlas Configuration
-- ✅ Network Access: Add `0.0.0.0/0` for Render IPs
-- ✅ Database User: Ensure user has read/write permissions
-- ✅ Connection String: Use the latest MongoDB driver format
+-   Network Access: Add `0.0.0.0/0` for Render IPs
+-  Database User: Ensure user has read/write permissions
+-  Connection String: Use the latest MongoDB driver format
 
 ### 3. Render Service Configuration
-- ✅ **Build Command**: `npm install`
-- ✅ **Start Command**: `npm start`
-- ✅ **Environment**: Node.js
-- ✅ **Node Version**: 18.x or higher
+- **Build Command**: `npm install`
+-  **Start Command**: `npm start`
+-  **Environment**: Node.js
+-  **Node Version**: 18.x or higher
 
-## 🔍 Troubleshooting "Failed to Load Data"
+##  Troubleshooting "Failed to Load Data"
 
 ### Step 1: Check Render Logs
 1. Go to your Render dashboard
@@ -101,7 +101,7 @@ npm run dev
 mongosh "your-connection-string"
 ```
 
-## 📊 Monitoring
+##  Monitoring
 
 ### Render Metrics to Watch
 - **Response Time**: Should be < 2 seconds
@@ -111,12 +111,12 @@ mongosh "your-connection-string"
 
 ### Log Analysis
 Look for these patterns in logs:
-- ✅ "MongoDB Connected"
-- ✅ "Server running on port"
-- ❌ "MongoDB connection error"
-- ❌ "Failed to start server"
+-  "MongoDB Connected"
+-  "Server running on port"
+-  "MongoDB connection error"
+-  "Failed to start server"
 
-## 🚨 Emergency Fixes
+##  Emergency Fixes
 
 ### If Database is Down
 1. Check MongoDB Atlas status
@@ -130,7 +130,7 @@ Look for these patterns in logs:
 3. Check for syntax errors
 4. Review build logs
 
-## 📞 Support
+##  Support
 
 If issues persist:
 1. Check Render status page

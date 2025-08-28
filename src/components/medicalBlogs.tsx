@@ -164,14 +164,7 @@ const MedicalBlogs = () => {
 				       <p className="text-blue-500 text-xs mt-1">
 				         {blogsPerPage} blogs per page
 				       </p>
-				       <div className="mt-2 p-2 bg-yellow-50 border border-yellow-200 rounded text-xs">
-				         <p><strong>Debug Info:</strong></p>
-				         <p>Current Page: {currentPage}</p>
-				         <p>Start Index: {startIndex}</p>
-				         <p>End Index: {endIndex}</p>
-				         <p>Blogs on this page: {currentBlogs.length}</p>
-				         <p>Total blogs: {blogs.length}</p>
-				       </div>
+				       
 				     </div>
 				   </div>
 				 )}
@@ -349,7 +342,6 @@ const MedicalBlogs = () => {
 				  </div>
 				</div>
 			</div>
-				
 			
 			{blogs.length > 0 && (
 				<div className="flex justify-center items-center mt-8 mb-8">
@@ -392,8 +384,37 @@ const MedicalBlogs = () => {
 				</div>
 			)}
 			
-		
-				
+			
+			
+			
+
+			<div className="flex justify-center items-center mt-4 mb-8">
+				<div className="flex items-center space-x-2">
+					<button 
+						onClick={() => navigate('/medical-blogs')}
+						className="px-3 py-2 rounded text-red-500 hover:text-red-700 hover:bg-red-100 font-semibold"
+					>
+						1
+					</button>
+					<button 
+						onClick={() => navigate('/medical-blogs/page2')}
+						className="px-3 py-2 rounded text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+					>
+						2
+					</button>
+					<button 
+						onClick={() => setCurrentPage(3)}
+						className={`px-3 py-2 rounded ${
+							currentPage === 3
+								? 'bg-red-500 text-white'
+								: 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+						}`}
+					>
+						3
+					</button>
+				</div>
+			</div>
+			
 			<div className="fixed bottom-20 right-6 z-50">
 			  <button 
 				onClick={() => setIsContactModalOpen(true)}
@@ -420,32 +441,7 @@ const MedicalBlogs = () => {
 			  isOpen={isContactModalOpen} 
 			  onClose={() => setIsContactModalOpen(false)} 
 			/>
-
-			<div className="flex justify-center items-center mt-8 mb-8">
-				<div className="flex items-center space-x-2">
-					<button 
-						onClick={() => setCurrentPage(1)}
-						className={`px-3 py-2 text-gray-500 hover:text-gray-700 cursor-pointer ${
-							currentPage === 1 ? 'bg-red-100 rounded' : ''
-						}`}
-					>
-						1
-					</button>
-					<button 
-						onClick={() => navigate('/medical-blogs/page2')}
-						className="px-3 py-2 text-gray-500 hover:text-gray-700 cursor-pointer"
-					>
-						2
-					</button>
-					<button 
-						onClick={() => setCurrentPage(3)}
-						className="px-3 py-2 text-gray-500 hover:text-gray-700 cursor-pointer"
-					>
-						3
-					</button>
-				</div>
-			</div>
-			</div>
-		);
+		</div>
+	);
 }
 export default MedicalBlogs;

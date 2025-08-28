@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import Footer from './footer';
 import Header from './Header';
 import { Bookmark } from 'lucide-react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ContactModal from './ContactModal';
 
 interface ReadMoreContent {
@@ -21,7 +21,7 @@ interface BlogData {
 }
 
 const MedicalBlogsPage2 = () => {
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     
     const [readMoreModal, setReadMoreModal] = useState({
@@ -30,7 +30,10 @@ const MedicalBlogsPage2 = () => {
         title: '',
         image: ''
     });
-    
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const blogsPerPage = 3; 
+
     const today = new Date().toLocaleDateString('en-IN', {
         day: 'numeric',
         month: 'short',
@@ -128,7 +131,7 @@ const MedicalBlogsPage2 = () => {
                     
                     <h2 class="text-2xl font-bold mb-4">சரோகசியின் வகைகள்</h2>
                     <h3 class="text-xl font-semibold mb-2">1. பாரம்பரிய சரோகசி</h3>
-                    <p class="mb-4">இதில் சரோகசி பெண்ணின் முட்டையே பயன்படுத்தப்படுகிறது. இந்த பெண் குழந்தைக்கு மரபணு ரீतியாக தொடர்புடையவர்.</p>
+                    <p class="mb-4">இதில் சரோகசி பெண்ணின் முட்டையே பயன்படுத்தப்படுகிறது. இந்த பெண் குழந்தைக்கு மரபணு ரீதியாக தொடர்புடையவர்.</p>
                     
                     <h3 class="text-xl font-semibold mb-2">2. கருத்தரிப்பு சரோகசி</h3>
                     <p class="mb-4">இதில் சரோகசி பெண்ணுக்கு மரபணு தொடர்பு இல்லை. அவர் வெறும் கருத்தரிப்பு செய்பவர்.</p>
@@ -171,9 +174,7 @@ const MedicalBlogsPage2 = () => {
                     <p class="mb-4">We invest in the latest reproductive technologies and equipment to ensure the highest success rates. Our laboratories meet international standards and are regularly audited for quality.</p>
                     
                     <h3 class="text-xl font-semibold mb-2">3. Nationwide Presence</h3>
-                    <p class="mb-4">With 150+ advanced clinics across 80+ cities, we bring wor
-                    
-                    ld-class fertility care closer to you. No matter where you are in India, expert help is just around the corner.</p>
+                    <p class="mb-4">With 150+ advanced clinics across 80+ cities, we bring world-class fertility care closer to you. No matter where you are in India, expert help is just around the corner.</p>
                     
                     <h2 class="text-2xl font-bold mb-4">Our Success Stories</h2>
                     <p class="mb-4">150,000+ families have successfully conceived through our treatments. Each success story motivates us to continue improving our services and expanding our reach.</p>
@@ -195,6 +196,12 @@ const MedicalBlogsPage2 = () => {
         }
     ];
 
+    
+    const totalPages = Math.ceil(blogData.length / blogsPerPage);
+    const startIndex = (currentPage - 1) * blogsPerPage;
+    const endIndex = startIndex + blogsPerPage;
+    const currentBlogs = blogData.slice(startIndex, endIndex);
+
     const openReadMore = (blog: BlogData) => {
         setReadMoreModal({
             isOpen: true,
@@ -213,6 +220,14 @@ const MedicalBlogsPage2 = () => {
         });
     };
 
+    
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+
+
     return (
         <div>
             <Header />
@@ -224,7 +239,8 @@ const MedicalBlogsPage2 = () => {
                         <img src={'/assets/color.png'} alt="Medical Blogs" className="w-[800px] h-[400px] object-cover"/>
                     </div>
 
-                    {blogData.map((blog: BlogData) => (
+                    
+                    {currentBlogs.map((blog: BlogData) => (
                         <div key={blog.id} className="bg-white shadow-lg w-[700px] overflow-hidden mt-4 min-h-[600px]">
                             <img src={blog.image} alt={blog.title} className="w-[800px] h-[400px] object-cover"/>
                             <p className='text-2xl font-normal font-semibold mt-9 ml-5'>
@@ -250,6 +266,64 @@ const MedicalBlogsPage2 = () => {
                             </div>
                         </div>
                     ))}
+
+
+                                {blogData.length > 0 && (
+                <div className="bg-white shadow-lg w-[700px] overflow-  hidden mb-6 p-4 text-center">
+                    <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-3">
+                        <p className="text-blue-800 font-semibold text-lg">
+                            Page {currentPage} of {totalPages}
+                        </p>
+                        <p className="text-blue-600 text-sm">
+                            Showing blogs {startIndex + 1} to {Math.min(endIndex, blogData.length)} of {blogData.length} total blogs
+                        </p>
+                        <p className="text-blue-500 text-xs mt-1">
+                            {blogsPerPage} blogs per page
+                        </p>
+                    </div>
+                </div>
+            )}
+            
+            {/* Main Pagination Controls */}
+            {blogData.length > 0 && (
+                <div className="flex justify-center items-center mt-8 mb-8">
+                    <div className="flex items-center space-x-2">
+                        <button 
+                            onClick={() => handlePageChange(currentPage - 1)}
+                            disabled={currentPage === 1}
+                            className={`p-2 ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-500 hover:text-gray-700'}`}
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <button
+                                key={index + 1}
+                                onClick={() => handlePageChange(index + 1)}
+                                className={`px-3 py-2 rounded ${
+                                    currentPage === index + 1
+                                        ? 'bg-red-500 text-white'
+                                        : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+                                }`}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                        
+                        <button 
+                            onClick={() => handlePageChange(currentPage + 1)}
+                            disabled={currentPage === totalPages}
+                            className={`p-2 ${currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-gray-500 hover:text-gray-700'}`}
+                        >
+                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            )}
                 </div>
                 
                 <div className="w-80 mr-24 mt-8">
@@ -356,38 +430,46 @@ const MedicalBlogsPage2 = () => {
                 </div>
             </div>
             
-            {/* <div className="flex justify-center items-center mt-8 mb-8">
+            
+            <div className="flex justify-center items-center mt-4 mb-8">
                 <div className="flex items-center space-x-2">
                     <button 
-                        onClick={() => navigate('/medical-blogs')}
-                        className="text-gray-500 hover:text-gray-700 p-2"
-                    >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                        </svg>
-                    </button>
-                    
-                    <button 
-                        onClick={() => navigate('/medical-blogs')}
-                        className="px-3 py-2 text-gray-500 hover:text-gray-700 cursor-pointer"
+                        onClick={() => {
+                            navigate('/medical-blogs');
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className="px-3 py-2 rounded text-red-500 hover:text-red-700 hover:bg-red-100 font-semibold"
                     >
                         1
                     </button>
-                    <button className="px-3 py-2 text-gray-500 hover:text-gray-700 bg-red-100 rounded">2</button>
-                    <button className="px-3 py-2 text-gray-500 hover:text-gray-700">3</button>
-                    <button className="px-3 py-2 text-gray-500 hover:text-gray-700">4</button>
-                    <button className="px-3 py-2 text-gray-500 hover:text-gray-700">5</button>
-                    <button className="px-3 py-2 text-gray-500 hover:text-gray-700">6</button>
-                    
-                    <button className="text-gray-500 hover:text-gray-700 p-2">
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
+                    <button 
+                        onClick={() => {
+                            setCurrentPage(1);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className={`px-3 py-2 rounded ${
+                            currentPage === 1
+                                ? 'bg-red-500 text-white'
+                                : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+                        }`}
+                    >
+                        2
                     </button>
-                    
-                    <button className="text-gray-500 hover:text-gray-700 px-3 py-2">Last</button>
+                    <button 
+                        onClick={() => {
+                            setCurrentPage(3);
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                        className={`px-3 py-2 rounded ${
+                            currentPage === 3
+                                ? 'bg-red-500 text-white'
+                                : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100' 
+                        }`}
+                    >
+                        3
+                    </button>
                 </div>
-            </div> */}
+            </div>
             
             {/* <Footer /> */}
             
