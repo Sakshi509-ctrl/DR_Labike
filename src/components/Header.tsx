@@ -89,6 +89,7 @@ const Header: React.FC = () => {
       </button>
       <button
         className="bg-blue-700 text-white border border-blue-700 px-4 py-1.5 rounded text-sm hover:bg-white hover:text-blue-700 transition-colors"
+        onClick={() => navigate('/booking')}
       >
         BOOK NOW
       </button>

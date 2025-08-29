@@ -34,13 +34,13 @@ import DigRead from './components/digRead';
 import FamiliesRead from './components/familiesRead';
 import OTPReset from './components/OTPReset';
 import BlogChangeLogs from './components/blogchangelogs';
-import BlogCreator from './components/BlogCreator';
 import BlogFullPage from './components/BlogFullPage';
 import AdminPanel from './components/AdminPanel';
 import UserActivityView from './components/UserActivityView';
 import UserPanel from './components/UserPanel';
 import AdminBlogApproval from './components/AdminBlogApproval';
 import UserBlogStatus from './components/UserBlogStatus';
+import BookingPage from './components/BookingPage';
 
 function App() {
   return (
@@ -79,13 +79,13 @@ function App() {
         <Route path="/familiesRead" element={<FamiliesRead/>}/>
         <Route path="/OTPReset" element={<OTPReset/>}/>
         <Route path="/blogchangelogs" element={<BlogChangeLogs/>}/>
-        <Route path="/blog-creator" element={<BlogCreator/>}/>
         <Route path="/adminpanel" element={<AdminPanel/>}/>
         <Route path="/admin-blog-approval" element={<AdminBlogApproval/>}/>
         <Route path="/userpanel/:email" element={<UserActivityView/>}/>
         <Route path="/user-blog-panel/:email" element={<UserPanel/>}/>
         <Route path="/userpanel" element={<UserPanel/>}/>
-        <Route path="/user-blog-status/:email" element={<UserBlogStatus/>}/>
+        <Route path="/user-blog-status/:email" element={<UserBlogStatus userEmail=""/>}/>
+        <Route path="/booking" element={<BookingPage />} />
         </Routes>
     </ContactSidebarProvider>
     </AuthProvider>

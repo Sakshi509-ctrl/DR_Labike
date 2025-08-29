@@ -44,6 +44,7 @@ const bloghistoryroute = require("./routes/bloghistoryroute");
 const editorSummaryRoutes = require("./routes/editorSummary");
 
 
+
 app.use("/api/inquiry", inquiryRoutes);
 app.use("/api/user", signupRoutes);
 app.use("/api/contact", contactRoutes);
@@ -54,6 +55,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/blog", bloghistoryroute);
 app.use("/api/editorSummary", editorSummaryRoutes);
 app.use("/api/login", loginRoute);
+
 
 
 app.get("/api/test", (req, res) => {

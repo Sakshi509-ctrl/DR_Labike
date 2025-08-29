@@ -5,8 +5,9 @@ export default defineConfig({
   base: '/',
   plugins: [react()],
   define: {
-    'import.meta.env.MODE': JSON.stringify(process.env.NODE_ENV || 'development'),
+    'import.meta.env.MODE': JSON.stringify('development'),
   },
+
   build: {
     rollupOptions: {
       output: {
