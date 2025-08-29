@@ -33,7 +33,7 @@ const Login: React.FC = () => {
   
       localStorage.setItem("token", res.data.token);
   
-      navigate("/dashboard");
+      navigate("/adminpanel");
     } catch (err: any) {
       setError(err.response?.data?.message || "Login failed. Please try again.");
     } finally {

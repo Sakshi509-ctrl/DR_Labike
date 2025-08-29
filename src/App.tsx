@@ -22,7 +22,6 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import ShippingPolicy from './components/shippingpolicy';
 import TermsAndConditions from './components/terms&conditions';
 import Login from './components/login';
-import Dashboard from './components/Dashboard';
 import { AuthProvider } from './context/AuthContext';
 import MedicalBlogs from './components/medicalBlogs';
 import MedicalBlogsPage2 from './components/medicalBlogsPage2';
@@ -67,7 +66,6 @@ function App() {
         <Route path="/shipping-policy" element={<ShippingPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/medical-blogs" element={<MedicalBlogs />} />
         <Route path="/medical-blogs/page2" element={<MedicalBlogsPage2 />} />
         <Route path="/blog/:blogId" element={<BlogFullPage />} />
